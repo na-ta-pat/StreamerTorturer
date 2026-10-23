@@ -146,7 +146,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &8436206298632606661
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -226,14 +226,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initSpeed: 3.65
-  speedBoost: 0
   combatStat:
     attackPhysic: 0
     attackMagic: 0
     defensePhysic: 0
     defenseMagic: 0
-  state: 0
   facing: 0
+  speedBoost: 0
+  state: 0
+  movement: {x: 0, y: 0}
   rb: {fileID: 6408788151182806629}
   anim: {fileID: 6769723055064454781}
   playerIdle:
@@ -244,3 +245,6 @@ MonoBehaviour:
   playerShooting: []
   playerUseRod: []
   activeWeapon: {fileID: 11400000, guid: 128f7a13983fe1aa9867fde052fbc3d3, type: 2}
+  weapon1: {fileID: 0}
+  weapon2: {fileID: 0}
+  activeArmor: {fileID: 0}
