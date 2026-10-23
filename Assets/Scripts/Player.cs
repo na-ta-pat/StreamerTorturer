@@ -1,25 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[System.Serializable]
-public class CombatStat{
-    public float attackPhysic;
-    public float attackMagic;
-    public float defensePhysic;
-    public float defenseMagic;
-}
 // public string[] MoveDict = {"up", "right", "down", "left", };
-public class Player : MonoBehaviour
+public class Player : Charactor
 {
-    public CombatStat combatStat;
+    public float speedBoost;
     public int state;
+    public Vector2 movement;
     const int IDLE = 0;
     const int MOVING = 1;
-    public int facing; //up = 0, right = 1, down = 2, left = 3
     string currentAnim;
+    [SerializeField] Rigidbody2D rb;
     [SerializeField] Animator anim;
     [SerializeField] AnimationClip[] playerIdle, playerWalk, playerSwinging, playerShooting, playerUseRod;
-    [SerializeField] Weapon activeWeapon;
+    [SerializeField] Weapon activeWeapon,weapon1,weapon2;
+    [SerializeField] Armor activeArmor;
 
     void Awake() {
 
@@ -32,28 +27,29 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        Vector2 input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")); // right-left,up-down (1 - -1)
-        setFacing(input);
-        // return;
+        movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+        rb.velocity = (movement) * initSpeed;
+        // transform.position += (Vector3) (movement) * initSpeed * Time.deltaTime; // collision problem
+        if (movement==Vector2.zero)state = IDLE;
+        else state = MOVING;
         switch(state){
             case IDLE:
                 ChangeAnimation(playerIdle[facing]);
             break;
             case MOVING:
                 ChangeAnimation(playerWalk[facing]);
+                setFacing(movement);
+                facing=0;
             break;
         }
     }
     
-    void setFacing(Vector2 input){
-        if(input.x!=0){
-            if(input.x>0)facing=1;
-            else facing=3;
-        }else if(input.y!=0){
-            if(input.y>0)facing=0;
-            else facing=2;
-        }
+    void ChooseWeapon(int index=0){ // if index = 1/2 set weapon according to. Else, switch
+        if(index==1)activeWeapon = weapon1;
+        else if(index==2)activeWeapon = weapon2;
     }
+    void SwitchWeapon() => activeWeapon = activeWeapon == weapon1 ? weapon2 : weapon1;
+
 
     void ChangeAnimation(AnimationClip toAnim)
     {
@@ -63,4 +59,9 @@ public class Player : MonoBehaviour
             currentAnim = toAnim.name;
         }
     }
+    
+
+
+
+
 }

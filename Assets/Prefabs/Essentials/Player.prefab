@@ -225,9 +225,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbb769701542e3788b70d0d794a730c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initSpeed: 3.65
+  speedBoost: 0
+  combatStat:
+    attackPhysic: 0
+    attackMagic: 0
+    defensePhysic: 0
+    defenseMagic: 0
   state: 0
   facing: 0
-  anim: {fileID: 0}
+  rb: {fileID: 6408788151182806629}
+  anim: {fileID: 6769723055064454781}
   playerIdle:
   - {fileID: 7400000, guid: b56c483166aef919eb969373c903af77, type: 2}
   playerWalk:
