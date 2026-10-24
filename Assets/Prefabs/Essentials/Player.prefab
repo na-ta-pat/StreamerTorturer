@@ -72,16 +72,16 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_SortingOrder: 3
+  m_Sprite: {fileID: 458531615, guid: 7522728b98e404a858b1eb6e37eae5c2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &8288280196338894706
@@ -238,9 +238,15 @@ MonoBehaviour:
   rb: {fileID: 6408788151182806629}
   anim: {fileID: 6769723055064454781}
   playerIdle:
+  - {fileID: 7400000, guid: 30760fe395828ef4486b0cd4d4908575, type: 2}
+  - {fileID: 7400000, guid: fc40e6f188cf462409c696ebae3c03d3, type: 2}
   - {fileID: 7400000, guid: b56c483166aef919eb969373c903af77, type: 2}
+  - {fileID: 7400000, guid: 62b8dbe5e95e51046b18d8a7a7c8b872, type: 2}
   playerWalk:
+  - {fileID: 7400000, guid: 1b995933a635d8546a2edf66e7f00067, type: 2}
   - {fileID: 7400000, guid: 0eff9fd2e694719a78b453d33e7b8c40, type: 2}
+  - {fileID: 7400000, guid: 9238bf8378c282d4f9f159a0100806f7, type: 2}
+  - {fileID: 7400000, guid: 6d3db1bfee3702549bd27ad938bbcd4a, type: 2}
   playerSwinging: []
   playerShooting: []
   playerUseRod: []
