@@ -13,3 +13,8 @@ MonoBehaviour:
   m_Name: Sword
   m_EditorClassIdentifier: 
   type: 0
+  isMagical: 0
+  damage: 5
+  cooldown: 1
+  range: 2
+  hitBox: {fileID: 7758261912273869097, guid: fe735dbbf417abcd48304b1e00c48587, type: 3}

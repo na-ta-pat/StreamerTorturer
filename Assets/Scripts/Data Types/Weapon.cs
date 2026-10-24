@@ -9,8 +9,12 @@ using UnityEngine;
 )]
 public class Weapon : ScriptableObject
 {
-    [SerializeField] WeaponType type;
-    [SerializeField] bool isMagical;
-    [SerializeField] int damage;
+    public WeaponType type;
+    public bool isMagical;
+    public int damage;
+    public float cooldown;
+
+    public float range;
+    public HitBox hitBox;
 
 }

@@ -9,11 +9,13 @@ public class CombatStat{
     public float defenseMagic;
 }
 // public string[] MoveDict = {"up", "right", "down", "left", };
-public class Charactor : MonoBehaviour
+public class Character : MonoBehaviour
 {
     public float initSpeed=1;
-    public CombatStat combatStat;
+    public Vector2 movement;
     public int facing; //up = 0, right = 1, down = 2, left = 3
+    public int HP;
+    public bool isDead => HP<=0;
     
     protected void setFacing(Vector2 movement){
         if(movement.x!=0){
@@ -24,5 +26,6 @@ public class Charactor : MonoBehaviour
             else facing=2;
         }
     }
+
 
 }

@@ -226,10 +226,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initSpeed: 1
-  combatStat:
-    attackPhysic: 0
-    attackMagic: 0
-    defensePhysic: 0
-    defenseMagic: 0
+  movement: {x: 0, y: 0}
   facing: 0
+  HP: 0
+  enemyData: {fileID: 11400000, guid: 7dbd0189d607bc4ecb4a6856d594da20, type: 2}
   rb: {fileID: 6408788151182806629}
+  anim: {fileID: 6769723055064454781}
+  enemyIdle: []
+  enemyWalk: []
+  enemyAttack: []
