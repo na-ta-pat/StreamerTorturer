@@ -21,7 +21,7 @@ public class Enemy : Character
         movement = player.transform.position - transform.position;
         movement = movement.normalized;
         rb.velocity = movement * enemyData.initSpeed;
-        setFacing(movement);
+        setAnimFacing(movement);
     }
 
     void Died(){

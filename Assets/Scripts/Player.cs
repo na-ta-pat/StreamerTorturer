@@ -17,47 +17,49 @@ public class Player : Character
     [SerializeField] AnimationClip[] playerIdle, playerWalk, playerSwinging, playerShooting, playerUseRod;
     [SerializeField] Weapon activeWeapon,weapon1,weapon2;
     [SerializeField] Armor activeArmor;
+    Controller controller;
 
     void Awake() {
-
     }
     // weapns,1,2,armor
     void Start()
     {
-        
+        controller = GameManager.Instance.controller;
     }
 
     void Update()
     {
-        movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        movement = controller.movement;
+        looking = controller.looking;
         if(movement.magnitude>1)movement/=movement.magnitude;
         if(movement.magnitude>0)lastMove = movement;
+        if(looking.magnitude==0)looking=lastMove;
         // transform.position += (Vector3) (movement) * initSpeed * Time.deltaTime; // collision problem
         rb.velocity = (movement) * initSpeed;
         UpdateAnim();
         cooldown -= Time.deltaTime ;
-        if(Input.GetKeyDown(KeyCode.K))Attack();
+        if(controller.attack)Attack();
         
     }
 
     void Attack(){
         if ( cooldown > 0 )return;
         else cooldown = activeWeapon.cooldown;
-        Vector2 initPos = (Vector2) transform.position + lastMove.normalized * activeWeapon.range;
-        HitBox hitBox = Instantiate(activeWeapon.hitBox, initPos, Quaternion.FromToRotation(Vector2.right, lastMove));
+        Vector2 initPos = (Vector2) transform.position + looking.normalized * activeWeapon.range;
+        HitBox hitBox = Instantiate(activeWeapon.hitBox, initPos, Quaternion.FromToRotation(Vector2.right, looking));
         hitBox.damage = activeWeapon.damage;
     }
 
     void UpdateAnim(){
-        if (movement==Vector2.zero)state = IDLE;
+        if (!isMoving)state = IDLE;
         else state = MOVING;
+        setAnimFacing(looking);
         switch(state){
             case IDLE:
-                ChangeAnimation(playerIdle[facing]);
+                if(animFacing<playerIdle.Length)ChangeAnimation(playerIdle[animFacing]);
             break;
             case MOVING:
-                ChangeAnimation(playerWalk[facing]);
-                setFacing(movement);
+                if(animFacing<playerWalk.Length)ChangeAnimation(playerWalk[animFacing]);
             break;
         }
     }

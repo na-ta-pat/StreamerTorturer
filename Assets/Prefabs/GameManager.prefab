@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6011732181538676699}
   - component: {fileID: 176993338904820095}
+  - component: {fileID: 4458195561652256007}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -32,6 +33,7 @@ Transform:
   m_Children:
   - {fileID: 7819803953397880963}
   - {fileID: 6914015395353517763}
+  - {fileID: 3335555954987320801}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &176993338904820095
@@ -49,6 +51,108 @@ MonoBehaviour:
   player: {fileID: 2784948968458531030}
   ui: {fileID: 1609955750476333334}
   mockEnemy: {fileID: -3545723490419382258, guid: c8b5a82a13f869e3f8ceef95fac86bb2, type: 3}
+  controller: {fileID: 4458195561652256007}
+--- !u!114 &4458195561652256007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245876023577177148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4683cd09a9b39ac9f94a2756de2a0a20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement: {x: 0, y: 0}
+  looking: {x: 0, y: 0}
+  attack: 0
+  enableMouse: 1
+--- !u!1 &8099149482077289608
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3335555954987320801}
+  - component: {fileID: 3342576787199355800}
+  - component: {fileID: 3458331849367970861}
+  m_Layer: 0
+  m_Name: Chat
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3335555954987320801
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8099149482077289608}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6011732181538676699}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3342576787199355800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8099149482077289608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b273dcbdb39fcc4ab442b61d920b4ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  address: irc.chat.twitch.tv
+  port: 6667
+  useAnonymousLogin: 1
+  oauth: 
+  username: 
+  channel: 
+  connectIRCOnStart: 1
+  joinChannelOnStart: 0
+  dontDestroyOnLoad: 1
+  showIRCDebug: 0
+  showThreadDebug: 0
+  useRandomColorForUndefined: 0
+  readInterval: 50
+  readBufferSize: 256
+  writeInterval: 50
+--- !u!114 &3458331849367970861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8099149482077289608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e1dfc926ab2e6fca84c6d96786827d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chatters: []
+  sampleTwitchChatter:
+    login: 
+    channel: 
+    message: 
+    tags:
+      colorHex: 
+      displayName: 
+      channelId: 
+      userId: 
+      badges: []
+      emotes: []
+  channel: 
 --- !u!1001 &927695651700465332
 PrefabInstance:
   m_ObjectHideFlags: 0

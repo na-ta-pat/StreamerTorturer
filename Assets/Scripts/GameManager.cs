@@ -8,6 +8,7 @@ public class GameManager: MonoBehaviour{
     public Player player;
     public UI ui;
     public Enemy mockEnemy;
+    public Controller controller;
 
     private void Awake() 
     { 
