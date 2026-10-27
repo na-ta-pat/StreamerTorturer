@@ -11,6 +11,7 @@ public class CombatStat{
 // public string[] MoveDict = {"up", "right", "down", "left", };
 public class Character : MonoBehaviour
 {
+    public CombatStat combatStat;
     public float initSpeed=1;
     public Vector2 movement;
     public Vector2 looking;

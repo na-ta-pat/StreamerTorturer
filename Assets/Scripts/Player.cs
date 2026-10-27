@@ -4,7 +4,6 @@ using UnityEngine;
 // public string[] MoveDict = {"up", "right", "down", "left", };
 public class Player : Character
 {
-    public CombatStat combatStat;
     public float speedBoost;
     public int state;
     const int IDLE = 0;
@@ -19,11 +18,16 @@ public class Player : Character
     [SerializeField] Armor activeArmor;
     Controller controller;
 
+    public float invincibleCooldownTime;
+    float invincibleTime;
+    public bool isInvincible => invincibleTime>Time.time;
+
     void Awake() {
     }
     void Start()
     {
         controller = GameManager.Instance.controller;
+        invincibleTime = Time.time;
     }
 
     void Update()
@@ -83,6 +87,11 @@ public class Player : Character
     }
     
 
+    public void recieveDamage(int dmg){
+        if(isInvincible)return;
+        HP-=dmg;
+        invincibleTime = invincibleCooldownTime+Time.time;
+    }
 
 
 

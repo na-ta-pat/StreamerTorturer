@@ -12,6 +12,7 @@ public class Enemy : Character
     
     void Awake(){
         HP = enemyData.maxHP;
+        combatStat = enemyData.combatStat;
     }
     
     void Update()
