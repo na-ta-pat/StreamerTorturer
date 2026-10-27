@@ -9,7 +9,7 @@ using UnityEngine;
 )]
 public class EnemySO : ScriptableObject
 {
-    public string name;
+    public string enemyName;
     public float initSpeed;
     public int maxHP;
     public CombatStat combatStat;

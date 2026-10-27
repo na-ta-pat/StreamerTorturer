@@ -3,20 +3,39 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[System.Serializable]
+public class ControllerButton{
+    [SerializeField] bool _isPressed;
+    [SerializeField] bool _isSeen;
+    public bool isPressed{
+        get =>_isPressed;
+        set{
+            _isPressed = value;
+            if(!isPressed)_isSeen = false;
+        }
+    }
+    public bool isPressedOnce(){
+        if(isPressed){
+            if (_isSeen)return false;
+            _isSeen = true;
+            return true;
+        }else return false;
+    }
+}
+
 public class Controller : MonoBehaviour
 {
     public Vector2 movement;
     public Vector2 looking;
     public bool attack;
-    bool switchWeapon;
-    bool switchWeaponSeen;
+    public ControllerButton switchWeapon;
     public bool enableMouse=true;
     public float mouseDistanceActivation = 10f;
     Vector2 mouseLastPos;
     float mouseLastTime;
     public float mouseTimeDeactivation=1f;
-    public bool attackLeft;
-    public bool attackRight;
+    public ControllerButton attackLeft;
+    public ControllerButton attackRight;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,14 +49,6 @@ public class Controller : MonoBehaviour
         looking = Vector2.zero;
         UpdateInput();
         Cursor.visible = enableMouse;
-        if(switchWeapon==false)switchWeaponSeen=false;
-    }
-    public bool isSwitchWeapon(){
-        if(switchWeapon){
-            if (!switchWeaponSeen)return true;
-            else switchWeaponSeen = true;
-        }
-        return false;
     }
     void UpdateInput(){
         var gamepad = Gamepad.current; //https://docs.unity3d.com/Packages/com.unity.inputsystem@1.8/manual/Gamepad.html
@@ -47,12 +58,14 @@ public class Controller : MonoBehaviour
             movement = gamepad.leftStick.ReadValue();
             looking = gamepad.rightStick.ReadValue();
             attack = gamepad.buttonWest.isPressed;
-            switchWeapon = gamepad.buttonWest.isPressed;
+            switchWeapon.isPressed = gamepad.buttonNorth.isPressed;
+            attackLeft.isPressed = gamepad.leftShoulder.isPressed;
+            attackRight.isPressed = gamepad.rightShoulder.isPressed;
             return;
         } 
         if (keyboard!=null){
             attack = keyboard.kKey.isPressed;
-            switchWeapon = keyboard.qKey.isPressed;
+            switchWeapon.isPressed = keyboard.qKey.isPressed;
         } 
         if (mouse!=null){
             Vector2 mousePos = mouse.position.ReadValue();
@@ -63,8 +76,8 @@ public class Controller : MonoBehaviour
                 );
                 looking = (Vector2)  (worldPos - GameManager.Instance.player.transform.position);
             }
-            attackLeft = mouse.leftButton.isPressed;
-            attackRight = mouse.rightButton.isPressed;
+            attackLeft.isPressed = mouse.leftButton.isPressed;
+            attackRight.isPressed = mouse.rightButton.isPressed;
         }else enableMouse = false;
     }
     
@@ -82,3 +95,6 @@ public class Controller : MonoBehaviour
         return enableMouse;
     }
 }
+
+// https://docs.unity3d.com/Packages/com.unity.inputsystem@1.8/api/UnityEngine.InputSystem.Controls.ButtonControl.html
+// ButtonControl -> isPressed wasPressedThisFrame wasReleasedThisFrame

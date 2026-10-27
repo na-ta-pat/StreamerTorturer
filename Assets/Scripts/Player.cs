@@ -2,6 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 // public string[] MoveDict = {"up", "right", "down", "left", };
+
+[System.Serializable]
+public class HoldingWeapons{
+    public Weapon weapon;
+    public float lastUse;
+    public bool isOnCooldown=>lastUse+weapon.cooldown>Time.time;
+    public void Use(Player player){
+        if(isOnCooldown)return;
+        else ForceUse(player);
+    }
+    public void ForceUse(Player player){
+        lastUse = Time.time;
+        Vector2 playerPos = player.transform.position;
+        Vector2 looking = player.looking;
+        Vector2 initPos = (Vector2) playerPos + looking.normalized * weapon.range;
+        HitBox hitBox = Player.Instantiate(weapon.hitBox, initPos, Quaternion.FromToRotation(Vector2.right, looking));
+        hitBox.weapon = weapon;
+        hitBox.playerPos = playerPos;
+    }
+}
+
 public class Player : Character
 {
     public float speedBoost;
@@ -14,7 +35,8 @@ public class Player : Character
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Animator anim;
     [SerializeField] AnimationClip[] playerIdle, playerWalk, playerSwinging, playerShooting, playerUseRod;
-    [SerializeField] Weapon activeWeapon,weapon1,weapon2;
+    // [SerializeField] Weapon activeWeapon,weapon1,weapon2;
+    [SerializeField] HoldingWeapons lWeapon,rWeapon;
     [SerializeField] Armor activeArmor;
     Controller controller;
 
@@ -41,19 +63,10 @@ public class Player : Character
         rb.velocity = (movement) * initSpeed;
         UpdateAnim();
         // if(controller.attack)Attack(activeWeapon);
-        if(controller.attackLeft)Attack(weapon1);
-        if(controller.attackRight)Attack(weapon2);
-        if(controller.isSwitchWeapon())SwitchWeapon();
+        if(!lWeapon.isOnCooldown && controller.attackLeft.isPressed)lWeapon.Use(this);
+        if(!rWeapon.isOnCooldown && controller.attackRight.isPressed)rWeapon.Use(this);
+        // if(controller.isSwitchWeapon())SwitchWeapon();
         
-    }
-
-    void Attack(Weapon weapon){
-        if ( cooldown < Time.time )return;
-        else cooldown = weapon.cooldown + Time.time;
-        Vector2 initPos = (Vector2) transform.position + looking.normalized * weapon.range;
-        HitBox hitBox = Instantiate(weapon.hitBox, initPos, Quaternion.FromToRotation(Vector2.right, looking));
-        hitBox.weapon = weapon;
-        hitBox.playerPos = transform.position;
     }
 
     void UpdateAnim(){
@@ -70,11 +83,11 @@ public class Player : Character
         }
     }
     
-    void ChooseWeapon(int index=0){ // if index = 1/2 set weapon according to. 
-        if(index==1)activeWeapon = weapon1;
-        else if(index==2)activeWeapon = weapon2;
-    }
-    void SwitchWeapon() => activeWeapon = activeWeapon == weapon1 ? weapon2 : weapon1;
+    // void ChooseWeapon(int index=0){ // if index = 1/2 set weapon according to. 
+    //     if(index==1)activeWeapon = weapon1;
+    //     else if(index==2)activeWeapon = weapon2;
+    // }
+    // void SwitchWeapon() => activeWeapon = activeWeapon == weapon1 ? weapon2 : weapon1;
 
 
     void ChangeAnimation(AnimationClip toAnim)
