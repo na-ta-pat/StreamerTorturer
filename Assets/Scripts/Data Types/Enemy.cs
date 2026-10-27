@@ -13,5 +13,6 @@ public class EnemySO : ScriptableObject
     public float initSpeed;
     public int maxHP;
     public CombatStat combatStat;
+    public float knockbackResistance; // 1 = immune to knockback; 0 = get full knockback
 
 }

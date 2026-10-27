@@ -13,6 +13,7 @@ public class Weapon : ScriptableObject
     public bool isMagical;
     public int damage;
     public float cooldown;
+    public float knocback;
 
     public float range;
     public HitBox hitBox;

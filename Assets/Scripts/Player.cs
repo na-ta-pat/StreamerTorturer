@@ -39,6 +39,7 @@ public class Player : Character
         UpdateAnim();
         cooldown -= Time.deltaTime ;
         if(controller.attack)Attack();
+        if(controller.isSwitchWeapon)SwitchWeapon();
         
     }
 
