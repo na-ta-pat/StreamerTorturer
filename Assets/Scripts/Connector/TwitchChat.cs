@@ -28,7 +28,21 @@ public class TwitchChat : Chat
     {
         chatters.Add(chatter);
     }
+
+    private void Categorize(Chatter chatter){
+        var name = chatter.tags.displayName;
+        var msg = chatter.message;
+        string[] words = msg.Split(' ', System.StringSplitOptions.RemoveEmptyEntries);
+        int len = words.Length;
+        switch(Categorize(msg)){
+            case ChatType.summon:
+            string location = len==3?words[2]:"";
+            summondb.Add(name,new SummonCommand(words[1],location));
+            break;
+        }
+    }
 }
+
 
 // public class TwitchChat : Chat
 // {
