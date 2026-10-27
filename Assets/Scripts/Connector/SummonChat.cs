@@ -1,5 +1,7 @@
 using System.Collections.Generic;
-class SummonCommand{
+
+[System.Serializable]
+public class SummonCommand{
     public string spawnableName;
     public string spawnableLocation;
     public SummonCommand(string spawnableName, string spawnableLocation)
@@ -8,7 +10,8 @@ class SummonCommand{
         this.spawnableLocation = spawnableLocation;
     }
 }
-class SummonDB{
+[System.Serializable]
+public class SummonDB{
     public List<string> userQ = new();
     public Dictionary<string,SummonCommand> userDict = new();
     int indexQ;
