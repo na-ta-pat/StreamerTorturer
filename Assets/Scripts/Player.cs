@@ -21,7 +21,6 @@ public class Player : Character
 
     void Awake() {
     }
-    // weapns,1,2,armor
     void Start()
     {
         controller = GameManager.Instance.controller;
@@ -37,18 +36,19 @@ public class Player : Character
         // transform.position += (Vector3) (movement) * initSpeed * Time.deltaTime; // collision problem
         rb.velocity = (movement) * initSpeed;
         UpdateAnim();
-        cooldown -= Time.deltaTime ;
-        if(controller.attack)Attack();
-        if(controller.isSwitchWeapon)SwitchWeapon();
+        // if(controller.attack)Attack(activeWeapon);
+        if(controller.attackLeft)Attack(weapon1);
+        if(controller.attackRight)Attack(weapon2);
+        if(controller.isSwitchWeapon())SwitchWeapon();
         
     }
 
-    void Attack(){
-        if ( cooldown > 0 )return;
-        else cooldown = activeWeapon.cooldown;
-        Vector2 initPos = (Vector2) transform.position + looking.normalized * activeWeapon.range;
-        HitBox hitBox = Instantiate(activeWeapon.hitBox, initPos, Quaternion.FromToRotation(Vector2.right, looking));
-        hitBox.weapon = activeWeapon;
+    void Attack(Weapon weapon){
+        if ( cooldown < Time.time )return;
+        else cooldown = weapon.cooldown + Time.time;
+        Vector2 initPos = (Vector2) transform.position + looking.normalized * weapon.range;
+        HitBox hitBox = Instantiate(weapon.hitBox, initPos, Quaternion.FromToRotation(Vector2.right, looking));
+        hitBox.weapon = weapon;
         hitBox.playerPos = transform.position;
     }
 

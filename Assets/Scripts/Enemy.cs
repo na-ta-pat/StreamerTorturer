@@ -28,7 +28,7 @@ public class Enemy : Character
         Destroy(gameObject);
     }
     
-    public void recieveDamage(float dmg){
+    public void recieveDamage(int dmg){
         HP-=dmg;
     }
     public void receiveKnockback(Vector2 pos,float force){

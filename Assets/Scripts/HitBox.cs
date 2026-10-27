@@ -26,7 +26,7 @@ public class HitBox : MonoBehaviour
     {
         if (other.TryGetComponent(out Enemy enemy)){
             enemy.recieveDamage(weapon.damage);
-            enemy.receiveKnockback(playerPos,weapns.knocback);
+            enemy.receiveKnockback(playerPos,weapon.knocback);
             }
         Destroy(gameObject);
     }

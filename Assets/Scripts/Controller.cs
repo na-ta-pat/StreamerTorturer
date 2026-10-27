@@ -11,6 +11,12 @@ public class Controller : MonoBehaviour
     bool switchWeapon;
     bool switchWeaponSeen;
     public bool enableMouse=true;
+    public float mouseDistanceActivation = 10f;
+    Vector2 mouseLastPos;
+    float mouseLastTime;
+    public float mouseTimeDeactivation=1f;
+    public bool attackLeft;
+    public bool attackRight;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +29,7 @@ public class Controller : MonoBehaviour
         movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         looking = Vector2.zero;
         UpdateInput();
+        Cursor.visible = enableMouse;
         if(switchWeapon==false)switchWeaponSeen=false;
     }
     public bool isSwitchWeapon(){
@@ -41,15 +48,37 @@ public class Controller : MonoBehaviour
             looking = gamepad.rightStick.ReadValue();
             attack = gamepad.buttonWest.isPressed;
             switchWeapon = gamepad.buttonWest.isPressed;
-        } else if (keyboard!=null){
+            return;
+        } 
+        if (keyboard!=null){
             attack = keyboard.kKey.isPressed;
             switchWeapon = keyboard.qKey.isPressed;
-        } else if (mouse!=null && enableMouse){
+        } 
+        if (mouse!=null){
             Vector2 mousePos = mouse.position.ReadValue();
-            Vector3 worldPos = Camera.main.ScreenToWorldPoint(
-                new Vector3(mousePos.x, mousePos.y, 10f)
-            );
-            looking = (Vector2)  (worldPos - GameManager.Instance.player.transform.position);
+            CheckMouseEnable(mousePos);
+            if(enableMouse){
+                Vector3 worldPos = Camera.main.ScreenToWorldPoint(
+                    new Vector3(mousePos.x, mousePos.y, 0f)
+                );
+                looking = (Vector2)  (worldPos - GameManager.Instance.player.transform.position);
+            }
+            attackLeft = mouse.leftButton.isPressed;
+            attackRight = mouse.rightButton.isPressed;
+        }else enableMouse = false;
+    }
+    
+    bool CheckMouseEnable(Vector2 mousePos){
+        if((mousePos-mouseLastPos).magnitude > mouseDistanceActivation)enableMouse=true;
+        if(enableMouse){
+            if((mouseLastPos-mousePos).magnitude>0)mouseLastTime=Time.time;
+            if(Time.time - mouseLastTime > mouseTimeDeactivation)enableMouse = false;
+        }else{
+            if(Time.time - mouseLastTime > mouseTimeDeactivation){
+                mouseLastTime = Time.time;
+                mouseLastPos = mousePos;
+            }
         }
+        return enableMouse;
     }
 }
