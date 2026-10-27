@@ -48,7 +48,8 @@ public class Player : Character
         else cooldown = activeWeapon.cooldown;
         Vector2 initPos = (Vector2) transform.position + looking.normalized * activeWeapon.range;
         HitBox hitBox = Instantiate(activeWeapon.hitBox, initPos, Quaternion.FromToRotation(Vector2.right, looking));
-        hitBox.damage = activeWeapon.damage;
+        hitBox.weapon = activeWeapon;
+        hitBox.playerPos = transform.position;
     }
 
     void UpdateAnim(){

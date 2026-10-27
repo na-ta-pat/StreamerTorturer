@@ -28,4 +28,11 @@ public class Enemy : Character
         Destroy(gameObject);
     }
     
+    public void recieveDamage(float dmg){
+        HP-=dmg;
+    }
+    public void receiveKnockback(Vector2 pos,float force){
+        rb.velocity = force * (pos-pos) * (1 - enemyData.knockbackResistance);
+    }
+    
 }

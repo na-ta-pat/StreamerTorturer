@@ -6,7 +6,8 @@ using UnityEngine;
 public class HitBox : MonoBehaviour
 {
 
-    public int damage;
+    public Weapon weapon;
+    public Vector2 playerPos;
 
     // Start is called before the first frame update
     void Start()
@@ -23,9 +24,10 @@ public class HitBox : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.TryGetComponent(out Enemy enemy))
-            enemy.HP-=damage;
-
+        if (other.TryGetComponent(out Enemy enemy)){
+            enemy.recieveDamage(weapon.damage);
+            enemy.receiveKnockback(playerPos,weapns.knocback);
+            }
         Destroy(gameObject);
     }
 }
