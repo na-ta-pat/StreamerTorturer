@@ -15,9 +15,10 @@ MonoBehaviour:
   type: 0
   isMagical: 0
   damage: 3
-  cooldown: 0.2
+  cooldown: 0.4
   knocback: 10
-  range: 2
+  range: 0.5
   hitBox: {fileID: 7758261912273869097, guid: fe735dbbf417abcd48304b1e00c48587, type: 3}
   velocity: 0
-  destroyTimer: 0.5
+  destroyTimer: 0
+  destroyOnHit: 0

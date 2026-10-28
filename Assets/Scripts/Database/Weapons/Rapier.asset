@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   isMagical: 0
-  damage: 0
-  cooldown: 0
-  knocback: 0
-  range: 0
-  hitBox: {fileID: 0}
+  damage: 1
+  cooldown: 0.2
+  knocback: 0.1
+  range: 2
+  hitBox: {fileID: 7758261912273869097, guid: 1ef816cb10076439884880b8ebd19b4d, type: 3}
   velocity: 0
-  destroyTimer: 0
+  destroyTimer: 0.5
+  destroyOnHit: 0

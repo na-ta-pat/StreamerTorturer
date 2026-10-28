@@ -19,5 +19,6 @@ MonoBehaviour:
   knocback: 7
   range: 1
   hitBox: {fileID: 7758261912273869097, guid: ceafb7ea02ba5b3cda95a3f37ae6c477, type: 3}
-  velocity: 2
+  velocity: 10
   destroyTimer: 5
+  destroyOnHit: 3
