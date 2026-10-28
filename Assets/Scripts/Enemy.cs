@@ -9,6 +9,10 @@ public class Enemy : Character
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Animator anim;
     [SerializeField] AnimationClip[] enemyIdle, enemyWalk, enemyAttack;
+    [SerializeField] SpriteRenderer sr;
+    Color originalSRcolor;
+    float deathBreathTime;
+    float hurtTime;
     float stunTime;
     float lifeSpan = 360;
     float born;
@@ -18,9 +22,15 @@ public class Enemy : Character
         combatStat = enemyData.combatStat;
         born = Time.time;
     }
+
+    void Start(){
+        if(sr == null) sr = GetComponentsInChildren<SpriteRenderer>()[0]; 
+        originalSRcolor = sr.color;
+    }
     
     void Update()
     {
+        if(hurtTime<Time.time)resetHurtColor();
         if(Time.time>lifeSpan+born)Died();
         if(isDead)Died();
         if(stunTime>Time.time){
@@ -36,12 +46,26 @@ public class Enemy : Character
     }
 
     void Died(){
+        if(deathBreathTime==0)
+            deathBreathTime = Time.time + .5f;
+        if(Time.time < deathBreathTime)return;
         Destroy(gameObject);
     }
     
-    public void recieveDamage(int dmg){
+    public void recieveDamage(int dmg,bool isMagical){
+        HurtColor();
         HP-=dmg;
     }
+
+    private void HurtColor(){
+        hurtTime = Time.time+0.1f;
+        Color red = new Color(1,0,0);
+        sr.color = red;
+    }
+    void resetHurtColor(){
+        sr.color = originalSRcolor;
+    }
+
     public void receiveKnockback(Vector2 pos,float force){
         Vector2 ePos = (Vector2) transform.position;
         float rotationRange = 10;
