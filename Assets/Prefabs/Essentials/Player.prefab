@@ -235,6 +235,7 @@ MonoBehaviour:
   looking: {x: 0, y: 0}
   animFacing: 0
   HP: 0
+  maxHP: 100
   enableInvincible: 0
   speedBoost: 0
   state: 0
@@ -254,10 +255,10 @@ MonoBehaviour:
   playerShooting: []
   playerUseRod: []
   lWeapon:
-    weapon: {fileID: 0}
+    weapon: {fileID: 11400000, guid: 128f7a13983fe1aa9867fde052fbc3d3, type: 2}
     lastUse: 0
   rWeapon:
-    weapon: {fileID: 0}
+    weapon: {fileID: 11400000, guid: ca7055da022051b819019005e92a1cae, type: 2}
     lastUse: 0
   activeArmor: {fileID: 0}
   invincibleCooldownTime: 0
