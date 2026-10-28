@@ -9,6 +9,7 @@ public class GameManager: MonoBehaviour{
     public UI ui;
     public Enemy mockEnemy;
     public Controller controller;
+    public Vector2 playerPos => player.transform.position;
 
     private void Awake() 
     { 

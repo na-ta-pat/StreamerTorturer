@@ -20,6 +20,7 @@ public class HoldingWeapons{
         HitBox hitBox = Player.Instantiate(weapon.hitBox, initPos, Quaternion.FromToRotation(Vector2.right, looking));
         hitBox.weapon = weapon;
         hitBox.playerPos = playerPos;
+        hitBox.setVelocity (looking.normalized * weapon.velocity);
     }
 }
 
