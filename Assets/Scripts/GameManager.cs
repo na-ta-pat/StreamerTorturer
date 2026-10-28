@@ -10,6 +10,7 @@ public class GameManager: MonoBehaviour{
     public Enemy mockEnemy;
     public Controller controller;
     public Vector2 playerPos => player.transform.position;
+    // public ChatGameplay chatGamePlay;
     float tmp;
 
     private void Awake() 

@@ -47,6 +47,7 @@ public class Enemy : Character
     }
 
     void Died(){
+        // if(enemyData.loot!=null)Instantiate(enemyData.loot, transform.position, Quaternion.identity);
         sr.color = new Color(1,1,1);
         if(deathBreathTime==0)
             deathBreathTime = Time.time + .5f;

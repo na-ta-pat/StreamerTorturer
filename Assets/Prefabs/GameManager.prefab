@@ -67,7 +67,18 @@ MonoBehaviour:
   movement: {x: 0, y: 0}
   looking: {x: 0, y: 0}
   attack: 0
+  switchWeapon:
+    _isPressed: 0
+    _isSeen: 0
   enableMouse: 1
+  mouseDistanceActivation: 10
+  mouseTimeDeactivation: 1
+  attackLeft:
+    _isPressed: 0
+    _isSeen: 0
+  attackRight:
+    _isPressed: 0
+    _isSeen: 0
 --- !u!1 &8099149482077289608
 GameObject:
   m_ObjectHideFlags: 0
@@ -77,7 +88,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3335555954987320801}
-  - component: {fileID: 3342576787199355800}
   - component: {fileID: 3458331849367970861}
   m_Layer: 0
   m_Name: Chat
@@ -101,33 +111,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6011732181538676699}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3342576787199355800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8099149482077289608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b273dcbdb39fcc4ab442b61d920b4ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  address: irc.chat.twitch.tv
-  port: 6667
-  useAnonymousLogin: 1
-  oauth: 
-  username: 
-  channel: 
-  connectIRCOnStart: 1
-  joinChannelOnStart: 0
-  dontDestroyOnLoad: 1
-  showIRCDebug: 0
-  showThreadDebug: 0
-  useRandomColorForUndefined: 0
-  readInterval: 50
-  readBufferSize: 256
-  writeInterval: 50
 --- !u!114 &3458331849367970861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,6 +123,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e1dfc926ab2e6fca84c6d96786827d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  summondb:
+    userQ: []
   chatters: []
   sampleTwitchChatter:
     login: 
@@ -161,6 +146,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6011732181538676699}
     m_Modifications:
+    - target: {fileID: 3060747985081626210, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
+      propertyPath: lWeapon.weapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 128f7a13983fe1aa9867fde052fbc3d3, type: 2}
+    - target: {fileID: 3060747985081626210, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
+      propertyPath: rWeapon.weapon
+      value: 
+      objectReference: {fileID: 11400000, guid: ca7055da022051b819019005e92a1cae, type: 2}
     - target: {fileID: 6942949753726305847, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

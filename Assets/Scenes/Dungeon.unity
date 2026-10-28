@@ -2492,18 +2492,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    - target: {fileID: 2784948968458531030, guid: b985a63342dc14e4eb26f0369f9222ee, type: 3}
-      propertyPath: lWeapon.weapon
-      value: 
-      objectReference: {fileID: 11400000, guid: 128f7a13983fe1aa9867fde052fbc3d3, type: 2}
-    - target: {fileID: 2784948968458531030, guid: b985a63342dc14e4eb26f0369f9222ee, type: 3}
-      propertyPath: rWeapon.weapon
-      value: 
-      objectReference: {fileID: 11400000, guid: ca7055da022051b819019005e92a1cae, type: 2}
-    - target: {fileID: 5849389799359924425, guid: b985a63342dc14e4eb26f0369f9222ee, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6011732181538676699, guid: b985a63342dc14e4eb26f0369f9222ee, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2544,8 +2532,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3342576787199355800, guid: b985a63342dc14e4eb26f0369f9222ee, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
