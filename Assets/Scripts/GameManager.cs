@@ -38,8 +38,8 @@ public class GameManager: MonoBehaviour{
             SceneManager.LoadScene("DungeonRoom");
     }
     void Spawn(Enemy enemy){
-        DungeonRoom[] room = FindObjectsByType<DungeonRoom>(FindObjectsSortMode.None);
-        room[0].Spawn(enemy);
+        // DungeonRoom[] room = FindObjectsByType<DungeonRoom>(FindObjectsSortMode.None);
+        // room[0].Spawn(enemy);
     }
 
 }
