@@ -19,5 +19,6 @@ public class Weapon : ScriptableObject
     public HitBox hitBox;
     public float velocity;
     public float destroyTimer;
+    public int destroyOnHit;
 
 }

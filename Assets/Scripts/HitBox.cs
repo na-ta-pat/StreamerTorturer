@@ -11,6 +11,8 @@ public class HitBox : MonoBehaviour
     public float startTime;
     public HashSet<Enemy> hitEnemy;
     private Rigidbody2D rb;
+    float hitCount;
+    
     public void setVelocity(Vector2 v){
         if(v.magnitude==0)return;
         if (!rb) rb = GetComponent<Rigidbody2D>();
@@ -37,6 +39,8 @@ public class HitBox : MonoBehaviour
             if(!hitEnemy.Add(enemy))return;
             enemy.recieveDamage(weapon.damage);
             enemy.receiveKnockback(playerPos,weapon.knocback);
+            if( weapon.destroyOnHit>0 && weapon.destroyOnHit <= ++hitCount)
+                Destroy(gameObject);
             }
         if(weapon.destroyTimer==0)
             Destroy(gameObject);

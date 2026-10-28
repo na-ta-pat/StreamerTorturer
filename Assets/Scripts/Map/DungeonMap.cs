@@ -3,11 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class DungeonRoom : MonoBehaviour
-{
-    // public bool isPlayerInside=>;
-}
-[System.Serializable]
 public class RoomRow{
     public DungeonRoom[] rooms;
 }

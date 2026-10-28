@@ -10,6 +10,7 @@ public class GameManager: MonoBehaviour{
     public Enemy mockEnemy;
     public Controller controller;
     public Vector2 playerPos => player.transform.position;
+    float tmp;
 
     private void Awake() 
     { 
@@ -25,14 +26,19 @@ public class GameManager: MonoBehaviour{
 
     void Update(){
         
-        if(Input.GetKeyDown(KeyCode.L))Spawn(mockEnemy);
+        if(!Input.GetKeyDown(KeyCode.L)){
+            if(tmp<Time.time){
+                Spawn(mockEnemy);
+                tmp = Time.time+0.5f;
+            }
+        }
 
         if (Input.GetKeyDown(KeyCode.Semicolon))
             SceneManager.LoadScene("DungeonRoom");
     }
     void Spawn(Enemy enemy){
-        Vector2 position = new Vector2(0,0); 
-        Instantiate(enemy, position, Quaternion.identity);
+        DungeonRoom[] room = FindObjectsByType<DungeonRoom>(FindObjectsSortMode.None);
+        room[0].Spawn(enemy);
     }
 
 }
