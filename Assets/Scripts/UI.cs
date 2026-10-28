@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class UI : MonoBehaviour
 {
 
-    private void Awake()
+    private void Start()
     {
         Canvas canvas = GetComponent<Canvas>();
         canvas.renderMode = RenderMode.ScreenSpaceCamera;

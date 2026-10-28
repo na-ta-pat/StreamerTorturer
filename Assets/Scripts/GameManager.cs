@@ -23,6 +23,8 @@ public class GameManager: MonoBehaviour{
          
         Instance = this; 
         DontDestroyOnLoad(this);
+
+        Instantiate(uiCam, new Vector2(0,0), Quaternion.identity);
         
     }
 
