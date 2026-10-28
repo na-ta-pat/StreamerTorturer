@@ -11,6 +11,7 @@ public class GameManager: MonoBehaviour{
     public Controller controller;
     public Vector2 playerPos => player.transform.position;
     public Camera uiCam;
+    public UI uiPrefab;
     // public ChatGameplay chatGamePlay;
     float tmp;
 
@@ -24,7 +25,7 @@ public class GameManager: MonoBehaviour{
         Instance = this; 
         DontDestroyOnLoad(this);
 
-        Instantiate(uiCam, new Vector2(0,0), Quaternion.identity);
+        Instantiate(uiPrefab, new Vector2(0,0), Quaternion.identity);
         
     }
 
