@@ -226,10 +226,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   combatStat:
-    attackPhysic: 0
-    attackMagic: 0
-    defensePhysic: 0
-    defenseMagic: 0
+    attackPhysic: 1
+    attackMagic: 1
+    defensePhysic: 1
+    defenseMagic: 1
   initSpeed: 1
   movement: {x: 0, y: 0}
   looking: {x: 0, y: 0}

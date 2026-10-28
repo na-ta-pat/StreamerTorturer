@@ -7,6 +7,7 @@ public class HitBox : MonoBehaviour
 {
 
     public Weapon weapon;
+    public int damage;
     public Vector2 playerPos;
     public float startTime;
     public HashSet<Enemy> hitEnemy;
@@ -37,7 +38,7 @@ public class HitBox : MonoBehaviour
     {
         if (other.TryGetComponent(out Enemy enemy)){
             if(!hitEnemy.Add(enemy))return;
-            enemy.recieveDamage(weapon.damage,weapon.isMagical);
+            enemy.recieveDamage(damage,weapon.isMagical);
             enemy.receiveKnockback(playerPos,weapon.knocback);
             if( weapon.destroyOnHit>0 && weapon.destroyOnHit <= ++hitCount)
                 Destroy(gameObject);

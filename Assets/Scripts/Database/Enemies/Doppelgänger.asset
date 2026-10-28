@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cdecf22e6d6cfdf5ac0589b16cf35c3, type: 3}
   m_Name: "Doppelg\xE4nger"
   m_EditorClassIdentifier: 
-  name: "Doppelg\xE4nger"
+  enemyName: "Doppelg\xE4nger"
   initSpeed: 2
   maxHP: 10
+  cooldown: 0.1
   combatStat:
-    attackPhysic: 0
-    attackMagic: 0
-    defensePhysic: 0
-    defenseMagic: 0
+    attackPhysic: 1
+    attackMagic: 1
+    defensePhysic: 1
+    defenseMagic: 1
+  knockbackResistance: 0
+  knocbackRecovery: 4

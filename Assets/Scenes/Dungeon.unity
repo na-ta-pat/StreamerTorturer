@@ -563,6 +563,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawners:
   - {fileID: 1283220753}
+  spawner: {fileID: 1283220753}
   isLock: 1
   coll: {fileID: 57081932}
 --- !u!61 &57081932
@@ -620,7 +621,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 1}
+  m_LocalScale: {x: 32, y: 16, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1283220752}
@@ -666,7 +667,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10
   m_Sprite: {fileID: -132363518, guid: f8474aebc999d59ddb7dcd493ef085d5, type: 3}
   m_Color: {r: 0.9811321, g: 0.76091087, b: 0.72659314, a: 1}
   m_FlipX: 0
@@ -2170,6 +2171,7 @@ MonoBehaviour:
   - {fileID: 1980041799}
   - {fileID: 1270328285}
   - {fileID: 1526372897}
+  spawner: {fileID: 1256318570}
   isLock: 0
   coll: {fileID: 0}
 --- !u!4 &1526372896 stripped
@@ -2252,7 +2254,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6.26
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

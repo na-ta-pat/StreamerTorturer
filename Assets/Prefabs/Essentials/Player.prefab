@@ -225,15 +225,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbb769701542e3788b70d0d794a730c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  combatStat:
+    attackPhysic: 1
+    attackMagic: 1
+    defensePhysic: 1
+    defenseMagic: 1
   initSpeed: 3.65
   movement: {x: 0, y: 0}
-  facing: 0
+  looking: {x: 0, y: 0}
+  animFacing: 0
   HP: 0
-  combatStat:
-    attackPhysic: 0
-    attackMagic: 0
-    defensePhysic: 0
-    defenseMagic: 0
+  enableInvincible: 0
   speedBoost: 0
   state: 0
   rb: {fileID: 6408788151182806629}
@@ -251,7 +253,11 @@ MonoBehaviour:
   playerSwinging: []
   playerShooting: []
   playerUseRod: []
-  activeWeapon: {fileID: 11400000, guid: 128f7a13983fe1aa9867fde052fbc3d3, type: 2}
-  weapon1: {fileID: 0}
-  weapon2: {fileID: 0}
+  lWeapon:
+    weapon: {fileID: 0}
+    lastUse: 0
+  rWeapon:
+    weapon: {fileID: 0}
+    lastUse: 0
   activeArmor: {fileID: 0}
+  invincibleCooldownTime: 0

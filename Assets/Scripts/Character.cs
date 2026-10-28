@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 [System.Serializable]
 public class CombatStat{
-    public float attackPhysic;
-    public float attackMagic;
-    public float defensePhysic;
-    public float defenseMagic;
+    public int attackPhysic = 1;
+    public int attackMagic = 1;
+    public int defensePhysic = 1;
+    public int defenseMagic = 1;
 }
 // public string[] MoveDict = {"up", "right", "down", "left", };
 public class Character : MonoBehaviour

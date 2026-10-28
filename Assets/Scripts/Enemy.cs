@@ -16,6 +16,7 @@ public class Enemy : Character
     float stunTime;
     float lifeSpan = 360;
     float born;
+    float cooldownTimer;
     
     void Awake(){
         HP = enemyData.maxHP;
@@ -76,4 +77,12 @@ public class Enemy : Character
         stunTime = Time.time + 1;
     }
     
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.TryGetComponent(out Player player)){
+            if (cooldownTimer>Time.time)return;
+            player.recieveDamage(enemyData.combatStat.attackPhysic);
+            cooldownTimer = Time.time+enemyData.cooldown;
+        }
+    }
 }

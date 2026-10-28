@@ -19,6 +19,7 @@ public class HoldingWeapons{
         Vector2 initPos = (Vector2) playerPos + looking.normalized * weapon.range;
         HitBox hitBox = Player.Instantiate(weapon.hitBox, initPos, Quaternion.FromToRotation(Vector2.right, looking));
         hitBox.weapon = weapon;
+        hitBox.damage = weapon.damage * (weapon.isMagical? player.combatStat.attackMagic:player.combatStat.attackPhysic);
         hitBox.playerPos = playerPos;
         hitBox.setVelocity (looking.normalized * weapon.velocity);
     }
@@ -26,6 +27,8 @@ public class HoldingWeapons{
 
 public class Player : Character
 {
+    public int maxHP = 100;
+    public bool enableInvincible;
     public float speedBoost;
     public int state;
     const int IDLE = 0;
@@ -46,6 +49,7 @@ public class Player : Character
     public bool isInvincible => invincibleTime>Time.time;
 
     void Awake() {
+        HP = maxHP;
     }
     void Start()
     {
@@ -102,7 +106,7 @@ public class Player : Character
     
 
     public void recieveDamage(int dmg){
-        if(isInvincible)return;
+        if(enableInvincible && isInvincible)return;
         HP-=dmg;
         invincibleTime = invincibleCooldownTime+Time.time;
     }
