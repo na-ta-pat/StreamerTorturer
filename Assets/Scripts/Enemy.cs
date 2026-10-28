@@ -46,6 +46,7 @@ public class Enemy : Character
     }
 
     void Died(){
+        sr.color = new Color(1,1,1);
         if(deathBreathTime==0)
             deathBreathTime = Time.time + .5f;
         if(Time.time < deathBreathTime)return;
