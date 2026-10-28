@@ -25,7 +25,7 @@ public class GameManager: MonoBehaviour{
         Instance = this; 
         DontDestroyOnLoad(this);
 
-        Instantiate(uiPrefab, new Vector2(0,0), Quaternion.identity);
+        ui = Instantiate(uiPrefab, new Vector2(0,0), Quaternion.identity);
         
     }
 

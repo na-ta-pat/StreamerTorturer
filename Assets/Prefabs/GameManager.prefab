@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2784948968458531030}
-  ui: {fileID: 823317038124409622, guid: ea5c78ca4ed035448ac3c72ab10fe87f, type: 3}
+  ui: {fileID: 0}
   mockEnemy: {fileID: -3545723490419382258, guid: c8b5a82a13f869e3f8ceef95fac86bb2, type: 3}
   controller: {fileID: 4458195561652256007}
   uiCam: {fileID: 7432066860742476336, guid: 5af582d5d10762540939c39e29abbcb6, type: 3}
