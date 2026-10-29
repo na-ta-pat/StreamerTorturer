@@ -14,7 +14,8 @@ public class Character : MonoBehaviour
     public CombatStat combatStat;
     public float initSpeed=1;
     public Vector2 movement;
-    public Vector2 looking;
+    Vector2 _looking;
+    public Vector2 looking{get => _looking;set => _looking = value.normalized;}
     public int animFacing; //up = 0, right = 1, down = 2, left = 3
     public int HP;
     public bool isDead => HP<=0;
@@ -25,7 +26,6 @@ public class Character : MonoBehaviour
         animFacing = _setAnimFacing(looking);
     }
     protected int _setAnimFacing(Vector2 looking){
-        Vector2 nl = looking.normalized;
         if(looking.x>0.7071f)return 1;
         if(looking.x<-0.7071f)return 3;
         if(looking.y>0)return 0;
@@ -41,6 +41,6 @@ public class Character : MonoBehaviour
             else animFacing=2;
         }
     }
-
+    
 
 }

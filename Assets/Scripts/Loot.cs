@@ -4,7 +4,8 @@ using UnityEngine;
 
 public enum LootType{
     weapon,
-    chatSkill
+    chatSkill,
+    None
 }
 
 [RequireComponent(typeof(Collider2D))]
