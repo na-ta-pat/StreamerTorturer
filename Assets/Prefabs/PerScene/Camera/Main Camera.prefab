@@ -211,6 +211,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI Cam
       objectReference: {fileID: 0}
+    - target: {fileID: 7432066860742476336, guid: 5af582d5d10762540939c39e29abbcb6, type: 3}
+      propertyPath: orthographic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7432066860742476336, guid: 5af582d5d10762540939c39e29abbcb6, type: 3}
+      propertyPath: orthographic size
+      value: 6.26
+      objectReference: {fileID: 0}
     - target: {fileID: 7731203614647402958, guid: 5af582d5d10762540939c39e29abbcb6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
