@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Enemy : Character
 {
-    [SerializeField] EnemySO enemyData;
+    public EnemySO enemyData;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Animator anim;
     [SerializeField] AnimationClip[] enemyIdle, enemyWalk, enemyAttack;

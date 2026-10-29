@@ -18,7 +18,7 @@ public class ChatMsg{
 
 public abstract class Chat : MonoBehaviour
 {
-    public SummonDB summondb;
+    public SimpleSummonDB summondb;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +37,7 @@ public abstract class Chat : MonoBehaviour
         switch(words[0][0]){
             case 's': //s(ummon) enemy (north)
             if(len<=3 && w0len<=6 && words[0] == "summon"[..w0len])return ChatType.summon;
+            if(len<=3 && w0len<=5 && words[0] == "spawn"[..w0len])return ChatType.summon;
             break;
             case 'v': //v(ote) leftdoor
             if(len==2 && w0len<=4 && words[0] == "vote"[..w0len]) return ChatType.vote;
@@ -46,6 +47,18 @@ public abstract class Chat : MonoBehaviour
             break;
         }
         return ChatType.invalid;
+    }
+
+    public void addToDB(string username,string msg){
+        string[] words = msg.Split(' ', System.StringSplitOptions.RemoveEmptyEntries);
+        int len = words.Length;
+        switch(Categorize(msg)){
+            case ChatType.summon:
+            // string location = len==3?words[2]:"";
+            // summondb.Add(username,new SummonCommand(words[1],location));
+            summondb.Add(username,new SummonCommand(words[1],username));
+            break;
+        }
     }
 
 }

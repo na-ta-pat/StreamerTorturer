@@ -232,10 +232,9 @@ MonoBehaviour:
     defenseMagic: 1
   initSpeed: 1
   movement: {x: 0, y: 0}
-  looking: {x: 0, y: 0}
   animFacing: 0
   HP: 0
-  enemyData: {fileID: 11400000, guid: 7dbd0189d607bc4ecb4a6856d594da20, type: 2}
+  enemyData: {fileID: 11400000, guid: f3f047557f7c0f8238d67b443f9d6f8a, type: 2}
   rb: {fileID: 6408788151182806629}
   anim: {fileID: 6769723055064454781}
   enemyIdle: []

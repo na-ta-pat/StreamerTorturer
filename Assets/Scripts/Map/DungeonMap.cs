@@ -8,8 +8,16 @@ public class RoomRow{
 }
 public class DungeonMap : MonoBehaviour
 {
+    public DungeonRoom currentRoom;
+    public DungeonRoom[] allRooms;
     public int width,height; // pixel of each cell
     public RoomRow[] rooms;
+
+    void OnValidate(){
+        allRooms = FindObjectsByType<DungeonRoom>(FindObjectsInactive.Include,FindObjectsSortMode.None);
+        if(allRooms.Length>0)currentRoom = allRooms[0]; //todo
+    }
+
     public DungeonRoom getRoom(Vector2 pos){
         var origin = transform.position;
         int x = Mathf.FloorToInt((pos.x-origin.x)/width);
