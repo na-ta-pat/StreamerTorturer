@@ -13,33 +13,30 @@ public class TwitchChat : Chat
     // public List<ChatMsg> chatMsgs;
     public Chatter sampleTwitchChatter;
     public string channel;
+    public IRC irc;
 
     public void Start(){
-        Connect();
+        irc = IRC.Instance;
+        // irc.Connect();
+        chatters = new List<Chatter>();
+        irc.OnChatMessage += OnChatMessage;
     }
     
-    public void Connect(){
-        // IRC.Instance.JoinChannel(channel);
-        chatters = new List<Chatter>();
-        IRC.Instance.OnChatMessage += OnChatMessage;
+    public void Connect() => Connect(channel);
+    public void Connect(string channel){
+        irc.JoinChannel(channel);
     }
 
     private void OnChatMessage(Chatter chatter)
     {
         chatters.Add(chatter);
+        addToDB(chatter);
     }
 
-    private void Categorize(Chatter chatter){
+    private void addToDB(Chatter chatter){
         var name = chatter.tags.displayName;
         var msg = chatter.message;
-        string[] words = msg.Split(' ', System.StringSplitOptions.RemoveEmptyEntries);
-        int len = words.Length;
-        switch(Categorize(msg)){
-            case ChatType.summon:
-            string location = len==3?words[2]:"";
-            summondb.Add(name,new SummonCommand(words[1],location));
-            break;
-        }
+        addToDB(name,msg);
     }
 }
 

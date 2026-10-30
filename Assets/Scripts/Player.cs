@@ -103,7 +103,7 @@ public class Player : Character
             currentAnim = toAnim.name;
         }
     }
-    
+
 
     public void recieveDamage(int dmg){
         if(enableInvincible && isInvincible)return;

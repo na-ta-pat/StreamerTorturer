@@ -6,7 +6,7 @@ using UnityEngine;
 public class DungeonRoom : MonoBehaviour
 {
     // public Spawner[] spawners;
-    // public Spawner spawner;
+    [SerializeField] Spawner spawner;
     // public bool isLock;
     // public Collider2D coll;
     // public void Spawn(Enemy enemy){
@@ -53,4 +53,14 @@ public class DungeonRoom : MonoBehaviour
     //     if(p.y<mn.y)p.y=mn.y;
     //     GameManager.Instance.player.transform.position = p;
     // }
+    
+    public void Spawn(Enemy enemy){
+        Enemy spawned = spawner.Spawn(enemy);
+        var enemies = transform.Find("Enemies");
+        if(!enemies){
+            enemies = new GameObject("Enemies").transform;
+            enemies.SetParent(transform);
+        }
+        spawned.transform.parent = enemies;
+    }
 }
