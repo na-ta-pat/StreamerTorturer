@@ -136,7 +136,7 @@ public class Player : Character
     {
         if(currentAnim != toAnim.name)
         {
-            anim.Play(toAnim.name);
+            anim.Play(toAnim.name, 0, 0f);
             currentAnim = toAnim.name;
         }
     }

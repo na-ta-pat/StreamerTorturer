@@ -11,6 +11,8 @@ public class UI : MonoBehaviour
     public Sprite[] healthSprite = new Sprite[2];
     public Image leftWeapon,rightWeapon;
     public LayoutGroup skillSlot;
+    public Image leftWepSymbol, rightWepSymbol;
+    public Sprite[] wepImages; //get by correct index
 
     void Awake(){
         heart.Clear();

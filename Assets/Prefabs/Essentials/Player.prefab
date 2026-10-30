@@ -180,7 +180,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.66}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -191,7 +191,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
 --- !u!95 &6769723055064454781
 Animator:
@@ -226,20 +226,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbb769701542e3788b70d0d794a730c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  combatStat:
+  initSpeed: 3.65
+  movement: {x: 0, y: 0}
+  animFacing: 0
+  _HP: 0
+  rb: {fileID: 6408788151182806629}
+  _combatStat:
     attackPhysic: 1
     attackMagic: 1
     defensePhysic: 1
     defenseMagic: 1
-  initSpeed: 3.65
-  movement: {x: 0, y: 0}
-  animFacing: 0
-  HP: 0
-  maxHP: 3
+  _maxHP: 4
   enableInvincible: 0
   speedBoost: 0
   state: 0
-  rb: {fileID: 6408788151182806629}
   anim: {fileID: 6769723055064454781}
   playerIdle:
   - {fileID: 7400000, guid: 30760fe395828ef4486b0cd4d4908575, type: 2}
@@ -261,6 +261,7 @@ MonoBehaviour:
     weapon: {fileID: 11400000, guid: ca7055da022051b819019005e92a1cae, type: 2}
     lastUse: 0
   activeArmor: {fileID: 0}
+  knockbackValue: 20
   invincibleCooldownTime: 0
 --- !u!212 &4260047709939469975
 SpriteRenderer:
