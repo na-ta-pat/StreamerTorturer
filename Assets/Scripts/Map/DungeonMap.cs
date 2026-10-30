@@ -42,12 +42,15 @@ public class DungeonMap : MonoBehaviour
     
     public void roomTriggerEnter(RoomTrigger roomTrigger){
         // when player step on some trigger: it will trigger the closest trigger
-        triggerMap[roomTrigger].transform.parent.gameObject.SetActive(true);
+        // triggerMap[roomTrigger].transform.parent.gameObject.SetActive(true);
     }
     public void roomTriggerExit(RoomTrigger roomTrigger){
         DungeonRoom room = findRoom(GameManager.Instance.player.transform.position);
         DungeonRoom triggerRoom = roomTrigger.transform.parent.GetComponent<DungeonRoom>();
-        if(room != triggerRoom)triggerRoom.gameObject.SetActive(true);
+        if(room != triggerRoom){
+            triggerRoom.gameObject.SetActive(false);
+            triggerMap[roomTrigger].transform.parent.gameObject.SetActive(true);
+        }
     }
 
     public DungeonRoom findRoom(Vector2 pos){
