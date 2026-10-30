@@ -20,6 +20,7 @@ public class GameManager: MonoBehaviour{
     public UI uiPrefab;
     public TwitchChat chat;
     public DungeonMap map;
+    public DungeonMap dungeonMap => map;
     public DungeonRoom currentRoom => map.currentRoom;
     public List<ChatType> availableSkill;
     // public Spawner currentSpawner => currentRoom.spawner;
