@@ -1,7 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-// public string[] MoveDict = {"up", "right", "down", "left", };
+
+public class Direction{
+
+    static public string[] strMoveDict = {"up", "right", "down", "left", };
+    static public Vector2[] vec2MoveDict = {Vector2.up, Vector2.right, Vector2.down, Vector2.left, };
+}
 
 [System.Serializable]
 public class HoldingWeapons{
@@ -21,13 +26,17 @@ public class HoldingWeapons{
         lastUse = Time.time;
         Vector2 playerPos = player.transform.position;
         Vector2 looking = player.looking;
+        Vector2 looking4dir = Direction.vec2MoveDict[player.animFacing];
         Vector2 initPos = (Vector2) playerPos + looking.normalized * weapon.range;
-        HitBox hitBox = Player.Instantiate(weapon.hitBox, initPos, Quaternion.FromToRotation(Vector2.right, looking));
+
+        var anim = Player.Instantiate(weapon.anim, playerPos, Quaternion.FromToRotation(Vector2.right, looking4dir),player.transform);
+        
+        // HitBox hitBox = Player.Instantiate(weapon.hitBox, initPos, Direction.vec2MoveDict[player.animFacing]);
+        HitBox hitBox = Player.Instantiate(weapon.hitBox, initPos, Quaternion.FromToRotation(Vector2.right, looking4dir));
         hitBox.weapon = weapon;
         hitBox.damage = weapon.damage * (weapon.isMagical? player.combatStat.attackMagic:player.combatStat.attackPhysic);
         hitBox.playerPos = playerPos;
         hitBox.setVelocity (looking.normalized * weapon.velocity);
-        var anim = Player.Instantiate(weapon.anim, playerPos, Quaternion.FromToRotation(Vector2.right, looking),player.transform);
     }
 }
 
@@ -53,12 +62,13 @@ public class Player : Character
     // [SerializeField] Weapon activeWeapon,weapon1,weapon2;
     public HoldingWeapons lWeapon,rWeapon;
     [SerializeField] Armor activeArmor;
-    [SerializeField] float knockbackValue = 20;
+    [SerializeField] float knockbackResistance;
     Controller controller;
 
     public float invincibleCooldownTime;
     float invincibleTime;
     public bool isInvincible => invincibleTime>Time.time;
+    public bool forceAnim;
 
     public override int HP{get=>_HP;set{_HP=value;GameManager.Instance.ui.UpdateHP(HP);}}
 
@@ -83,10 +93,12 @@ public class Player : Character
         if(!StuntMech(8))rb.velocity = (movement) * initSpeed;
         // if(controller.attack)Attack(activeWeapon);
         if(!lWeapon.isOnCooldown && controller.attackLeft.isPressed){
+            forceAnim = true;
             lWeapon.Use(this);
             state = (int)lWeapon.weapon.type;
         }
         if(!rWeapon.isOnCooldown && controller.attackRight.isPressed){
+            forceAnim = true;
             rWeapon.Use(this);
             state = (int)rWeapon.weapon.type;
         }
@@ -102,7 +114,7 @@ public class Player : Character
     }
 
     void UpdateAnim(){
-        if(attackState && anim.GetCurrentAnimatorStateInfo(0).normalizedTime<.9f)return;
+        if(! forceAnim && attackState && anim.GetCurrentAnimatorStateInfo(0).normalizedTime<.9f)return;
         else attackState = false;
         setAnimFacing(looking);
         switch(state){
@@ -115,10 +127,12 @@ public class Player : Character
             case SWING:
                 attackState = true;
                 ChangeAnimation(playerSwinging, animFacing);
+                forceAnim = false;
             break;
             case USEROD:
                 attackState = true;
                 ChangeAnimation(playerUseRod, animFacing);
+                forceAnim = false;
             break;
         }
         if (!isMoving)state = IDLE;
@@ -134,9 +148,11 @@ public class Player : Character
 
     void ChangeAnimation(AnimationClip toAnim)
     {
-        if(currentAnim != toAnim.name)
+        if(forceAnim || currentAnim != toAnim.name)
         {
+
             anim.Play(toAnim.name, 0, 0f);
+
             currentAnim = toAnim.name;
         }
     }
@@ -153,9 +169,10 @@ public class Player : Character
         invincibleTime = invincibleCooldownTime+Time.time;
     }
 
-    public void receiveKnockback(Vector3 pos){
+    // public void receiveKnockback(Vector3 pos)=>receiveKnockback(pos,0);
+    public void receiveKnockback(Vector2 pos,float force){
         if(enableInvincible && isInvincible)return;
-        receiveKnockback(pos,knockbackValue,0);
+        receiveKnockback(pos,force,knockbackResistance);
     }
 
 

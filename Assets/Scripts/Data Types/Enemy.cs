@@ -17,6 +17,9 @@ public class EnemySO : ScriptableObject
     public float knockbackResistance; // 1 = immune to knockback; 0 = get full knockback
     public float knocbackRecovery = 4;
 
+    public float attackKnockback;
+    public bool ignoreCollide;
+
     // public Loot loot;
 
 }
