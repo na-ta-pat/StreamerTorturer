@@ -6,11 +6,12 @@ using UnityEngine.Tilemaps;
 public class Spawner : MonoBehaviour
 {
     public TilemapRenderer tilemapRenderer;
-    Bounds bounds;
+    public Bounds bounds;
     // Start is called before the first frame update
     void Start()
     {
-        if (tilemapRenderer==null)tilemapRenderer = gameObject.GetComponent<TilemapRenderer>();
+        GetComponent<Tilemap>().CompressBounds();
+        if (tilemapRenderer==null)tilemapRenderer = GetComponent<TilemapRenderer>();
         bounds = tilemapRenderer.bounds;
         print(bounds);
     }
