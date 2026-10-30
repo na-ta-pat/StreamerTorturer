@@ -150,7 +150,7 @@ public class Player : Character
     {
         if(forceAnim || currentAnim != toAnim.name)
         {
-            anim.Play(toAnim.name);
+            anim.Play(toAnim.name,0,0);
             currentAnim = toAnim.name;
         }
     }
