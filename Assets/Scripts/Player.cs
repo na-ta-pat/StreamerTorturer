@@ -22,6 +22,7 @@ public class HoldingWeapons{
         hitBox.damage = weapon.damage * (weapon.isMagical? player.combatStat.attackMagic:player.combatStat.attackPhysic);
         hitBox.playerPos = playerPos;
         hitBox.setVelocity (looking.normalized * weapon.velocity);
+        var anim = Player.Instantiate(weapon.anim, playerPos, Quaternion.FromToRotation(Vector2.right, looking),player.transform);
     }
 }
 
@@ -96,7 +97,7 @@ public class Player : Character
     }
 
     void UpdateAnim(){
-        if(attackState && anim.GetCurrentAnimatorStateInfo(0).normalizedTime<1f)return;
+        if(attackState && anim.GetCurrentAnimatorStateInfo(0).normalizedTime<.9f)return;
         else attackState = false;
         setAnimFacing(looking);
         switch(state){

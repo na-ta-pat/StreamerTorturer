@@ -280,7 +280,7 @@ PrefabInstance:
     - target: {fileID: 3060747985081626210, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
       propertyPath: playerSwinging.Array.data[1]
       value: 
-      objectReference: {fileID: 7400000, guid: f25ab5754a03e76449e68206743ef6f1, type: 2}
+      objectReference: {fileID: 7400000, guid: 132ef47189b6d3d41b6f3779ddf02aec, type: 2}
     - target: {fileID: 3060747985081626210, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
       propertyPath: playerSwinging.Array.data[2]
       value: 
@@ -288,7 +288,7 @@ PrefabInstance:
     - target: {fileID: 3060747985081626210, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
       propertyPath: playerSwinging.Array.data[3]
       value: 
-      objectReference: {fileID: 7400000, guid: 132ef47189b6d3d41b6f3779ddf02aec, type: 2}
+      objectReference: {fileID: 7400000, guid: f25ab5754a03e76449e68206743ef6f1, type: 2}
     - target: {fileID: 6942949753726305847, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
