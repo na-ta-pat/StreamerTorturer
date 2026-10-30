@@ -6,9 +6,11 @@ using UnityEngine.UI;
 public class UI : MonoBehaviour
 {
 
-    public HorizontalLayoutGroup healthUI;
+    public LayoutGroup healthUI;
     List<Image> heart = new();
     public Sprite[] healthSprite = new Sprite[2];
+    public Image leftWeapon,rightWeapon;
+    public LayoutGroup skillSlot;
 
     void Awake(){
         heart.Clear();

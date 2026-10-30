@@ -1,7 +1,7 @@
 public enum WeaponType
 {
-    Swinging,
-    Bow,
-    Rod,
-    Boomerang
+    Swinging=900,
+    Bow=901,
+    Rod=902,
+    Boomerang=903
 }

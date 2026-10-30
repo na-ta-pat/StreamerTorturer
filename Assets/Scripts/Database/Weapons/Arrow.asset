@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330774034f9cd62049988ff75ad5d5bc, type: 3}
   m_Name: Arrow
   m_EditorClassIdentifier: 
-  type: 0
+  type: 901
   isMagical: 0
   damage: 10
   cooldown: 1

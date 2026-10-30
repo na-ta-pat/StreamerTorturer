@@ -2152,6 +2152,9 @@ MonoBehaviour:
   healthSprite:
   - {fileID: -1015770737, guid: 1907c1b56b26be745a20c54346110440, type: 3}
   - {fileID: -37368286, guid: 1907c1b56b26be745a20c54346110440, type: 3}
+  leftWeapon: {fileID: 3929961921764493422}
+  rightWeapon: {fileID: 8453089125874977150}
+  skillSlot: {fileID: 7996551877762796619}
 --- !u!1 &8951256124402349161
 GameObject:
   m_ObjectHideFlags: 0

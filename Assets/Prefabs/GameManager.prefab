@@ -104,6 +104,8 @@ MonoBehaviour:
   currentRoom: {fileID: 0}
   allRooms:
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   width: 0
   height: 0
   rooms: []
@@ -236,6 +238,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 6011732181538676699}
     m_Modifications:
     - target: {fileID: 3060747985081626210, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
+      propertyPath: rWeapon.weapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 05f9178f51236b1d38a2106b3b69b689, type: 2}
+    - target: {fileID: 3060747985081626210, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
       propertyPath: enableInvincible
       value: 1
       objectReference: {fileID: 0}
@@ -243,6 +249,46 @@ PrefabInstance:
       propertyPath: invincibleCooldownTime
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3060747985081626210, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
+      propertyPath: playerUseRod.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3060747985081626210, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
+      propertyPath: playerSwinging.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3060747985081626210, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
+      propertyPath: playerUseRod.Array.data[0]
+      value: 
+      objectReference: {fileID: 7400000, guid: 47f43ac373924e54fbe25d262e06f92b, type: 2}
+    - target: {fileID: 3060747985081626210, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
+      propertyPath: playerUseRod.Array.data[1]
+      value: 
+      objectReference: {fileID: 7400000, guid: 3529497576a093f4f999bb02c61ac5bf, type: 2}
+    - target: {fileID: 3060747985081626210, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
+      propertyPath: playerUseRod.Array.data[2]
+      value: 
+      objectReference: {fileID: 7400000, guid: d3b4a66961c9d5c45849d1cc820a9139, type: 2}
+    - target: {fileID: 3060747985081626210, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
+      propertyPath: playerUseRod.Array.data[3]
+      value: 
+      objectReference: {fileID: 7400000, guid: 978506e7e62f3ab4aa96985a049a30ed, type: 2}
+    - target: {fileID: 3060747985081626210, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
+      propertyPath: playerSwinging.Array.data[0]
+      value: 
+      objectReference: {fileID: 7400000, guid: 67a95c45097149f448dc36a13bad2777, type: 2}
+    - target: {fileID: 3060747985081626210, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
+      propertyPath: playerSwinging.Array.data[1]
+      value: 
+      objectReference: {fileID: 7400000, guid: f25ab5754a03e76449e68206743ef6f1, type: 2}
+    - target: {fileID: 3060747985081626210, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
+      propertyPath: playerSwinging.Array.data[2]
+      value: 
+      objectReference: {fileID: 7400000, guid: 483a0616ef2fce44ab6109302967715d, type: 2}
+    - target: {fileID: 3060747985081626210, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
+      propertyPath: playerSwinging.Array.data[3]
+      value: 
+      objectReference: {fileID: 7400000, guid: 132ef47189b6d3d41b6f3779ddf02aec, type: 2}
     - target: {fileID: 6942949753726305847, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

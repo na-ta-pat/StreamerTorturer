@@ -34,8 +34,11 @@ public class Player : Character
     public bool enableInvincible;
     public float speedBoost;
     public int state;
+    bool attackState;
     const int IDLE = 0;
     const int MOVING = 1;
+    const int SWING = (int)WeaponType.Swinging;
+    const int USEROD = (int)WeaponType.Rod;
     Vector2 lastMove;
     float cooldown;
     string currentAnim;
@@ -72,11 +75,17 @@ public class Player : Character
         if(looking.magnitude==0)looking=lastMove;
         // transform.position += (Vector3) (movement) * initSpeed * Time.deltaTime; // collision problem
         rb.velocity = (movement) * initSpeed;
-        UpdateAnim();
         // if(controller.attack)Attack(activeWeapon);
-        if(!lWeapon.isOnCooldown && controller.attackLeft.isPressed)lWeapon.Use(this);
-        if(!rWeapon.isOnCooldown && controller.attackRight.isPressed)rWeapon.Use(this);
+        if(!lWeapon.isOnCooldown && controller.attackLeft.isPressed){
+            lWeapon.Use(this);
+            state = (int)lWeapon.weapon.type;
+        }
+        if(!rWeapon.isOnCooldown && controller.attackRight.isPressed){
+            rWeapon.Use(this);
+            state = (int)rWeapon.weapon.type;
+        }
         // if(controller.isSwitchWeapon())SwitchWeapon();
+        UpdateAnim();
         
     }
 
@@ -87,17 +96,27 @@ public class Player : Character
     }
 
     void UpdateAnim(){
-        if (!isMoving)state = IDLE;
-        else state = MOVING;
+        if(attackState && anim.GetCurrentAnimatorStateInfo(0).normalizedTime<1f)return;
+        else attackState = false;
         setAnimFacing(looking);
         switch(state){
             case IDLE:
-                if(animFacing<playerIdle.Length)ChangeAnimation(playerIdle[animFacing]);
+                ChangeAnimation(playerIdle, animFacing);
             break;
             case MOVING:
-                if(animFacing<playerWalk.Length)ChangeAnimation(playerWalk[animFacing]);
+                ChangeAnimation(playerWalk, animFacing);
+            break;
+            case SWING:
+                attackState = true;
+                ChangeAnimation(playerSwinging, animFacing);
+            break;
+            case USEROD:
+                attackState = true;
+                ChangeAnimation(playerUseRod, animFacing);
             break;
         }
+        if (!isMoving)state = IDLE;
+        else state = MOVING;
     }
     
     // void ChooseWeapon(int index=0){ // if index = 1/2 set weapon according to. 
@@ -114,6 +133,10 @@ public class Player : Character
             anim.Play(toAnim.name);
             currentAnim = toAnim.name;
         }
+    }
+
+    void ChangeAnimation(AnimationClip[] toAnim, int index){
+        if(animFacing<toAnim.Length)ChangeAnimation(toAnim[index]);
     }
 
 
