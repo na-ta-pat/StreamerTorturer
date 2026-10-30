@@ -40,4 +40,10 @@ public class UI : MonoBehaviour
         canvas.renderMode = RenderMode.ScreenSpaceCamera;
         canvas.worldCamera = GameManager.Instance.uiCam;
     }
+
+    void Update(){
+        Player player = GameManager.Instance.player;
+        leftWeapon.transform.Find("Fill").GetComponent<Image>().fillAmount=player.lWeapon.getReloadPercent();
+        rightWeapon.transform.Find("Fill").GetComponent<Image>().fillAmount=player.rWeapon.getReloadPercent();
+    }
 }

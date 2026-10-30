@@ -12,6 +12,11 @@ public class HoldingWeapons{
         if(isOnCooldown)return;
         else ForceUse(player);
     }
+    public float getReloadPercent(){ // for ui
+        float o = (Time.time-lastUse)/weapon.cooldown;
+        if(o>1)o=1;
+        return o;
+    }
     public void ForceUse(Player player){
         lastUse = Time.time;
         Vector2 playerPos = player.transform.position;
@@ -46,7 +51,7 @@ public class Player : Character
     [SerializeField] Animator anim;
     [SerializeField] AnimationClip[] playerIdle, playerWalk, playerSwinging, playerShooting, playerUseRod;
     // [SerializeField] Weapon activeWeapon,weapon1,weapon2;
-    [SerializeField] HoldingWeapons lWeapon,rWeapon;
+    public HoldingWeapons lWeapon,rWeapon;
     [SerializeField] Armor activeArmor;
     [SerializeField] float knockbackValue = 20;
     Controller controller;

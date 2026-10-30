@@ -22,3 +22,4 @@ MonoBehaviour:
   velocity: 10
   destroyTimer: 5
   destroyOnHit: 3
+  anim: {fileID: 804942694557500679, guid: 369e6b6bd92b04344bdcd5c3ecd8182c, type: 3}
