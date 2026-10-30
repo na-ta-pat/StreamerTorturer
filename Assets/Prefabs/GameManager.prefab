@@ -61,6 +61,7 @@ MonoBehaviour:
   uiPrefab: {fileID: 823317038124409622, guid: ea5c78ca4ed035448ac3c72ab10fe87f, type: 3}
   chat: {fileID: 3458331849367970861}
   map: {fileID: 3272017860788775202}
+  availableSkill: 
 --- !u!114 &4458195561652256007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,8 +103,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentRoom: {fileID: 0}
   allRooms:
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 0}
   width: 0
   height: 0
@@ -215,7 +214,6 @@ MonoBehaviour:
     summonableEnemy:
     - {fileID: -3545723490419382258, guid: a2ea448f373683648a767f774dbc6492, type: 3}
     limitPerPlayer: 10
-  chatters: []
   sampleTwitchChatter:
     login: 
     channel: 
@@ -237,10 +235,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6011732181538676699}
     m_Modifications:
-    - target: {fileID: 4613562992907069309, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 1873513622, guid: f71fed8b34f4c8741866ebfdcd287b4c, type: 3}
     - target: {fileID: 6942949753726305847, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

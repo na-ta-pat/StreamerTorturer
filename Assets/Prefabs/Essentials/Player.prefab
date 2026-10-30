@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: -1041867848, guid: e6fdb3961f60ad94880d638bd344ff8a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e648b528050d95d42839146856ecc845, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -233,7 +233,6 @@ MonoBehaviour:
     defenseMagic: 1
   initSpeed: 3.65
   movement: {x: 0, y: 0}
-  looking: {x: 0, y: 0}
   animFacing: 0
   HP: 0
   maxHP: 100

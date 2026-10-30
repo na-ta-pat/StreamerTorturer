@@ -9,7 +9,7 @@ public class TwitchChatMsg : ChatMsg{
 
 public class TwitchChat : Chat
 {
-    public List<Chatter> chatters;
+    // public List<Chatter> chatters;
     // public List<ChatMsg> chatMsgs;
     public Chatter sampleTwitchChatter;
     public string channel;
@@ -18,7 +18,7 @@ public class TwitchChat : Chat
     public void Start(){
         irc = IRC.Instance;
         // irc.Connect();
-        chatters = new List<Chatter>();
+        // chatters = new List<Chatter>();
         irc.OnChatMessage += OnChatMessage;
     }
     
@@ -29,7 +29,7 @@ public class TwitchChat : Chat
 
     private void OnChatMessage(Chatter chatter)
     {
-        chatters.Add(chatter);
+        // chatters.Add(chatter);
         addToDB(chatter);
     }
 

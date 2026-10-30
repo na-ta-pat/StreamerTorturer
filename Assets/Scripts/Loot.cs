@@ -12,7 +12,7 @@ public enum LootType{
 public class Loot : MonoBehaviour
 {
     public LootType lootType = LootType.None;
-    public ChatType skill;
+    public ChatType skill = ChatType.invalid;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +34,7 @@ public class Loot : MonoBehaviour
     }
     void PickWeaponHandle(Player player){}
     void PickChatSkillHandle(Player player){
-        if(skill!=null && GameManager.Instance.availableSkill.Contains(skill))GameManager.Instance.availableSkill.Add(skill);
+        if(skill!=ChatType.invalid && GameManager.Instance.availableSkill.Contains(skill))GameManager.Instance.availableSkill.Add(skill);
         Destroy(gameObject);
     }
 }

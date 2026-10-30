@@ -25,6 +25,7 @@ public class SimpleSummonDB{
         indexQ=0;
     }
     public void Add(string name,SummonCommand command){
+        if(summonQ.Count>300)Reset();
         summonQ.Add(command);
     }
     public Enemy Pop(){
