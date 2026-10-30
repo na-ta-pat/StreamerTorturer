@@ -43,12 +43,12 @@ public class Player : Character
     Vector2 lastMove;
     float cooldown;
     string currentAnim;
-    [SerializeField] Rigidbody2D rb;
     [SerializeField] Animator anim;
     [SerializeField] AnimationClip[] playerIdle, playerWalk, playerSwinging, playerShooting, playerUseRod;
     // [SerializeField] Weapon activeWeapon,weapon1,weapon2;
     [SerializeField] HoldingWeapons lWeapon,rWeapon;
     [SerializeField] Armor activeArmor;
+    [SerializeField] float knockbackValue = 20;
     Controller controller;
 
     public float invincibleCooldownTime;
@@ -75,7 +75,7 @@ public class Player : Character
         if(movement.magnitude>0)lastMove = movement;
         if(looking.magnitude==0)looking=lastMove;
         // transform.position += (Vector3) (movement) * initSpeed * Time.deltaTime; // collision problem
-        rb.velocity = (movement) * initSpeed;
+        if(!StuntMech(8))rb.velocity = (movement) * initSpeed;
         // if(controller.attack)Attack(activeWeapon);
         if(!lWeapon.isOnCooldown && controller.attackLeft.isPressed){
             lWeapon.Use(this);
@@ -148,6 +148,10 @@ public class Player : Character
         invincibleTime = invincibleCooldownTime+Time.time;
     }
 
+    public void receiveKnockback(Vector3 pos){
+        if(enableInvincible && isInvincible)return;
+        receiveKnockback(pos,knockbackValue,0);
+    }
 
 
 }

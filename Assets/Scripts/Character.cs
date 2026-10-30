@@ -22,6 +22,8 @@ public abstract class Character : MonoBehaviour // remove abstract and fix comba
     public bool isDead => HP<=0;
     public bool isMoving => movement.magnitude > 0;
     public bool isLooking => looking.magnitude > 0;
+    public Rigidbody2D rb;
+    float stunTime;
     
     protected void setAnimFacing(Vector2 looking){
         animFacing = _setAnimFacing(looking);
@@ -41,6 +43,24 @@ public abstract class Character : MonoBehaviour // remove abstract and fix comba
             if(movement.y>0)animFacing=0;
             else animFacing=2;
         }
+    }
+    
+
+    protected bool StuntMech(float recover){
+        if(stunTime>Time.time){
+            rb.velocity*=Mathf.Exp(-recover*Time.deltaTime);
+            if(rb.velocity.magnitude<0.5f)stunTime=0;
+            return true;
+        }return false;
+    }
+
+    public void receiveKnockback(Vector2 pos,float force,float resistance){
+        Vector2 ePos = (Vector2) transform.position;
+        float rotationRange = 10;
+        Vector2 dir = Quaternion.Euler(0, 0, Random.Range(-rotationRange, rotationRange)) * (ePos-pos) ;
+        dir = dir.normalized;
+        rb.velocity = force * dir *(1 - resistance);
+        stunTime = Time.time + 1;
     }
     
 

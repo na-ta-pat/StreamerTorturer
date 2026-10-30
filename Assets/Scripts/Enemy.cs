@@ -7,7 +7,6 @@ public class Enemy : Character
 {
     public EnemySO enemyData;
     public override CombatStat combatStat{get=>enemyData.combatStat;set{}}
-    [SerializeField] Rigidbody2D rb;
     [SerializeField] Animator anim;
     [SerializeField] AnimationClip[] enemyIdle, enemyWalk, enemyAttack;
     [SerializeField] Loot loot;
@@ -15,7 +14,6 @@ public class Enemy : Character
     Color originalSRcolor;
     float deathBreathTime;
     float hurtTime;
-    float stunTime;
     float lifeSpan = 360;
     float born;
     float cooldownTimer;
@@ -35,11 +33,7 @@ public class Enemy : Character
         if(hurtTime<Time.time)resetHurtColor();
         if(Time.time>lifeSpan+born)Died();
         if(isDead)Died();
-        if(stunTime>Time.time){
-            rb.velocity*=Mathf.Exp(-enemyData.knocbackRecovery*Time.deltaTime);
-            if(rb.velocity.magnitude<0.1f)stunTime=0;
-            return;
-        }
+        if(StuntMech(enemyData.knocbackRecovery))return;
         Player player = FindObjectOfType<Player>();
         movement = player.transform.position - transform.position;
         movement = movement.normalized;
@@ -71,19 +65,13 @@ public class Enemy : Character
         sr.color = originalSRcolor;
     }
 
-    public void receiveKnockback(Vector2 pos,float force){
-        Vector2 ePos = (Vector2) transform.position;
-        float rotationRange = 10;
-        Vector2 dir = Quaternion.Euler(0, 0, Random.Range(-rotationRange, rotationRange)) * (ePos-pos) ;
-        dir = dir.normalized;
-        rb.velocity = force * dir *(1 - enemyData.knockbackResistance);
-        stunTime = Time.time + 1;
-    }
-    
+    public void receiveKnockback(Vector2 pos,float force)=>receiveKnockback(pos,force,enemyData.knockbackResistance);
+
     void OnTriggerStay2D(Collider2D other)
     {
         if (other.TryGetComponent(out Player player)){
             if (cooldownTimer>Time.time)return;
+            player.receiveKnockback(transform.position);
             player.recieveDamage(enemyData.combatStat.attackPhysic);
             cooldownTimer = Time.time+enemyData.cooldown;
         }
