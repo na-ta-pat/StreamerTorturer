@@ -29,7 +29,8 @@ public class Player : Character
 {
     public CombatStat _combatStat;
     public override CombatStat combatStat{get=>_combatStat;set=>_combatStat=value;}
-    public int maxHP = 7;
+    public int _maxHP = 4;
+    public int maxHP{get=>_maxHP;set{_maxHP=value;GameManager.Instance.ui.UpdateMaxHP(maxHP);}}
     public bool enableInvincible;
     public float speedBoost;
     public int state;
@@ -50,12 +51,13 @@ public class Player : Character
     float invincibleTime;
     public bool isInvincible => invincibleTime>Time.time;
 
+    public override int HP{get=>_HP;set{_HP=value;GameManager.Instance.ui.UpdateHP(HP);}}
+
     void Awake() {
-        HP = maxHP;
-        HP-=1; // test health ui
     }
     void Start()
     {
+        HP = maxHP;
         controller = GameManager.Instance.controller;
         invincibleTime = Time.time;
     }
@@ -81,8 +83,6 @@ public class Player : Character
     void Died(){
         HP = maxHP; //test
         maxHP+=1;
-        GameManager.Instance.ui.UpdateMaxHP(maxHP);
-        GameManager.Instance.ui.UpdateHP(HP);
 
     }
 
@@ -120,7 +120,7 @@ public class Player : Character
     public void recieveDamage(int dmg){
         if(enableInvincible && isInvincible)return;
         HP-=dmg;
-        GameManager.Instance.ui.UpdateHP(HP);
+        
         invincibleTime = invincibleCooldownTime+Time.time;
     }
 

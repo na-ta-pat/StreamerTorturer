@@ -17,7 +17,8 @@ public abstract class Character : MonoBehaviour // remove abstract and fix comba
     Vector2 _looking;
     public Vector2 looking{get => _looking;set => _looking = value.normalized;}
     public int animFacing; //up = 0, right = 1, down = 2, left = 3
-    public int HP;
+    public int _HP;
+    public virtual int HP{get=>_HP;set=>_HP=value;}
     public bool isDead => HP<=0;
     public bool isMoving => movement.magnitude > 0;
     public bool isLooking => looking.magnitude > 0;

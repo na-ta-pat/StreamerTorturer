@@ -7,11 +7,11 @@ public class UI : MonoBehaviour
 {
 
     public HorizontalLayoutGroup healthUI;
-    List<Image> heart;
+    List<Image> heart = new();
     public Sprite[] healthSprite = new Sprite[2];
 
-    void OnValidate(){
-        heart = new();
+    void Awake(){
+        heart.Clear();
         foreach(Transform o in healthUI.transform)heart.Add(o.GetComponent<Image>());
     }
 
