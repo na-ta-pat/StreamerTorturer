@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 
 public class GameManager: MonoBehaviour{
@@ -20,6 +21,7 @@ public class GameManager: MonoBehaviour{
     public TwitchChat chat;
     public DungeonMap map;
     public DungeonRoom currentRoom => map.currentRoom;
+    public List<ChatType> availableSkill;
     // public Spawner currentSpawner => currentRoom.spawner;
     
     float tmp;

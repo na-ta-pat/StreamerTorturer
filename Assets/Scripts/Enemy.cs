@@ -9,7 +9,8 @@ public class Enemy : Character
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Animator anim;
     [SerializeField] AnimationClip[] enemyIdle, enemyWalk, enemyAttack;
-    [SerializeField] SpriteRenderer sr;
+    [SerializeField] Loot loot;
+    SpriteRenderer sr;
     Color originalSRcolor;
     float deathBreathTime;
     float hurtTime;
@@ -47,10 +48,11 @@ public class Enemy : Character
     }
 
     void Died(){
-        // if(enemyData.loot!=null)Instantiate(enemyData.loot, transform.position, Quaternion.identity);
         sr.color = new Color(1,1,1);
-        if(deathBreathTime==0)
+        if(deathBreathTime==0){
+            if(loot!=null)Instantiate(loot, transform.position, Quaternion.identity);
             deathBreathTime = Time.time + .5f;
+        }
         if(Time.time < deathBreathTime)return;
         Destroy(gameObject);
     }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public enum ChatType{
     summon,
+    teleport,
     vote,
     work,
     invalid
@@ -52,7 +53,9 @@ public abstract class Chat : MonoBehaviour
     public void addToDB(string username,string msg){
         string[] words = msg.Split(' ', System.StringSplitOptions.RemoveEmptyEntries);
         int len = words.Length;
-        switch(Categorize(msg)){
+        ChatType skill = Categorize(msg);
+        if(!GameManager.Instance.availableSkill.Contains(skill))return;
+        switch(skill){
             case ChatType.summon:
             // string location = len==3?words[2]:"";
             // summondb.Add(username,new SummonCommand(words[1],location));

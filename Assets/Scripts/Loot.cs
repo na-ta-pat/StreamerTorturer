@@ -11,7 +11,8 @@ public enum LootType{
 [RequireComponent(typeof(Collider2D))]
 public class Loot : MonoBehaviour
 {
-    public LootType lootType = LootType.weapon;
+    public LootType lootType = LootType.None;
+    public ChatType skill;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,5 +33,8 @@ public class Loot : MonoBehaviour
         }
     }
     void PickWeaponHandle(Player player){}
-    void PickChatSkillHandle(Player player){}
+    void PickChatSkillHandle(Player player){
+        if(skill!=null && GameManager.Instance.availableSkill.Contains(skill))GameManager.Instance.availableSkill.Add(skill);
+        Destroy(gameObject);
+    }
 }
