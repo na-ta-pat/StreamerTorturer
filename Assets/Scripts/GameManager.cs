@@ -54,6 +54,8 @@ public class GameManager: MonoBehaviour{
     void Start(){
         chat.channel = channelName;
         if(!testWithoutChat)chat.Connect();
+        ui.UpdateMaxHP(player.maxHP);
+        ui.UpdateHP(player.HP);
     }
 
     void Update(){

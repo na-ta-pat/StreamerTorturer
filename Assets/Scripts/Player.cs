@@ -27,7 +27,9 @@ public class HoldingWeapons{
 
 public class Player : Character
 {
-    public int maxHP = 100;
+    public CombatStat _combatStat;
+    public override CombatStat combatStat{get=>_combatStat;set=>_combatStat=value;}
+    public int maxHP = 7;
     public bool enableInvincible;
     public float speedBoost;
     public int state;
@@ -50,6 +52,7 @@ public class Player : Character
 
     void Awake() {
         HP = maxHP;
+        HP-=1; // test health ui
     }
     void Start()
     {
@@ -59,6 +62,7 @@ public class Player : Character
 
     void Update()
     {
+        if(HP<=0)Died();
         movement = controller.movement;
         looking = controller.looking;
         if(movement.magnitude>1)movement/=movement.magnitude;
@@ -72,6 +76,14 @@ public class Player : Character
         if(!rWeapon.isOnCooldown && controller.attackRight.isPressed)rWeapon.Use(this);
         // if(controller.isSwitchWeapon())SwitchWeapon();
         
+    }
+
+    void Died(){
+        HP = maxHP; //test
+        maxHP+=1;
+        GameManager.Instance.ui.UpdateMaxHP(maxHP);
+        GameManager.Instance.ui.UpdateHP(HP);
+
     }
 
     void UpdateAnim(){
@@ -108,6 +120,7 @@ public class Player : Character
     public void recieveDamage(int dmg){
         if(enableInvincible && isInvincible)return;
         HP-=dmg;
+        GameManager.Instance.ui.UpdateHP(HP);
         invincibleTime = invincibleCooldownTime+Time.time;
     }
 

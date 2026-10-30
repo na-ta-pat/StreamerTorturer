@@ -6,6 +6,7 @@ using UnityEngine;
 public class Enemy : Character
 {
     public EnemySO enemyData;
+    public override CombatStat combatStat{get=>enemyData.combatStat;set{}}
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Animator anim;
     [SerializeField] AnimationClip[] enemyIdle, enemyWalk, enemyAttack;
@@ -21,7 +22,6 @@ public class Enemy : Character
     
     void Awake(){
         HP = enemyData.maxHP;
-        combatStat = enemyData.combatStat;
         born = Time.time;
     }
 

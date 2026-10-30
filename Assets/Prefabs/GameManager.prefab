@@ -235,6 +235,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6011732181538676699}
     m_Modifications:
+    - target: {fileID: 3060747985081626210, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
+      propertyPath: enableInvincible
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3060747985081626210, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
+      propertyPath: invincibleCooldownTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6942949753726305847, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

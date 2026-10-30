@@ -15,7 +15,7 @@ MonoBehaviour:
   enemyName: skeleton
   initSpeed: 3
   maxHP: 11
-  cooldown: 0.1
+  cooldown: 1
   combatStat:
     attackPhysic: 1
     attackMagic: 1

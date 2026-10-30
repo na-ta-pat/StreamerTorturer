@@ -9,9 +9,9 @@ public class CombatStat{
     public int defenseMagic = 1;
 }
 // public string[] MoveDict = {"up", "right", "down", "left", };
-public class Character : MonoBehaviour
+public abstract class Character : MonoBehaviour // remove abstract and fix combat stat if bug
 {
-    public CombatStat combatStat;
+    public abstract CombatStat combatStat{get;set;}
     public float initSpeed=1;
     public Vector2 movement;
     Vector2 _looking;
