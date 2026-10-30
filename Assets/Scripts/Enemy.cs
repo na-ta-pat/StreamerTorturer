@@ -71,7 +71,7 @@ public class Enemy : Character
     {
         if (other.TryGetComponent(out Player player)){
             if (cooldownTimer>Time.time)return;
-            player.receiveKnockback(transform.position);
+            player.receiveKnockback(transform.position,enemyData.attackKnockback);
             player.recieveDamage(enemyData.combatStat.attackPhysic);
             cooldownTimer = Time.time+enemyData.cooldown;
         }

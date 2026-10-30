@@ -62,7 +62,7 @@ public class Player : Character
     // [SerializeField] Weapon activeWeapon,weapon1,weapon2;
     public HoldingWeapons lWeapon,rWeapon;
     [SerializeField] Armor activeArmor;
-    [SerializeField] float knockbackValue = 20;
+    [SerializeField] float knockbackResistance;
     Controller controller;
 
     public float invincibleCooldownTime;
@@ -167,9 +167,10 @@ public class Player : Character
         invincibleTime = invincibleCooldownTime+Time.time;
     }
 
-    public void receiveKnockback(Vector3 pos){
+    // public void receiveKnockback(Vector3 pos)=>receiveKnockback(pos,0);
+    public void receiveKnockback(Vector2 pos,float force){
         if(enableInvincible && isInvincible)return;
-        receiveKnockback(pos,knockbackValue,0);
+        receiveKnockback(pos,force,knockbackResistance);
     }
 
 
