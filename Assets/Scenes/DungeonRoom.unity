@@ -8025,6 +8025,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chest
       objectReference: {fileID: 0}
+    - target: {fileID: 4159904007012860254, guid: d62f7e0fa5b601b458408cd0549b7817, type: 3}
+      propertyPath: loot
+      value: 
+      objectReference: {fileID: 9218933504424860951, guid: 13a886625e322984ab930016a71a3074, type: 3}
     - target: {fileID: 8638423007954299484, guid: d62f7e0fa5b601b458408cd0549b7817, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.5
