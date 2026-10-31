@@ -21,7 +21,7 @@ MonoBehaviour:
     attackMagic: 0
     defensePhysic: 0
     defenseMagic: 0
-  knockbackResistance: 0
-  knocbackRecovery: 5
+  knockbackResistance: 1
+  knocbackRecovery: 0
   attackKnockback: 0
   ignoreCollide: 0
