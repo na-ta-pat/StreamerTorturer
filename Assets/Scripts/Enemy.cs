@@ -26,6 +26,9 @@ public class Enemy : Character
     void Start(){
         if(sr == null) sr = GetComponentsInChildren<SpriteRenderer>()[0]; 
         originalSRcolor = sr.color;
+        GetComponent<Collider2D>().isTrigger=enemyData.ignoreCollide;
+        GetComponent<Rigidbody2D>().freezeRotation = true;
+        gameObject.layer = LayerMask.NameToLayer("Enemy");
     }
     
     void Update()
