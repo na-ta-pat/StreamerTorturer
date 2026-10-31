@@ -598,9 +598,21 @@ PrefabInstance:
       value: GameManager
       objectReference: {fileID: 0}
     - target: {fileID: 5537595062165895625, guid: b985a63342dc14e4eb26f0369f9222ee, type: 3}
+      propertyPath: m_Size.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5537595062165895625, guid: b985a63342dc14e4eb26f0369f9222ee, type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5537595062165895625, guid: b985a63342dc14e4eb26f0369f9222ee, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -1041867848, guid: e6fdb3961f60ad94880d638bd344ff8a, type: 3}
+    - target: {fileID: 5537595062165895625, guid: b985a63342dc14e4eb26f0369f9222ee, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6011732181538676699, guid: b985a63342dc14e4eb26f0369f9222ee, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1585,6 +1597,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4137626642020298961, guid: c69594ba8794b254cb0dd1ac05548626, type: 3}
   m_PrefabInstance: {fileID: 1224505855}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1319711657
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1319711658}
+  m_Layer: 0
+  m_Name: SoundPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1319711658
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319711657}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.8767965, y: 0.22956342, z: 105.59674}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1367020698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8233,3 +8276,4 @@ SceneRoots:
   - {fileID: 7109328635976595653}
   - {fileID: 5446014528962785458}
   - {fileID: 26638315}
+  - {fileID: 1319711658}
