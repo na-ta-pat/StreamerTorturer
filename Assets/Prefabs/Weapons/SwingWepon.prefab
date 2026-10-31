@@ -131,11 +131,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e07a7e63f7b3a4b8fad72f4cae383a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animations:
+  - {fileID: 7400000, guid: b9b05df8736d6524cbf999efdca60ca1, type: 2}
+  - {fileID: 7400000, guid: 7e1161682c024364ba058e7a4561e846, type: 2}
+  - {fileID: 7400000, guid: 84d7c20fdeaabf1428334daa8585247a, type: 2}
+  - {fileID: 7400000, guid: 42c505740611d43418907be81ea08dfe, type: 2}
+  anim: {fileID: 7038194414401980216}
   swingAnimations:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 7400000, guid: b9b05df8736d6524cbf999efdca60ca1, type: 2}
+  - {fileID: 7400000, guid: 7e1161682c024364ba058e7a4561e846, type: 2}
+  - {fileID: 7400000, guid: 84d7c20fdeaabf1428334daa8585247a, type: 2}
+  - {fileID: 7400000, guid: 42c505740611d43418907be81ea08dfe, type: 2}
   readWeaponData: {fileID: 0}
 --- !u!95 &7038194414401980216
 Animator:
