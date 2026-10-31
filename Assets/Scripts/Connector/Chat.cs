@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum ChatType{
-    summon,
-    teleport,
+    summon=0,
+    teleport=1,
     vote,
     work,
     invalid
@@ -40,6 +40,9 @@ public abstract class Chat : MonoBehaviour
             if(len<=3 && w0len<=6 && words[0] == "summon"[..w0len])return ChatType.summon;
             if(len<=3 && w0len<=5 && words[0] == "spawn"[..w0len])return ChatType.summon;
             break;
+            case 't': //t(eleport) x y
+            if(len==3 && w0len<=8 && words[0] == "teleport"[..w0len])return ChatType.teleport;
+            break;
             case 'v': //v(ote) leftdoor
             if(len==2 && w0len<=4 && words[0] == "vote"[..w0len]) return ChatType.vote;
             break;
@@ -60,6 +63,9 @@ public abstract class Chat : MonoBehaviour
             // string location = len==3?words[2]:"";
             // summondb.Add(username,new SummonCommand(words[1],location));
             summondb.Add(username,new SummonCommand(words[1],username));
+            break;
+            case ChatType.teleport:
+            if(int.TryParse(words[1],out int x) && int.TryParse(words[2],out int y))GameManager.Instance.TeleportSkill(x,y);
             break;
         }
     }

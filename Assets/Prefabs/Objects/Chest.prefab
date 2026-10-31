@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8638423007954299484}
   - component: {fileID: 6135989416024905434}
   - component: {fileID: 4159904007012860254}
+  - component: {fileID: -7328134413676816293}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -97,6 +98,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c1a906ae9a5e0b46b59bae994596637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initSpeed: 1
+  movement: {x: 0, y: 0}
+  animFacing: 0
+  _HP: 0
+  rb: {fileID: -7328134413676816293}
+  enemyData: {fileID: 11400000, guid: 8abdb71462205e6cf9bd58edb4525e4a, type: 2}
+  anim: {fileID: 0}
+  enemyIdle: []
+  enemyWalk: []
+  enemyAttack: []
+  loot: {fileID: 0}
   openSprite: {fileID: 2054437405, guid: 66f2d0cab8abd1141933424eef3e5806, type: 3}
   closedSprite: {fileID: -1879877226, guid: 66f2d0cab8abd1141933424eef3e5806, type: 3}
   myRender: {fileID: 6135989416024905434}
+--- !u!50 &-7328134413676816293
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268491753871677475}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

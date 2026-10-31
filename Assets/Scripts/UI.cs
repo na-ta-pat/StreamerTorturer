@@ -12,7 +12,9 @@ public class UI : MonoBehaviour
     public Image leftWeapon,rightWeapon;
     public LayoutGroup skillSlot;
     public Image leftWepSymbol, rightWepSymbol;
-    public Sprite[] wepImages; //get by correct index
+    // public Image[] wepSymbol => new[]{leftWepSymbol,rightWepSymbol};
+    public Image[] wepImages; //get by correct index
+    Player player => GameManager.Instance.player;
 
     void Awake(){
         heart.Clear();
@@ -41,11 +43,15 @@ public class UI : MonoBehaviour
         Canvas canvas = GetComponent<Canvas>();
         canvas.renderMode = RenderMode.ScreenSpaceCamera;
         canvas.worldCamera = GameManager.Instance.uiCam;
+        // UpdateWeap();
     }
 
     void Update(){
-        Player player = GameManager.Instance.player;
         leftWeapon.transform.Find("Fill").GetComponent<Image>().fillAmount=player.lWeapon.getReloadPercent();
         rightWeapon.transform.Find("Fill").GetComponent<Image>().fillAmount=player.rWeapon.getReloadPercent();
+    }
+    void UpdateWeap(){
+        wepImages[0].sprite = player.lWeapon.weapon.uiWep;
+        wepImages[1].sprite = player.rWeapon.weapon.uiWep;
     }
 }

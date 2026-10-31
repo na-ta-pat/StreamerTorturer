@@ -20,6 +20,7 @@ public class Weapon : ScriptableObject
     public float velocity;
     public float destroyTimer;
     public int destroyOnHit;
-    public GameObject anim;
+    public BaseWeapon anim;
+    public Sprite uiWep;
 
 }

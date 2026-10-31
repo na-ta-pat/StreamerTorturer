@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BaseWeapon : MonoBehaviour
 {
-    Animator anim;
+    public AnimationClip[] animations;
+    public Animator anim;
 
     void Start(){anim=GetComponent<Animator>();}
 

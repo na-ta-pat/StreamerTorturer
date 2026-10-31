@@ -12,7 +12,6 @@ public class CombatStat{
 public abstract class Character : MonoBehaviour // remove abstract and fix combat stat if bug
 {
     public abstract CombatStat combatStat{get;set;}
-    public float initSpeed=1;
     public Vector2 movement;
     Vector2 _looking;
     public Vector2 looking{get => _looking;set => _looking = value.normalized;}

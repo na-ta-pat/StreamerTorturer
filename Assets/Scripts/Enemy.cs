@@ -6,6 +6,7 @@ using UnityEngine;
 public class Enemy : Character
 {
     public EnemySO enemyData;
+    public float initSpeed=>enemyData.initSpeed;
     public override CombatStat combatStat{get=>enemyData.combatStat;set{}}
     [SerializeField] Animator anim;
     [SerializeField] AnimationClip[] enemyIdle, enemyWalk, enemyAttack;
@@ -41,19 +42,26 @@ public class Enemy : Character
         setAnimFacing(movement);
     }
 
-    void Died(){
+    protected virtual void Died(){
         sr.color = new Color(1,1,1);
         if(deathBreathTime==0){
             if(loot!=null)Instantiate(loot, transform.position, Quaternion.identity);
             deathBreathTime = Time.time + .5f;
         }
         if(Time.time < deathBreathTime)return;
-        Destroy(gameObject);
+        if(enemyData.enemyName.ToLowerInvariant()!="chest" && GameManager.Instance.summondb.getEnemy(enemyData.enemyName) == null){ // if dead and not in spawnable -> make it spawnable
+            GameManager.Instance.summonableEnemy.Add(this);
+            gameObject.SetActive(false);
+            gameObject.transform.position *= 2000; //yeet
+        }else Destroy(gameObject);
     }
     
     public void recieveDamage(int dmg,bool isMagical){
         HurtColor();
-        HP-=dmg;
+        if(isMagical)dmg-=enemyData.combatStat.defenseMagic;
+        else dmg-=enemyData.combatStat.defensePhysic;
+        if(dmg>0)HP-=dmg;
+        else HP-=1; // minimum
     }
 
     private void HurtColor(){

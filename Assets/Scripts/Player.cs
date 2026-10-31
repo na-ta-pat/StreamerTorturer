@@ -29,8 +29,9 @@ public class HoldingWeapons{
         Vector2 looking4dir = Direction.vec2MoveDict[player.animFacing];
         Vector2 initPos = (Vector2) playerPos + looking.normalized * weapon.range;
 
-        var anim = Player.Instantiate(weapon.anim, playerPos, Quaternion.FromToRotation(Vector2.right, looking4dir),player.transform);
-        
+        BaseWeapon anim = Player.Instantiate(weapon.anim, playerPos, Quaternion.FromToRotation(Vector2.right, looking4dir),player.transform);
+        // BaseWeapon anim = Player.Instantiate(weapon.anim, playerPos, Quaternion.identity,player.transform);
+        if(player.animFacing<anim.animations.Length)anim.anim.Play(anim.animations[player.animFacing].name);
         // HitBox hitBox = Player.Instantiate(weapon.hitBox, initPos, Direction.vec2MoveDict[player.animFacing]);
         HitBox hitBox = Player.Instantiate(weapon.hitBox, initPos, Quaternion.FromToRotation(Vector2.right, looking4dir));
         hitBox.weapon = weapon;
@@ -44,6 +45,8 @@ public class Player : Character
 {
     public CombatStat _combatStat;
     public override CombatStat combatStat{get=>_combatStat;set=>_combatStat=value;}
+    public float _initSpeed=1;
+    public float initSpeed=>_initSpeed;
     public int _maxHP = 4;
     public int maxHP{get=>_maxHP;set{_maxHP=value;GameManager.Instance.ui.UpdateMaxHP(maxHP);}}
     public bool enableInvincible;

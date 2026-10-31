@@ -19,6 +19,8 @@ public class GameManager: MonoBehaviour{
     public Camera mainCam;
     public UI uiPrefab;
     public TwitchChat chat;
+    public SimpleSummonDB summondb => chat.summondb;
+    public List<Enemy> summonableEnemy => summondb.summonableEnemy;
     public DungeonMap map;
     public DungeonMap dungeonMap => map;
     public DungeonRoom currentRoom => map.currentRoom;
@@ -77,6 +79,13 @@ public class GameManager: MonoBehaviour{
     }
     void Spawn(Enemy enemy){
         currentRoom.Spawn(enemy);
+    }
+
+    public void TeleportSkill(int x, int y){
+        if(true){ // TODO: check cooldown 
+            Vector2 pos = new Vector2(x,y);
+            if(map.findRoom(pos)==map.currentRoom&&Physics2D.OverlapPoint(pos)==null)player.transform.position = pos;
+        }
     }
 
 }

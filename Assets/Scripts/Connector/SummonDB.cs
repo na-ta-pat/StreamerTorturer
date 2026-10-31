@@ -5,9 +5,9 @@ public class SummonCommand{
     public string username;
     public string spawnableName;
     public string spawnableLocation;
-    public SummonCommand(string spawnableName) : this(spawnableName,"",""){}
-    public SummonCommand(string spawnableName, string username) : this(spawnableName,username,""){}
-    public SummonCommand(string spawnableName, string username, string spawnableLocation){
+    // public SummonCommand(string spawnableName) : this(spawnableName,"",""){}
+    // public SummonCommand(string spawnableName, string username) : this(spawnableName,username,""){}
+    public SummonCommand(string spawnableName, string username="", string spawnableLocation=""){
         this.username = username;
         this.spawnableName = spawnableName;
         this.spawnableLocation = spawnableLocation;
