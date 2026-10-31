@@ -3636,6 +3636,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2413973374124136112, guid: b985a63342dc14e4eb26f0369f9222ee, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2784948968458531030, guid: b985a63342dc14e4eb26f0369f9222ee, type: 3}
       propertyPath: knockbackValue
       value: 0
@@ -7431,6 +7435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lootType: 1
   skill: 0
+  weaponLoot: {fileID: 0}
 --- !u!1839735485 &3728483142884295519
 Tilemap:
   m_ObjectHideFlags: 0
@@ -8810,7 +8815,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 376a3f1fac76f229ba8d265880b2d939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initSpeed: 1
   movement: {x: 0, y: 0}
   animFacing: 0
   _HP: 0
@@ -8970,7 +8974,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2233035360346960137, guid: 3e4b545d8542b2a8e98d166a6edca00e, type: 3}
       propertyPath: orthographic size
-      value: 6.26
+      value: 6.25
       objectReference: {fileID: 0}
     - target: {fileID: 5520253511571618461, guid: 3e4b545d8542b2a8e98d166a6edca00e, type: 3}
       propertyPath: m_LocalPosition.x

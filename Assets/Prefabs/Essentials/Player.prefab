@@ -81,7 +81,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &8288280196338894706
@@ -226,7 +226,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbb769701542e3788b70d0d794a730c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initSpeed: 3.65
   movement: {x: 0, y: 0}
   animFacing: 0
   _HP: 0
@@ -236,6 +235,7 @@ MonoBehaviour:
     attackMagic: 1
     defensePhysic: 1
     defenseMagic: 1
+  _initSpeed: 3.65
   _maxHP: 4
   enableInvincible: 0
   speedBoost: 0
@@ -261,8 +261,9 @@ MonoBehaviour:
     weapon: {fileID: 11400000, guid: ca7055da022051b819019005e92a1cae, type: 2}
     lastUse: 0
   activeArmor: {fileID: 0}
-  knockbackValue: 20
+  knockbackResistance: 0
   invincibleCooldownTime: 0
+  forceAnim: 0
 --- !u!212 &4260047709939469975
 SpriteRenderer:
   m_ObjectHideFlags: 0
