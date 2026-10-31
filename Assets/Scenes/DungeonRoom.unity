@@ -2149,6 +2149,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilemapRenderer: {fileID: 4249027953927188359}
+  bounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
 --- !u!1 &218180930880371070
 GameObject:
   m_ObjectHideFlags: 0
