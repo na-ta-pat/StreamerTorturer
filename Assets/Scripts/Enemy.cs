@@ -65,6 +65,7 @@ public class Enemy : Character
     }
     
     public void recieveDamage(int dmg,bool isMagical){
+        if(isDead)return;
         HurtColor();
         if(isMagical)dmg-=enemyData.combatStat.defenseMagic;
         else dmg-=enemyData.combatStat.defensePhysic;
@@ -72,7 +73,7 @@ public class Enemy : Character
         else HP-=1; // minimum
     }
 
-    private void HurtColor(){
+    protected virtual void HurtColor(){
         hurtTime = Time.time+0.1f;
         Color red = new Color(1,0,0);
         sr.color = red;
@@ -83,7 +84,7 @@ public class Enemy : Character
 
     public void receiveKnockback(Vector2 pos,float force)=>receiveKnockback(pos,force,enemyData.knockbackResistance);
 
-    void OnTriggerStay2D(Collider2D other)
+    public virtual void OnTriggerStay2D(Collider2D other)
     {
         if (other.TryGetComponent(out Player player)){
             if (cooldownTimer>Time.time)return;
