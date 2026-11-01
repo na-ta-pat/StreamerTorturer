@@ -12,6 +12,7 @@ public class EventAllEnemiesDefeated : MonoBehaviour
     {
         var instances = GameObject.FindObjectsOfType<Enemy>();
         allEnemies = new List<Enemy>(instances);
+        print(allEnemies.Count);
     }
 
     void Update()
@@ -19,6 +20,7 @@ public class EventAllEnemiesDefeated : MonoBehaviour
         if (IsConditionTrue())
         {
             onAllEnemiesDefeated?.Invoke();
+            print("ALL ENEMIES DEFEATED!");
             Destroy(gameObject);
         }
     }
