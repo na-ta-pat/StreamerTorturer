@@ -50,7 +50,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   channelName: nanathebananana
-  testWithoutChat: 1
+  testWithoutChat: 0
+  testWithoutChatSpawnCooldown: 60
+  spawnRangeFromPlayer: 3
   FPS: 24
   player: {fileID: 2784948968458531030}
   ui: {fileID: 0}
@@ -237,9 +239,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 6011732181538676699}
     m_Modifications:
     - target: {fileID: 3060747985081626210, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
+      propertyPath: _maxHP
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3060747985081626210, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
       propertyPath: lWeapon.weapon
       value: 
-      objectReference: {fileID: 11400000, guid: 3ae73889b3a52364ca24b2fe95130de7, type: 2}
+      objectReference: {fileID: 0}
+    - target: {fileID: 3060747985081626210, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
+      propertyPath: rWeapon.weapon
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3060747985081626210, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
       propertyPath: playerSpear.Array.size
       value: 4
@@ -266,7 +276,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6942949753726305847, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 6942949753726305847, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
       propertyPath: m_LocalPosition.z

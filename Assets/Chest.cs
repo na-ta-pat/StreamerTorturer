@@ -8,7 +8,6 @@ public class Chest : Enemy
     [SerializeField] SpriteRenderer myRender;
     
     protected override void Died(){
-        base.Died();
         myRender.sprite = openSprite;
     }
 }
