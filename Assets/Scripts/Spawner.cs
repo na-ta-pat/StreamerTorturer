@@ -15,12 +15,13 @@ public class Spawner : MonoBehaviour
     // public HashSet<Vector2> walkable = new();
     // List<Vector2> walkableL;
     // // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         // if(sr==null)TryGetComponent<SpriteRenderer>(out sr);
         // if(sr==null)return; // wrong obj
         // bounds = sr.bounds;
         // sr.enabled = false;
+        Debug.Log($"Parent is: {transform.parent.name}", transform.parent);
         GetComponent<Tilemap>().CompressBounds();
         if (tilemapRenderer==null)tilemapRenderer = GetComponent<TilemapRenderer>();
         bounds = tilemapRenderer.bounds;
