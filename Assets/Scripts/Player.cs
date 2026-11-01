@@ -64,6 +64,7 @@ public class Player : Character
     bool attackState;
     const int IDLE = 0;
     const int MOVING = 1;
+    const int HEALING = 2;
     const int SWING = (int)WeaponType.Swinging;
     const int USEROD = (int)WeaponType.Rod;
     const int SPEAR = (int)WeaponType.Spear;
@@ -71,7 +72,7 @@ public class Player : Character
     float cooldown;
     string currentAnim;
     [SerializeField] Animator anim;
-    [SerializeField] AnimationClip[] playerIdle, playerWalk, playerSwinging, playerShooting, playerUseRod, playerSpear;
+    [SerializeField] AnimationClip[] playerIdle, playerWalk, playerHealing, playerSwinging, playerShooting, playerUseRod, playerSpear;
     // [SerializeField] Weapon activeWeapon,weapon1,weapon2;
     public HoldingWeapons lWeapon,rWeapon;
     [SerializeField] Armor activeArmor;
@@ -84,6 +85,8 @@ public class Player : Character
     public bool forceAnim;
 
     public override int HP{get=>_HP;set{_HP=value;GameManager.Instance.ui.UpdateHP(HP);}}
+
+    public void Heal(int heal=1){HP+=heal;if(HP>maxHP)HP=maxHP;}
 
     void Awake() {
     }
@@ -140,6 +143,10 @@ public class Player : Character
             case MOVING:
                 cooldown = 0;
                 ChangeAnimation(playerWalk, animFacing);
+            break;
+            case HEALING:
+                cooldown = 0;
+                ChangeAnimation(playerHealing, animFacing);
             break;
             case SWING:
                 attackState = true;
