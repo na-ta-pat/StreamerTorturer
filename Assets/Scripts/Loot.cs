@@ -8,13 +8,13 @@ public enum LootType{
     None
 }
 
-[RequireComponent(typeof(Collider2D))]
+// [RequireComponent(typeof(Collider2D))]
 public class Loot : MonoBehaviour
 {
     public LootType lootType = LootType.None;
     public ChatType skill = ChatType.invalid;
     public Weapon weaponLoot;
-    public SpriteRenderer sr;
+    SpriteRenderer sr;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +22,8 @@ public class Loot : MonoBehaviour
         if(sr==null)sr=GetComponentInChildren<SpriteRenderer>();
         if(sr==null)sr=GetComponent<SpriteRenderer>();
         if(sr==null)sr=gameObject.AddComponent<SpriteRenderer>();
+        // sr.sortingOrder=3;
+        if(GetComponent<Collider2D>()==null)gameObject.AddComponent<BoxCollider2D>();
         UpdateImage();
         
     }

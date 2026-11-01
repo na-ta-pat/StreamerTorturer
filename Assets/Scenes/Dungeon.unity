@@ -332,6 +332,53 @@ Sprite:
   m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
+--- !u!1 &18137208
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 18137210}
+  - component: {fileID: 18137209}
+  m_Layer: 0
+  m_Name: LootRot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &18137209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18137208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f2565511ce7499049e787d934751271, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lootType: 0
+  skill: 4
+  weaponLoot: {fileID: 11400000, guid: 128f7a13983fe1aa9867fde052fbc3d3, type: 2}
+--- !u!4 &18137210
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18137208}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.17, y: 4.3900003, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &18330652
 GameObject:
   m_ObjectHideFlags: 0
@@ -1560,7 +1607,7 @@ PrefabInstance:
     - target: {fileID: 4159904007012860254, guid: d62f7e0fa5b601b458408cd0549b7817, type: 3}
       propertyPath: loot
       value: 
-      objectReference: {fileID: 3550221951573454899}
+      objectReference: {fileID: 18137209}
     - target: {fileID: 8638423007954299484, guid: d62f7e0fa5b601b458408cd0549b7817, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.5
@@ -3705,6 +3752,10 @@ PrefabInstance:
       propertyPath: knockbackValue
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2784948968458531030, guid: b985a63342dc14e4eb26f0369f9222ee, type: 3}
+      propertyPath: lWeapon.weapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 3ae73889b3a52364ca24b2fe95130de7, type: 2}
     - target: {fileID: 6011732181538676699, guid: b985a63342dc14e4eb26f0369f9222ee, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -8942,7 +8993,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2233035360346960137, guid: 3e4b545d8542b2a8e98d166a6edca00e, type: 3}
       propertyPath: orthographic size
-      value: 6.26
+      value: 6.25
       objectReference: {fileID: 0}
     - target: {fileID: 5520253511571618461, guid: 3e4b545d8542b2a8e98d166a6edca00e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10236,3 +10287,4 @@ SceneRoots:
   - {fileID: 4226857268556469940}
   - {fileID: 9025468096822447675}
   - {fileID: 610194585}
+  - {fileID: 18137210}

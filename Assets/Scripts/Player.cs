@@ -12,8 +12,10 @@ public class Direction{
 public class HoldingWeapons{
     public Weapon weapon;
     public float lastUse;
-    public bool isOnCooldown=>lastUse+weapon.cooldown>Time.time;
+    public bool isOnCooldown=>lastUse+cooldown>Time.time;
     public bool isUsable=>weapon!=null&&!isOnCooldown;
+    public float cooldown=>weapon.cooldown;
+    BaseWeapon anim;
     public void Use(Player player){
         if(!isUsable)return;
         else ForceUse(player);
@@ -32,8 +34,12 @@ public class HoldingWeapons{
         Vector2 initPos = (Vector2) playerPos + looking4dir * weapon.range;
 
         // BaseWeapon anim = Player.Instantiate(weapon.anim, playerPos, Quaternion.FromToRotation(Vector2.right, looking4dir),player.transform);
-        BaseWeapon anim = Player.Instantiate(weapon.anim, playerPos, Quaternion.identity,player.transform);
-        if(player.animFacing<anim.animations.Length)anim.anim.Play(anim.animations[player.animFacing].name);
+        anim = Player.Instantiate(weapon.anim, playerPos, Quaternion.identity,player.transform);
+        if(player.animFacing<anim.animations.Length){
+            var tmp = anim.animations[player.animFacing];
+            anim.anim.Play(tmp.name);
+            anim.anim.speed = tmp.length / cooldown;
+        }
         // HitBox hitBox = Player.Instantiate(weapon.hitBox, initPos, Direction.vec2MoveDict[player.animFacing]);
         HitBox hitBox = Player.Instantiate(weapon.hitBox, initPos, Quaternion.FromToRotation(Vector2.right, looking4dir));
         hitBox.weapon = weapon;
@@ -41,6 +47,7 @@ public class HoldingWeapons{
         hitBox.playerPos = playerPos;
         hitBox.setVelocity (looking.normalized * weapon.velocity);
     }
+    public void StopAnim(){if(anim!=null)GameObject.Destroy(anim);anim=null;}
 }
 
 public class Player : Character
@@ -59,12 +66,12 @@ public class Player : Character
     const int MOVING = 1;
     const int SWING = (int)WeaponType.Swinging;
     const int USEROD = (int)WeaponType.Rod;
-    // const int USEROD = (int)WeaponType.Rod;
+    const int SPEAR = (int)WeaponType.Spear;
     Vector2 lastMove;
     float cooldown;
     string currentAnim;
     [SerializeField] Animator anim;
-    [SerializeField] AnimationClip[] playerIdle, playerWalk, playerSwinging, playerShooting, playerUseRod;
+    [SerializeField] AnimationClip[] playerIdle, playerWalk, playerSwinging, playerShooting, playerUseRod, playerSpear;
     // [SerializeField] Weapon activeWeapon,weapon1,weapon2;
     public HoldingWeapons lWeapon,rWeapon;
     [SerializeField] Armor activeArmor;
@@ -101,11 +108,13 @@ public class Player : Character
         if(lWeapon.isUsable && controller.attackLeft.isPressed){
             forceAnim = true;
             lWeapon.Use(this);
+            cooldown = lWeapon.cooldown;
             state = (int)lWeapon.weapon.type;
         }
         if(rWeapon.isUsable && controller.attackRight.isPressed){
             forceAnim = true;
             rWeapon.Use(this);
+            cooldown = rWeapon.cooldown;
             state = (int)rWeapon.weapon.type;
         }
         // if(controller.isSwitchWeapon())SwitchWeapon();
@@ -125,9 +134,11 @@ public class Player : Character
         setAnimFacing(looking);
         switch(state){
             case IDLE:
+                cooldown = 0;
                 ChangeAnimation(playerIdle, animFacing);
             break;
             case MOVING:
+                cooldown = 0;
                 ChangeAnimation(playerWalk, animFacing);
             break;
             case SWING:
@@ -138,6 +149,11 @@ public class Player : Character
             case USEROD:
                 attackState = true;
                 ChangeAnimation(playerUseRod, animFacing);
+                forceAnim = false;
+            break;
+            case SPEAR:
+                attackState = true;
+                ChangeAnimation(playerSpear, animFacing);
                 forceAnim = false;
             break;
         }
@@ -151,6 +167,11 @@ public class Player : Character
     // }
     // void SwitchWeapon() => activeWeapon = activeWeapon == weapon1 ? weapon2 : weapon1;
 
+    protected virtual int _setAnimFacing(Vector2 looking){ // when player look other way
+        int newAnimFacing = base._setAnimFacing(looking);
+        if(newAnimFacing!=animFacing){lWeapon.StopAnim();rWeapon.StopAnim();}
+        return newAnimFacing;
+    }
 
     void ChangeAnimation(AnimationClip toAnim)
     {
@@ -160,6 +181,9 @@ public class Player : Character
             anim.Play(toAnim.name, 0, 0f);
 
             currentAnim = toAnim.name;
+
+            if(cooldown!=0)anim.speed = toAnim.length / cooldown;
+            else anim.speed = 1;
         }
     }
 

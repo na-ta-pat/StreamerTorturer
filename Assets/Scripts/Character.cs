@@ -27,7 +27,7 @@ public abstract class Character : MonoBehaviour // remove abstract and fix comba
     protected void setAnimFacing(Vector2 looking){
         animFacing = _setAnimFacing(looking);
     }
-    protected int _setAnimFacing(Vector2 looking){
+    protected virtual int _setAnimFacing(Vector2 looking){
         if(looking.x>0.7071f)return 1;
         if(looking.x<-0.7071f)return 3;
         if(looking.y>0)return 0;

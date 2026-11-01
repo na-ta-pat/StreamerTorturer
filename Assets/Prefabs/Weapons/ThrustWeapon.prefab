@@ -132,10 +132,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animations:
-  - {fileID: 7400000, guid: b9b05df8736d6524cbf999efdca60ca1, type: 2}
-  - {fileID: 7400000, guid: 7e1161682c024364ba058e7a4561e846, type: 2}
-  - {fileID: 7400000, guid: 84d7c20fdeaabf1428334daa8585247a, type: 2}
-  - {fileID: 7400000, guid: 42c505740611d43418907be81ea08dfe, type: 2}
+  - {fileID: 7400000, guid: c3cdefbba236fb94b93ee67b5f65282a, type: 2}
+  - {fileID: 7400000, guid: ac401bed6ac097846b06a8971a5463bb, type: 2}
+  - {fileID: 7400000, guid: 35182d4d330c82b4599c79900fca87f6, type: 2}
+  - {fileID: 7400000, guid: 9879241eabaf4bc41a32827b2308e187, type: 2}
   anim: {fileID: 7038194414401980216}
   swingAnimations:
   - {fileID: 7400000, guid: b9b05df8736d6524cbf999efdca60ca1, type: 2}
