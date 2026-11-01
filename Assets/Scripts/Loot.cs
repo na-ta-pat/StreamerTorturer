@@ -14,10 +14,15 @@ public class Loot : MonoBehaviour
     public LootType lootType = LootType.None;
     public ChatType skill = ChatType.invalid;
     public Weapon weaponLoot;
+    public SpriteRenderer sr;
     // Start is called before the first frame update
     void Start()
     {
         Yoink();
+        if(sr==null)sr=GetComponentInChildren<SpriteRenderer>();
+        if(sr==null)sr=GetComponent<SpriteRenderer>();
+        if(sr==null)sr=gameObject.AddComponent<SpriteRenderer>();
+        UpdateImage();
         
     }
 
@@ -49,16 +54,23 @@ public class Loot : MonoBehaviour
             r.weapon = weaponLoot;
             Destroy(gameObject);
         }
+        // if(GameManager.Instance.controller.attackLeft.isPressedOnce()){
         if(GameManager.Instance.controller.attackLeft.isPressed){
             (l.weapon,weaponLoot) = (weaponLoot,l.weapon);
+            UpdateImage();
             Yoink();
             return;
         }
         if(GameManager.Instance.controller.attackRight.isPressed){
             (r.weapon,weaponLoot) = (weaponLoot,r.weapon);
+            UpdateImage();
             Yoink();
             return;
         }
+    }
+    void UpdateImage(){
+        if(lootType == LootType.weapon)
+            sr.sprite = weaponLoot.uiWep;
     }
     void PickChatSkillHandle(Player player){
         if(skill!=ChatType.invalid && GameManager.Instance.availableSkill.Contains(skill))GameManager.Instance.availableSkill.Add(skill);

@@ -13,11 +13,13 @@ public class HoldingWeapons{
     public Weapon weapon;
     public float lastUse;
     public bool isOnCooldown=>lastUse+weapon.cooldown>Time.time;
+    public bool isUsable=>weapon!=null&&!isOnCooldown;
     public void Use(Player player){
-        if(isOnCooldown)return;
+        if(!isUsable)return;
         else ForceUse(player);
     }
     public float getReloadPercent(){ // for ui
+        if(weapon==null)return 1;
         float o = (Time.time-lastUse)/weapon.cooldown;
         if(o>1)o=1;
         return o;
@@ -95,12 +97,12 @@ public class Player : Character
         // transform.position += (Vector3) (movement) * initSpeed * Time.deltaTime; // collision problem
         if(!StuntMech(8))rb.velocity = (movement) * initSpeed;
         // if(controller.attack)Attack(activeWeapon);
-        if(!lWeapon.isOnCooldown && controller.attackLeft.isPressed){
+        if(lWeapon.isUsable && controller.attackLeft.isPressed){
             forceAnim = true;
             lWeapon.Use(this);
             state = (int)lWeapon.weapon.type;
         }
-        if(!rWeapon.isOnCooldown && controller.attackRight.isPressed){
+        if(rWeapon.isUsable && controller.attackRight.isPressed){
             forceAnim = true;
             rWeapon.Use(this);
             state = (int)rWeapon.weapon.type;
