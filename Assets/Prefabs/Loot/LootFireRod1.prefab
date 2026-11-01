@@ -70,7 +70,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.2, y: 0.2}
+    oldSize: {x: 2.5, y: 2.5}
     newSize: {x: 0.2, y: 0.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lootType: 0
   skill: 4
-  weaponLoot: {fileID: 11400000, guid: 128f7a13983fe1aa9867fde052fbc3d3, type: 2}
+  weaponLoot: {fileID: 11400000, guid: 05f9178f51236b1d38a2106b3b69b689, type: 2}
 --- !u!212 &5654714867564480359
 SpriteRenderer:
   m_ObjectHideFlags: 0
