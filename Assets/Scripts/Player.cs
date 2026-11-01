@@ -64,7 +64,9 @@ public class Player : Character
     bool attackState;
     const int IDLE = 0;
     const int MOVING = 1;
-    const int HEALING = 2;
+    // const int WIDLE = 10;
+    // const int WMOVING = 11;
+    [HideInInspector] public bool isHealing;
     const int SWING = (int)WeaponType.Swinging;
     const int USEROD = (int)WeaponType.Rod;
     const int SPEAR = (int)WeaponType.Spear;
@@ -72,7 +74,7 @@ public class Player : Character
     float cooldown;
     string currentAnim;
     [SerializeField] Animator anim;
-    [SerializeField] AnimationClip[] playerIdle, playerWalk, playerHealing, playerSwinging, playerShooting, playerUseRod, playerSpear;
+    [SerializeField] AnimationClip[] playerIdle, playerWalk, playerIdleWater, playerWalkWater, playerSwinging, playerShooting, playerUseRod, playerSpear;
     // [SerializeField] Weapon activeWeapon,weapon1,weapon2;
     public HoldingWeapons lWeapon,rWeapon;
     [SerializeField] Armor activeArmor;
@@ -138,15 +140,13 @@ public class Player : Character
         switch(state){
             case IDLE:
                 cooldown = 0;
-                ChangeAnimation(playerIdle, animFacing);
+                if(isHealing)ChangeAnimation(playerIdleWater, animFacing);
+                else ChangeAnimation(playerIdle, animFacing);
             break;
             case MOVING:
                 cooldown = 0;
-                ChangeAnimation(playerWalk, animFacing);
-            break;
-            case HEALING:
-                cooldown = 0;
-                ChangeAnimation(playerHealing, animFacing);
+                if(isHealing)ChangeAnimation(playerWalkWater, animFacing);
+                else ChangeAnimation(playerWalk, animFacing);
             break;
             case SWING:
                 attackState = true;
