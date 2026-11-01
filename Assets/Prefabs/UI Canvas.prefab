@@ -140,7 +140,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6fefdeac10f406d4889babb3a6e9773b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 26b080e49bfa04646aa1fbf9ad2385e8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1556,7 +1556,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6fefdeac10f406d4889babb3a6e9773b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 26b080e49bfa04646aa1fbf9ad2385e8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2520,11 +2520,9 @@ MonoBehaviour:
   leftWeapon: {fileID: 3929961921764493422}
   rightWeapon: {fileID: 8453089125874977150}
   skillSlot: {fileID: 7996551877762796619}
-  leftWepSymbol: {fileID: 3718446662905674771}
-  rightWepSymbol: {fileID: 399593579652777506}
   wepImages:
-  - {fileID: 21300000, guid: 6fefdeac10f406d4889babb3a6e9773b, type: 3}
-  - {fileID: 0}
+  - {fileID: 3718446662905674771}
+  - {fileID: 399593579652777506}
 --- !u!1 &8951256124402349161
 GameObject:
   m_ObjectHideFlags: 0

@@ -43,6 +43,7 @@ public class Loot : MonoBehaviour
         if (other.TryGetComponent(out Player player)){
             if(lootType==LootType.weapon)PickWeaponHandle(player);
             if(lootType==LootType.chatSkill)PickChatSkillHandle(player);
+            GameManager.Instance.ui.UpdateWeap();
         }
     }
     void PickWeaponHandle(Player player){
@@ -51,10 +52,12 @@ public class Loot : MonoBehaviour
         if(l.weapon==null){
             l.weapon = weaponLoot;
             Destroy(gameObject);
+            return;
         }
         if(r.weapon==null){
             r.weapon = weaponLoot;
             Destroy(gameObject);
+            return;
         }
         // if(GameManager.Instance.controller.attackLeft.isPressedOnce()){
         if(GameManager.Instance.controller.attackLeft.isPressed){
