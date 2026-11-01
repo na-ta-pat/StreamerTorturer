@@ -270,6 +270,46 @@ PrefabInstance:
       propertyPath: playerSpear.Array.data[3]
       value: 
       objectReference: {fileID: 7400000, guid: 52a9449e5d568074387e0422eb0af924, type: 2}
+    - target: {fileID: 3060747985081626210, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
+      propertyPath: playerIdleWater.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3060747985081626210, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
+      propertyPath: playerWalkWater.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3060747985081626210, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
+      propertyPath: playerIdleWater.Array.data[0]
+      value: 
+      objectReference: {fileID: 7400000, guid: 1907c87ed61e0b840ad6127e03d9b615, type: 2}
+    - target: {fileID: 3060747985081626210, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
+      propertyPath: playerIdleWater.Array.data[1]
+      value: 
+      objectReference: {fileID: 7400000, guid: 670fe65260cd3e34aa32de04820b5e9c, type: 2}
+    - target: {fileID: 3060747985081626210, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
+      propertyPath: playerIdleWater.Array.data[2]
+      value: 
+      objectReference: {fileID: 7400000, guid: fe4913259966c7945bdadf39f45cf316, type: 2}
+    - target: {fileID: 3060747985081626210, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
+      propertyPath: playerIdleWater.Array.data[3]
+      value: 
+      objectReference: {fileID: 7400000, guid: 783bf49480ac65f489fae74e9c239737, type: 2}
+    - target: {fileID: 3060747985081626210, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
+      propertyPath: playerWalkWater.Array.data[0]
+      value: 
+      objectReference: {fileID: 7400000, guid: 4dc84b0caed644f4cb16fc027682e42d, type: 2}
+    - target: {fileID: 3060747985081626210, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
+      propertyPath: playerWalkWater.Array.data[1]
+      value: 
+      objectReference: {fileID: 7400000, guid: fdbb68f9fc14626499c22db1be9a045b, type: 2}
+    - target: {fileID: 3060747985081626210, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
+      propertyPath: playerWalkWater.Array.data[2]
+      value: 
+      objectReference: {fileID: 7400000, guid: 1451cb21453f1b44d8edc460a570308e, type: 2}
+    - target: {fileID: 3060747985081626210, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
+      propertyPath: playerWalkWater.Array.data[3]
+      value: 
+      objectReference: {fileID: 7400000, guid: f763cd3c599f488448c2859164540ff9, type: 2}
     - target: {fileID: 6942949753726305847, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
