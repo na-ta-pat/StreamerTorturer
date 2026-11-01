@@ -8,6 +8,7 @@ using UnityEngine;
 // }
 public class DungeonMap : MonoBehaviour
 {
+    // public DungeonRoom currentRoom=>findRoom(GameManager.Instance.playerPos);
     public DungeonRoom currentRoom;
     public DungeonRoom[] allRooms;
     public int width,height; // pixel of each cell
@@ -17,12 +18,12 @@ public class DungeonMap : MonoBehaviour
 
     void OnValidate(){
         allRooms = FindObjectsByType<DungeonRoom>(FindObjectsInactive.Include,FindObjectsSortMode.None);
-        if(allRooms.Length>0)currentRoom = allRooms[0]; //todo
     }
 
     void Start(){
         roomTrigger = FindObjectsByType<RoomTrigger>(FindObjectsInactive.Include,FindObjectsSortMode.None);
         fillTriggerMap();
+        if(allRooms.Length>0)currentRoom = findRoom(GameManager.Instance.playerPos); 
     }
 
     void fillTriggerMap(){
@@ -49,7 +50,9 @@ public class DungeonMap : MonoBehaviour
         DungeonRoom triggerRoom = roomTrigger.transform.parent.GetComponent<DungeonRoom>();
         if(room != triggerRoom){
             triggerRoom.gameObject.SetActive(false);
+            currentRoom = triggerMap[roomTrigger].transform.parent.GetComponent<DungeonRoom>();
             triggerMap[roomTrigger].transform.parent.gameObject.SetActive(true);
+            // currentRoom.gameObject.SetActive(true);
         }
     }
 

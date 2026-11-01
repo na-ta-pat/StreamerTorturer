@@ -12,7 +12,8 @@ public class EventAllEnemiesDefeated : MonoBehaviour
     {
         var instances = GameObject.FindObjectsOfType<Enemy>();
         allEnemies = new List<Enemy>(instances);
-        print(allEnemies.Count);
+        // print(allEnemies.Count); it bug (partly) because I yeet the first unique enemy that diead instead of destroying it
+        // for spawning skill
     }
 
     void Update()
@@ -27,9 +28,13 @@ public class EventAllEnemiesDefeated : MonoBehaviour
 
     bool IsConditionTrue()
     {
-        if (allEnemies.Count == 0)
-            return true;
-        else return false;
+        foreach(var e in allEnemies){
+            if(e!=null && e.isActiveAndEnabled)return false;
+        }
+        return true;
+        // if (allEnemies.Count == 0)
+        //     return true;
+        // else return false;
     }
 
 }

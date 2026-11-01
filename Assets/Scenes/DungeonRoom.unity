@@ -3012,16 +3012,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 176993338904820095, guid: b985a63342dc14e4eb26f0369f9222ee, type: 3}
-      propertyPath: testWithoutChat
-      value: 1
+      propertyPath: testWithoutChatSpawnCooldown
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 245876023577177148, guid: b985a63342dc14e4eb26f0369f9222ee, type: 3}
       propertyPath: m_Name
       value: GameManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 3267830954620549117, guid: b985a63342dc14e4eb26f0369f9222ee, type: 3}
-      propertyPath: connectIRCOnStart
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6011732181538676699, guid: b985a63342dc14e4eb26f0369f9222ee, type: 3}
       propertyPath: m_LocalPosition.x
