@@ -11,12 +11,14 @@ public class Enemy : Character
     [SerializeField] AnimationClip[] enemyIdle, enemyWalk, enemyAttack;
     [SerializeField] Loot loot;
     SpriteRenderer sr;
+    Collider2D col;
     Color originalSRcolor;
     float deathBreathTime;
     float hurtTime;
     float lifeSpan = 360;
     float born;
     float cooldownTimer;
+    bool justSpawn;
     
     void Awake(){
         HP = enemyData.maxHP;
@@ -26,13 +28,16 @@ public class Enemy : Character
     void Start(){
         if(sr == null) sr = GetComponentsInChildren<SpriteRenderer>()[0]; 
         originalSRcolor = sr.color;
-        GetComponent<Collider2D>().isTrigger=enemyData.ignoreCollide;
         GetComponent<Rigidbody2D>().freezeRotation = true;
         gameObject.layer = LayerMask.NameToLayer("Enemy");
+        col = GetComponent<Collider2D>();
+        col.isTrigger=false;
+        justSpawn = true;
     }
     
     void Update()
     {
+        if(justSpawn&&!col.IsTouchingLayers()){col.isTrigger=enemyData.ignoreCollide;justSpawn=false;}
         if(hurtTime<Time.time)resetHurtColor();
         if(Time.time>lifeSpan+born)Died();
         if(isDead)Died();
