@@ -13,7 +13,7 @@ public class Spawner : MonoBehaviour
         GetComponent<Tilemap>().CompressBounds();
         if (tilemapRenderer==null)tilemapRenderer = GetComponent<TilemapRenderer>();
         bounds = tilemapRenderer.bounds;
-        print(bounds);
+        // print(bounds);
     }
 
     // Update is called once per frame

@@ -105,8 +105,6 @@ MonoBehaviour:
   allRooms:
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   width: 0
   height: 0
   roomTrigger: []
@@ -126,7 +124,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3772263756911268705
 Transform:
   m_ObjectHideFlags: 0
@@ -238,6 +236,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6011732181538676699}
     m_Modifications:
+    - target: {fileID: 3060747985081626210, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
+      propertyPath: lWeapon.weapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 3ae73889b3a52364ca24b2fe95130de7, type: 2}
     - target: {fileID: 3060747985081626210, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
       propertyPath: playerSpear.Array.size
       value: 4

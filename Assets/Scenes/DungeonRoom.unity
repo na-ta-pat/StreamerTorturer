@@ -3013,31 +3013,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 176993338904820095, guid: b985a63342dc14e4eb26f0369f9222ee, type: 3}
       propertyPath: testWithoutChat
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 245876023577177148, guid: b985a63342dc14e4eb26f0369f9222ee, type: 3}
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    - target: {fileID: 2784948968458531030, guid: b985a63342dc14e4eb26f0369f9222ee, type: 3}
-      propertyPath: lWeapon.weapon
-      value: 
-      objectReference: {fileID: 11400000, guid: 3ae73889b3a52364ca24b2fe95130de7, type: 2}
-    - target: {fileID: 5537595062165895625, guid: b985a63342dc14e4eb26f0369f9222ee, type: 3}
-      propertyPath: m_Size.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5537595062165895625, guid: b985a63342dc14e4eb26f0369f9222ee, type: 3}
-      propertyPath: m_Size.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5537595062165895625, guid: b985a63342dc14e4eb26f0369f9222ee, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -1041867848, guid: e6fdb3961f60ad94880d638bd344ff8a, type: 3}
-    - target: {fileID: 5537595062165895625, guid: b985a63342dc14e4eb26f0369f9222ee, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
+    - target: {fileID: 3267830954620549117, guid: b985a63342dc14e4eb26f0369f9222ee, type: 3}
+      propertyPath: connectIRCOnStart
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6011732181538676699, guid: b985a63342dc14e4eb26f0369f9222ee, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3078,18 +3062,6 @@ PrefabInstance:
     - target: {fileID: 6011732181538676699, guid: b985a63342dc14e4eb26f0369f9222ee, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7819803953397880963, guid: b985a63342dc14e4eb26f0369f9222ee, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.5000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 7819803953397880963, guid: b985a63342dc14e4eb26f0369f9222ee, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8776595009700826481, guid: b985a63342dc14e4eb26f0369f9222ee, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.31
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3391,7 +3363,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2233035360346960137, guid: 3e4b545d8542b2a8e98d166a6edca00e, type: 3}
       propertyPath: orthographic size
-      value: 6.26
+      value: 6.25
       objectReference: {fileID: 0}
     - target: {fileID: 5520253511571618461, guid: 3e4b545d8542b2a8e98d166a6edca00e, type: 3}
       propertyPath: m_LocalPosition.x

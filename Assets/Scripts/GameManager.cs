@@ -7,6 +7,7 @@ public class GameManager: MonoBehaviour{
 
     public string channelName;
     public bool testWithoutChat;
+    public float testWithoutChatSpawnCooldown = 5f;
 
     public int FPS = 60;
     public static GameManager Instance { get; private set; }
@@ -66,7 +67,7 @@ public class GameManager: MonoBehaviour{
         if(testWithoutChat && !Input.GetKeyDown(KeyCode.L)){
             if(tmp<Time.time){
                 Spawn(mockEnemy);
-                tmp = Time.time+0.5f;
+                tmp = Time.time+testWithoutChatSpawnCooldown;
             }
         }
 
