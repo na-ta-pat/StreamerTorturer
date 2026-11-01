@@ -49,6 +49,12 @@ public class DungeonMap : MonoBehaviour
         // triggerMap[roomTrigger].transform.parent.gameObject.SetActive(true);
     }
     public void roomTriggerExit(RoomTrigger roomTrigger){
+        var playerV = GameManager.Instance.player.rb.velocity;
+        var a = ((Vector2)roomTrigger.transform.position);
+        var b = ((Vector2)triggerMap[roomTrigger].transform.position);
+        if(Vector2.Dot(b-a,playerV)>0)switchRoom(roomTrigger);
+    }
+    public void roomTriggerExitLegacy2(RoomTrigger roomTrigger){
         var playerPos = GameManager.Instance.playerPos;
         var a = (playerPos - (Vector2)roomTrigger.transform.position).magnitude;
         var b = (playerPos - (Vector2)triggerMap[roomTrigger].transform.position).magnitude;
