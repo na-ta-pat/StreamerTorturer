@@ -32,7 +32,7 @@ public class Enemy : Character
         GetComponent<Rigidbody2D>().freezeRotation = true;
         gameObject.layer = LayerMask.NameToLayer("Enemy");
         col = GetComponent<Collider2D>();
-        col.isTrigger=false;
+        col.isTrigger=true;
         justSpawn = true;
     }
     
@@ -53,7 +53,7 @@ public class Enemy : Character
     protected virtual void Died(){
         sr.color = new Color(1,1,1);
         if(deathBreathTime==0){
-            if(loot!=null)Instantiate(loot, transform.position, Quaternion.identity);
+            if(loot!=null)Instantiate(loot, transform.position, Quaternion.identity).transform.parent = transform.parent;
             deathBreathTime = Time.time + .5f;
         }
         if(Time.time < deathBreathTime)return;

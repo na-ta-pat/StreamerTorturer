@@ -8,7 +8,7 @@ using UnityEngine;
 // }
 public class DungeonMap : MonoBehaviour
 {
-    // public DungeonRoom currentRoom=>findRoom(GameManager.Instance.playerPos);
+    // public DungeonRoom currentRoom=>_findRoom(GameManager.Instance.playerPos);
     public DungeonRoom currentRoom;
     public DungeonRoom[] allRooms;
     public int width,height; // pixel of each cell
@@ -23,7 +23,10 @@ public class DungeonMap : MonoBehaviour
     void Start(){
         roomTrigger = FindObjectsByType<RoomTrigger>(FindObjectsInactive.Include,FindObjectsSortMode.None);
         fillTriggerMap();
-        if(allRooms.Length>0)currentRoom = findRoom(GameManager.Instance.playerPos); 
+        foreach(var r in allRooms){
+            if(r.bounds.Contains(GameManager.Instance.playerPos)&&r.gameObject.activeInHierarchy)currentRoom = r;
+        }
+        // if(allRooms.Length>0)currentRoom = _findRoom(); 
     }
 
     void fillTriggerMap(){
@@ -46,17 +49,27 @@ public class DungeonMap : MonoBehaviour
         // triggerMap[roomTrigger].transform.parent.gameObject.SetActive(true);
     }
     public void roomTriggerExit(RoomTrigger roomTrigger){
-        DungeonRoom room = findRoom(GameManager.Instance.playerPos);
+        var playerPos = GameManager.Instance.playerPos;
+        var a = (playerPos - (Vector2)roomTrigger.transform.position).magnitude;
+        var b = (playerPos - (Vector2)triggerMap[roomTrigger].transform.position).magnitude;
+        if(b<a)switchRoom(roomTrigger);
+    }
+    public void switchRoom(RoomTrigger roomTrigger){
+        DungeonRoom triggerRoom = roomTrigger.transform.parent.GetComponent<DungeonRoom>();
+        triggerRoom.gameObject.SetActive(false);
+        currentRoom = triggerMap[roomTrigger].transform.parent.GetComponent<DungeonRoom>();
+        currentRoom.gameObject.SetActive(true);
+    }
+    public void roomTriggerExitLegacy(RoomTrigger roomTrigger){
+        DungeonRoom room = _findRoom(GameManager.Instance.playerPos);
         DungeonRoom triggerRoom = roomTrigger.transform.parent.GetComponent<DungeonRoom>();
         if(room != triggerRoom){
-            triggerRoom.gameObject.SetActive(false);
-            currentRoom = triggerMap[roomTrigger].transform.parent.GetComponent<DungeonRoom>();
-            triggerMap[roomTrigger].transform.parent.gameObject.SetActive(true);
+            switchRoom(roomTrigger);
             // currentRoom.gameObject.SetActive(true);
         }
     }
 
-    public DungeonRoom findRoom(Vector2 pos){
+    public DungeonRoom _findRoom(Vector2 pos){ // buggy, use with care
         foreach(var r in allRooms){
             if(r.bounds.Contains(pos))return r;
         }return null;

@@ -8,6 +8,7 @@ public class GameManager: MonoBehaviour{
     public string channelName;
     public bool testWithoutChat;
     public float testWithoutChatSpawnCooldown = 5f;
+    public float spawnRangeFromPlayer=3;
 
     public int FPS = 60;
     public static GameManager Instance { get; private set; }
@@ -79,13 +80,13 @@ public class GameManager: MonoBehaviour{
         // else print("wrong command");
     }
     void Spawn(Enemy enemy){
-        currentRoom.Spawn(enemy);
+        currentRoom.Spawn(enemy,playerPos,spawnRangeFromPlayer);
     }
 
     public void TeleportSkill(int x, int y){
         if(true){ // TODO: check cooldown 
             Vector2 pos = new Vector2(x,y);
-            if(map.findRoom(pos)==map.currentRoom&&Physics2D.OverlapPoint(pos)==null)player.transform.position = pos;
+            if(map._findRoom(pos)==map.currentRoom&&Physics2D.OverlapPoint(pos)==null)player.transform.position = pos;
         }
     }
 

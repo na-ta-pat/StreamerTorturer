@@ -184,6 +184,7 @@ public class Player : Character
 
             if(cooldown!=0)anim.speed = toAnim.length / cooldown;
             else anim.speed = 1;
+            if(anim.speed<1) anim.speed = 1;
         }
     }
 

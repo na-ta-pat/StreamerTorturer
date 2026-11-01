@@ -22,6 +22,10 @@ public class DungeonRoom : MonoBehaviour
         // spawner = spawners[0];
     }
     void Start(){
+        // var tmp = GetComponentsInChildren<Spawner>();
+        // foreach(var i in tmp){
+        //     if(i.sr!=null)spawner = i;
+        // }
         // GenerateSpawn();
     }
     void Update(){
@@ -55,8 +59,10 @@ public class DungeonRoom : MonoBehaviour
     //     GameManager.Instance.player.transform.position = p;
     // }
     
-    public void Spawn(Enemy enemy){
-        Enemy spawned = spawner.Spawn(enemy);
+    public void Spawn(Enemy enemy, Vector2 oriPos,float range){
+        Enemy spawned = spawner.Spawn(enemy,oriPos,range);
+    // public void Spawn(Enemy enemy){
+    //     Enemy spawned = spawner.Spawn(enemy);
         var enemies = transform.Find("Enemies");
         if(!enemies){
             enemies = new GameObject("Enemies").transform;
