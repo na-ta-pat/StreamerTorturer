@@ -8,6 +8,8 @@ public class Chest : Enemy
     [SerializeField] SpriteRenderer myRender;
     
     protected override void Died(){
+        if(loot!=null)Instantiate(loot, transform.position, Quaternion.identity).transform.parent = transform.parent;
+        loot = null;
         myRender.sprite = openSprite;
     }
 }

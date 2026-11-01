@@ -55,10 +55,10 @@ public class DungeonMap : MonoBehaviour
         if(b<a)switchRoom(roomTrigger);
     }
     public void switchRoom(RoomTrigger roomTrigger){
-        DungeonRoom triggerRoom = roomTrigger.transform.parent.GetComponent<DungeonRoom>();
-        triggerRoom.gameObject.SetActive(false);
         currentRoom = triggerMap[roomTrigger].transform.parent.GetComponent<DungeonRoom>();
         currentRoom.gameObject.SetActive(true);
+        DungeonRoom triggerRoom = roomTrigger.transform.parent.GetComponent<DungeonRoom>();
+        triggerRoom.gameObject.SetActive(false);
     }
     public void roomTriggerExitLegacy(RoomTrigger roomTrigger){
         DungeonRoom room = _findRoom(GameManager.Instance.playerPos);

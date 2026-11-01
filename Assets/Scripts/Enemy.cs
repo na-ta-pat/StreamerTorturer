@@ -10,7 +10,7 @@ public class Enemy : Character
     public override CombatStat combatStat{get=>enemyData.combatStat;set{}}
     [SerializeField] Animator anim;
     [SerializeField] AnimationClip[] enemyIdle, enemyWalk, enemyAttack;
-    [SerializeField] Loot loot;
+    public Loot loot;
     SpriteRenderer sr;
     Collider2D col;
     Color originalSRcolor;
