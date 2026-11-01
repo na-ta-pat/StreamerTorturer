@@ -56,7 +56,7 @@ MonoBehaviour:
   enemyIdle: []
   enemyWalk: []
   enemyAttack: []
-  loot: {fileID: 0}
+  loot: {fileID: 9218933504424860951, guid: 13a886625e322984ab930016a71a3074, type: 3}
   openSprite: {fileID: 2054437405, guid: 66f2d0cab8abd1141933424eef3e5806, type: 3}
   closedSprite: {fileID: -1879877226, guid: 66f2d0cab8abd1141933424eef3e5806, type: 3}
   myRender: {fileID: 6135989416024905434}
@@ -138,7 +138,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &6977942004474019711
 BoxCollider2D:
   m_ObjectHideFlags: 0
