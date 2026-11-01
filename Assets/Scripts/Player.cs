@@ -29,7 +29,7 @@ public class HoldingWeapons{
         Vector2 playerPos = player.transform.position;
         Vector2 looking = player.looking;
         Vector2 looking4dir = Direction.vec2MoveDict[player.animFacing];
-        Vector2 initPos = (Vector2) playerPos + looking.normalized * weapon.range;
+        Vector2 initPos = (Vector2) playerPos + looking4dir * weapon.range;
 
         // BaseWeapon anim = Player.Instantiate(weapon.anim, playerPos, Quaternion.FromToRotation(Vector2.right, looking4dir),player.transform);
         BaseWeapon anim = Player.Instantiate(weapon.anim, playerPos, Quaternion.identity,player.transform);
@@ -59,6 +59,7 @@ public class Player : Character
     const int MOVING = 1;
     const int SWING = (int)WeaponType.Swinging;
     const int USEROD = (int)WeaponType.Rod;
+    // const int USEROD = (int)WeaponType.Rod;
     Vector2 lastMove;
     float cooldown;
     string currentAnim;
