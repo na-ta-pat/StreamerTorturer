@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Spear1
   m_EditorClassIdentifier: 
   type: 904
+  useSound: {fileID: 8300000, guid: f286f0b5543bee24b9e0b8d8ae3de4c6, type: 3}
+  hitSound: {fileID: 8300000, guid: cc8c3fe6051070b48806ac2fe0f5a4ea, type: 3}
   isMagical: 0
   damage: 2
-  cooldown: 0.2
+  cooldown: 1
   knocback: 3
   range: 2
   hitBox: {fileID: 7758261912273869097, guid: 1ef816cb10076439884880b8ebd19b4d, type: 3}
