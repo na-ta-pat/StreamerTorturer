@@ -35,7 +35,9 @@ public class HoldingWeapons{
 
         // BaseWeapon anim = Player.Instantiate(weapon.anim, playerPos, Quaternion.FromToRotation(Vector2.right, looking4dir),player.transform);
         anim = Player.Instantiate(weapon.anim, playerPos, Quaternion.identity,player.transform);
-        if(player.animFacing<anim.animations.Length){
+        SoundPlayer.PlaySound(weapon.useSound);
+ 
+        if (player.animFacing<anim.animations.Length){
             var tmp = anim.animations[player.animFacing];
             anim.anim.Play(tmp.name);
             anim.anim.speed = tmp.length / cooldown;

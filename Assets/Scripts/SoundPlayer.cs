@@ -8,6 +8,7 @@ using UnityEngine;
 public class SoundPlayer : MonoBehaviour
 {
     public AudioSource musicSource, soundSource;
+    public static SoundPlayer instance;
 
     // public Dictionary<RoomType,AudioClip> roomMusicDict;
     public RoomType[] roomTypeList;
@@ -15,13 +16,18 @@ public class SoundPlayer : MonoBehaviour
 
     void Start()
     {
-        
+        instance = this;
     }
 
 
     void Update()
     {
         
+    }
+
+    public static void PlaySound(AudioClip sound)
+    {
+        instance.soundSource.PlayOneShot(sound);
     }
 
     public void UpdateMusic(){
