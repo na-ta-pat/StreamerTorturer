@@ -12,6 +12,7 @@ public class HealingRoom : MonoBehaviour
     // private bool isPlayerInside;
     float healingEffectTime;
     float stayTime;
+    GameObject healingEf;
     // void Start(){isPlayerInside=false;}
     void OnTriggerEnter2D(Collider2D other){if(other.TryGetComponent(out Player player))stayTime=0;}
     void OnTriggerStay2D(Collider2D other){
@@ -22,13 +23,20 @@ public class HealingRoom : MonoBehaviour
                 player.Heal();
                 stayTime=0;
             }
-            healingEffectTime+=Time.deltaTime;
-            if(healingEffectTime*healingEffectPerSecond>1){
-                Instantiate(healingEffect,player.transform.position, Quaternion.identity);
-                healingEffectTime=0;
-            }
+            if(healingEffect!=null&&healingEf==null)healingEf=Instantiate(healingEffect,player.transform.position, Quaternion.identity,player.transform);
+            // healingEffectTime+=Time.deltaTime;
+            // if(healingEffectTime*healingEffectPerSecond>1){
+            //     if(healingEffect!=null)var healingEf=Instantiate(healingEffect,player.transform.position, Quaternion.identity,player.transform);
+            //     healingEffectTime=0;
+            // }
         }
     }
-    void OnTriggerExit2D(Collider2D other){if(other.TryGetComponent(out Player player))player.isHealing=false;}
+    void OnTriggerExit2D(Collider2D other){
+        if(other.TryGetComponent(out Player player)){
+            player.isHealing=false;
+            Destroy(healingEf);
+            healingEf=null;
+            }
+        }
 
 }
