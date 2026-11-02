@@ -41,7 +41,7 @@ public class HoldingWeapons{
             var tmp = anim.animations[player.animFacing];
             anim.anim.Play(tmp.name);
             anim.anim.speed = tmp.length / cooldown;
-            if(anim.anim.speed>1)anim.anim.speed=1;
+            if(anim.anim.speed<1)anim.anim.speed=1;
         }
         // HitBox hitBox = Player.Instantiate(weapon.hitBox, initPos, Direction.vec2MoveDict[player.animFacing]);
         HitBox hitBox = Player.Instantiate(weapon.hitBox, initPos, Quaternion.FromToRotation(Vector2.right, looking4dir));
