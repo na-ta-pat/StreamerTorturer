@@ -53,6 +53,7 @@ public class Loot : MonoBehaviour
             l.weapon = weaponLoot;
             Destroy(gameObject);
             return;
+            GameManager.Instance._Connect();//connect when first pick weapon
         }
         if(r.weapon==null){
             r.weapon = weaponLoot;

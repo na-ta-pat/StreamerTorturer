@@ -19,12 +19,12 @@ public class TwitchChat : Chat
         irc = IRC.Instance;
         // irc.Connect();
         // chatters = new List<Chatter>();
-        irc.OnChatMessage += OnChatMessage;
     }
     
     public void Connect() => Connect(channel);
     public void Connect(string channel){
         irc.JoinChannel(channel);
+        irc.OnChatMessage += OnChatMessage;
     }
 
     private void OnChatMessage(Chatter chatter)

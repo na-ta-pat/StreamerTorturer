@@ -59,11 +59,16 @@ public class GameManager: MonoBehaviour{
     }
 
     void Start(){
-        chat.channel = channelName;
-        if(!testWithoutChat)chat.Connect();
         ui.UpdateMaxHP(player.maxHP);
         ui.UpdateHP(player.HP);
         soundPlayer = FindFirstObjectByType<SoundPlayer>();
+    }
+    bool _connectOnce=false;
+    public void _Connect(){
+        if(_connectOnce)return;
+        _connectOnce = true;
+        chat.channel = channelName;
+        if(!testWithoutChat)chat.Connect();
     }
 
     void Update(){

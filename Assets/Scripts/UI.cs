@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UI : MonoBehaviour
 {
@@ -16,7 +17,21 @@ public class UI : MonoBehaviour
     // public Image leftWepSymbol, rightWepSymbol;
     // public Image[] wepSymbol => new[]{leftWepSymbol,rightWepSymbol};
     public Image[] wepImages; //get by correct index
+    public GameObject d_textBox;
+    public TMP_Text d_textLabel;
     Player player => GameManager.Instance.player;
+
+    // string d_txt; // d mean dirty, dirty code
+    public void ShowText(string txt){
+        // d_txt=txt;
+        d_textLabel.SetText( txt);
+        StartCoroutine(d_foo());
+    }
+    IEnumerator d_foo(){
+        d_textBox.SetActive(true);
+        yield return new WaitForSeconds(2);
+        d_textBox.SetActive(false);
+    }
 
     void Awake(){
         heart.Clear();
