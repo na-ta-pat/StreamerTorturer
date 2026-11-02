@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: RodFire1
   m_EditorClassIdentifier: 
   type: 902
+  useSound: {fileID: 8300000, guid: 68362a7cf30020a469615972db02c74e, type: 3}
+  hitSound: {fileID: 8300000, guid: ba649f3b39a27f94ca4c09e4c1536081, type: 3}
   isMagical: 1
   damage: 10
   cooldown: 1
