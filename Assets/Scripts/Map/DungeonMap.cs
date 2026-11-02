@@ -65,6 +65,7 @@ public class DungeonMap : MonoBehaviour
         currentRoom.gameObject.SetActive(true);
         DungeonRoom triggerRoom = roomTrigger.transform.parent.GetComponent<DungeonRoom>();
         triggerRoom.gameObject.SetActive(false);
+        GameManager.Instance.UpdateMusic();
     }
     public void roomTriggerExitLegacy(RoomTrigger roomTrigger){
         DungeonRoom room = _findRoom(GameManager.Instance.playerPos);
