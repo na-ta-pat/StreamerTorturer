@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class SwingWeapon : BaseWeapon
 {
-    public AnimationClip[] swingAnimations;
-    public Weapon readWeaponData;
+    // public AnimationClip[] swingAnimations;
+    // public Weapon readWeaponData;
 }

@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+[System.Serializable]
+public enum RoomType{
+    rest,enemies,traps,boss
+}
 
 [System.Serializable]
 public class DungeonRoom : MonoBehaviour
 {
     // public Spawner[] spawners;
     [SerializeField] Spawner spawner;
-    [SerializeField] string roomType; //rest, enemies, traps, boss
+    public RoomType roomType=RoomType.enemies; //rest, enemies, traps, boss
 
     public Bounds bounds => spawner.bounds;
     // public bool isLock;

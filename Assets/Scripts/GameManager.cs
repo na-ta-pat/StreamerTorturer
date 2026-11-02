@@ -27,6 +27,8 @@ public class GameManager: MonoBehaviour{
     public DungeonMap dungeonMap => map;
     public DungeonRoom currentRoom => map.currentRoom;
     public List<ChatType> availableSkill;
+    SoundPlayer soundPlayer;
+    public void UpdateMusic()=>soundPlayer.UpdateMusic();
     // public Spawner currentSpawner => currentRoom.spawner;
     
     float tmp;
@@ -61,6 +63,7 @@ public class GameManager: MonoBehaviour{
         if(!testWithoutChat)chat.Connect();
         ui.UpdateMaxHP(player.maxHP);
         ui.UpdateHP(player.HP);
+        soundPlayer = FindFirstObjectByType<SoundPlayer>();
     }
 
     void Update(){
