@@ -58,11 +58,12 @@ public class Enemy : Character
             deathBreathTime = Time.time + .5f;
         }
         if(Time.time < deathBreathTime)return;
-        if(enemyData.enemyName.ToLowerInvariant()!="chest" && GameManager.Instance.summondb.getEnemy(enemyData.enemyName) == null){ // if dead and not in spawnable -> make it spawnable
-            GameManager.Instance.summonableEnemy.Add(this);
-            gameObject.SetActive(false);
-            gameObject.transform.position *= 2000; //yeet
-        }else Destroy(gameObject);
+        // if(enemyData.enemyName.ToLowerInvariant()!="chest" && GameManager.Instance.summondb.getEnemy(enemyData.enemyName) == null){ // if dead and not in spawnable -> make it spawnable
+        //     GameManager.Instance.summonableEnemy.Add(this);
+        //     gameObject.SetActive(false);
+        //     gameObject.transform.position *= 2000; //yeet
+        // }else 
+        Destroy(gameObject);
     }
     
     public virtual void recieveDamage(int dmg,bool isMagical){

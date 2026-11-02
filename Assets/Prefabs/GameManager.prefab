@@ -107,6 +107,9 @@ MonoBehaviour:
   allRooms:
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   width: 0
   height: 0
   roomTrigger: []
@@ -160,7 +163,7 @@ MonoBehaviour:
   oauth: 
   username: 
   channel: 
-  connectIRCOnStart: 0
+  connectIRCOnStart: 1
   joinChannelOnStart: 0
   dontDestroyOnLoad: 0
   showIRCDebug: 0
@@ -216,7 +219,13 @@ MonoBehaviour:
   summondb:
     summonableEnemy:
     - {fileID: -3545723490419382258, guid: a2ea448f373683648a767f774dbc6492, type: 3}
+    - {fileID: -3545723490419382258, guid: 15d858b2589fdec46b6cfbf50c2a0ab2, type: 3}
+    - {fileID: -3545723490419382258, guid: ddd3d7a20b7c6e342bccf9d79e106e96, type: 3}
     limitPerPlayer: 10
+    spawnSkill:
+      chatType: 0
+      cooldown: 5
+    summonQ: []
   sampleTwitchChatter:
     login: 
     channel: 

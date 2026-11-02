@@ -11,6 +11,8 @@ public class UI : MonoBehaviour
     public Sprite[] healthSprite = new Sprite[2];
     public Image leftWeapon,rightWeapon;
     public LayoutGroup skillSlot;
+    public List<Image> skills = new();
+    public List<Image> skillsReload = new();
     // public Image leftWepSymbol, rightWepSymbol;
     // public Image[] wepSymbol => new[]{leftWepSymbol,rightWepSymbol};
     public Image[] wepImages; //get by correct index
@@ -19,6 +21,10 @@ public class UI : MonoBehaviour
     void Awake(){
         heart.Clear();
         foreach(Transform o in healthUI.transform)heart.Add(o.GetComponent<Image>());
+        skills.Clear();
+        foreach(Transform o in skillSlot.transform)skills.Add(o.GetComponent<Image>());
+        skillsReload.Clear();
+        foreach(Image i in skills)skillsReload.Add(i.transform.GetChild(0).GetComponent<Image>());
     }
 
     public void UpdateMaxHP(int maxHP){
@@ -49,6 +55,10 @@ public class UI : MonoBehaviour
     void Update(){
         leftWeapon.transform.Find("Fill").GetComponent<Image>().fillAmount=player.lWeapon.getReloadPercent();
         rightWeapon.transform.Find("Fill").GetComponent<Image>().fillAmount=player.rWeapon.getReloadPercent();
+        UpdateSkill();
+    }
+    public void UpdateSkill(){
+        if(skillsReload.Count>0)skillsReload[0].fillAmount=GameManager.Instance.summondb.spawnSkill.getReloadPercent();
     }
     public void UpdateWeap(){
         if(player.lWeapon.weapon!=null)wepImages[0].sprite = player.lWeapon.weapon.uiWep;

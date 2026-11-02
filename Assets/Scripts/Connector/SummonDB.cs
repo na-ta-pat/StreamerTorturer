@@ -17,8 +17,19 @@ public class SummonCommand{
 public class SimpleSummonDB{
     public List<Enemy> summonableEnemy;
     public int limitPerPlayer = 10;
-    List<SummonCommand> summonQ=new();
+    public Skill spawnSkill;
+    public List<SummonCommand> summonQ=new();
     int indexQ=0;
+    
+    public Enemy GetToSpawn(){
+        if(spawnSkill.isReady){
+            var output = _Pop();
+            if(output!=null)
+                spawnSkill.Call();
+            return output;
+        }
+        return null;
+    }
 
     public void Reset(){
         summonQ.Clear();
@@ -28,7 +39,7 @@ public class SimpleSummonDB{
         if(summonQ.Count>300)Reset();
         summonQ.Add(command);
     }
-    public Enemy Pop(){
+    public Enemy _Pop(){
         if(summonQ.Count>indexQ)return getEnemy(summonQ[indexQ++].spawnableName);
         return null;
     }

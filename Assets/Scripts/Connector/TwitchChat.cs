@@ -30,6 +30,7 @@ public class TwitchChat : Chat
     private void OnChatMessage(Chatter chatter)
     {
         // chatters.Add(chatter);
+        // if(chatters.Count>100)chatters.Clear();
         addToDB(chatter);
     }
 

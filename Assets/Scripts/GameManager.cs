@@ -78,7 +78,7 @@ public class GameManager: MonoBehaviour{
         if (Input.GetKeyDown(KeyCode.Semicolon))
             SceneManager.LoadScene("DungeonRoom");
     
-        var summon = chat.summondb.Pop();
+        var summon = summondb.GetToSpawn();
         if(!testWithoutChat && summon!=null)Spawn(summon);
         // else print("wrong command");
     }
