@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 902
   useSound: {fileID: 8300000, guid: 68362a7cf30020a469615972db02c74e, type: 3}
-  hitSound: {fileID: 8300000, guid: ba649f3b39a27f94ca4c09e4c1536081, type: 3}
+  hitSound: {fileID: 8300000, guid: 64d83f611bf61c2489fd258976645ead, type: 3}
   isMagical: 1
   damage: 10
   cooldown: 1
@@ -25,4 +25,4 @@ MonoBehaviour:
   destroyTimer: 5
   destroyOnHit: 3
   anim: {fileID: 2560578125325753065, guid: 369e6b6bd92b04344bdcd5c3ecd8182c, type: 3}
-  uiWep: {fileID: 21300000, guid: 293c602a454c47c47bbab6c017cbe382, type: 3}
+  uiWep: {fileID: 21300000, guid: 878a2ef4a5faf894cb2151b00451b85b, type: 3}
