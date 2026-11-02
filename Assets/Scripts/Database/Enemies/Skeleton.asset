@@ -23,6 +23,6 @@ MonoBehaviour:
     defenseMagic: 1
   knockbackResistance: 0.5
   knocbackRecovery: 4
-  attackKnockback: 1
+  attackKnockback: 5
   ignoreCollide: 0
   noticeRange: 10

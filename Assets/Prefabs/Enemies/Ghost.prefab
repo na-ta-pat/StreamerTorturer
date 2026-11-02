@@ -230,7 +230,7 @@ MonoBehaviour:
   animFacing: 0
   _HP: 0
   rb: {fileID: 6408788151182806629}
-  enemyData: {fileID: 11400000, guid: f3f047557f7c0f8238d67b443f9d6f8a, type: 2}
+  enemyData: {fileID: 11400000, guid: 4f54227d27d097c408036e08c3e02720, type: 2}
   anim: {fileID: 6769723055064454781}
   enemyIdle: []
   enemyWalk: []
