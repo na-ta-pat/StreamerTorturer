@@ -7,6 +7,8 @@ public class DungeonRoom : MonoBehaviour
 {
     // public Spawner[] spawners;
     [SerializeField] Spawner spawner;
+    [SerializeField] string roomType; //rest, enemies, traps, boss
+
     public Bounds bounds => spawner.bounds;
     // public bool isLock;
     // public Collider2D coll;
