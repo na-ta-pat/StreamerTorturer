@@ -25,3 +25,4 @@ MonoBehaviour:
   knocbackRecovery: 4
   attackKnockback: 1
   ignoreCollide: 0
+  noticeRange: 10

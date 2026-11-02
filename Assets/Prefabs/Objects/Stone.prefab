@@ -144,23 +144,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a4d4939a8a82a00929c28cfce4b580, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {x: 0, y: 0}
-  animFacing: 0
-  _HP: 0
-  rb: {fileID: 3923515501971009498}
-  enemyData: {fileID: 11400000, guid: 8abdb71462205e6cf9bd58edb4525e4a, type: 2}
-  anim: {fileID: 0}
-  enemyIdle: []
-  enemyWalk: []
-  enemyAttack: []
-  loot: {fileID: 0}
   sprites:
   - {fileID: -126536633, guid: 02ef0b8ad467b71499c6019553cdd985, type: 3}
   - {fileID: 214775378, guid: 02ef0b8ad467b71499c6019553cdd985, type: 3}
   - {fileID: -1208594248, guid: 02ef0b8ad467b71499c6019553cdd985, type: 3}
   myRender: {fileID: 1827439743695876106}
   hitUntillBreak: 3
-  destroyAfterDead: 0
+  destroyAfterDead: 1
+  loot: {fileID: 0}
 --- !u!50 &3923515501971009498
 Rigidbody2D:
   serializedVersion: 4
