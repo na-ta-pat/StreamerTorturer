@@ -30,9 +30,15 @@ public class GameManager: MonoBehaviour{
     SoundPlayer soundPlayer;
     public void UpdateMusic()=>soundPlayer.UpdateMusic();
     // public Spawner currentSpawner => currentRoom.spawner;
+    public DungeonRoom initRoom;
     
     float tmp;
+    public void _re(){
 
+        map.currentRoom.gameObject.SetActive(false);
+        initRoom.gameObject.SetActive(true);
+        map.currentRoom = initRoom;
+    }
     private void Awake() 
     { 
         if (Instance != null && Instance != this) {
@@ -67,6 +73,7 @@ public class GameManager: MonoBehaviour{
     public void _Connect(){
         if(_connectOnce)return;
         _connectOnce = true;
+        channelName = Data.cn;
         chat.channel = channelName;
         if(!testWithoutChat)chat.Connect();
     }

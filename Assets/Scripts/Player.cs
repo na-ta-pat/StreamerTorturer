@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Direction{
 
@@ -132,8 +133,9 @@ public class Player : Character
 
     void Died(){
         HP = maxHP; //test
-        maxHP+=1;
-
+        transform.position = new Vector2(0,0);
+        // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        GameManager.Instance._re();
     }
 
     void UpdateAnim(){
