@@ -19,6 +19,7 @@ public class EnemySO : ScriptableObject
 
     public float attackKnockback;
     public bool ignoreCollide;
+    public float noticeRange=9999f;
 
     // public Loot loot;
 

@@ -20,13 +20,14 @@ public class Enemy : Character
     float born;
     float cooldownTimer;
     bool justSpawn;
+    bool notice;
     
     void Awake(){
-        HP = enemyData.maxHP;
-        born = Time.time;
     }
 
-    void Start(){
+    protected virtual void Start(){
+        HP = enemyData.maxHP;
+        born = Time.time;
         if(sr == null) sr = GetComponentsInChildren<SpriteRenderer>()[0]; 
         originalSRcolor = sr.color;
         GetComponent<Rigidbody2D>().freezeRotation = true;
@@ -38,15 +39,15 @@ public class Enemy : Character
     
     void Update()
     {
-        if(justSpawn&&!col.IsTouchingLayers()){col.isTrigger=enemyData.ignoreCollide;justSpawn=false;}
+        if(justSpawn&&!col.IsTouchingLayers()){col.isTrigger=enemyData.ignoreCollide;justSpawn=false;notice=false;}
         if(hurtTime<Time.time)resetHurtColor();
         if(Time.time>lifeSpan+born)Died();
         if(isDead)Died();
         if(StuntMech(enemyData.knocbackRecovery))return;
         Player player = FindObjectOfType<Player>();
         movement = player.transform.position - transform.position;
-        movement = movement.normalized;
-        rb.velocity = movement * enemyData.initSpeed;
+        if(movement.magnitude<enemyData.noticeRange)notice=true;
+        if(notice)rb.velocity = movement.normalized * enemyData.initSpeed;
         setAnimFacing(movement);
     }
 
@@ -64,7 +65,7 @@ public class Enemy : Character
         }else Destroy(gameObject);
     }
     
-    public void recieveDamage(int dmg,bool isMagical){
+    public virtual void recieveDamage(int dmg,bool isMagical){
         if(isDead)return;
         HurtColor();
         if(isMagical)dmg-=enemyData.combatStat.defenseMagic;
