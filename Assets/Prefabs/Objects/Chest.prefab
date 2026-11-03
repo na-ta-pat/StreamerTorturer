@@ -56,7 +56,7 @@ MonoBehaviour:
   enemyIdle: []
   enemyWalk: []
   enemyAttack: []
-  loot: {fileID: 9218933504424860951, guid: 13a886625e322984ab930016a71a3074, type: 3}
+  loot: {fileID: 9218933504424860951, guid: ef16c1c8b110c7649aa3df41922e1380, type: 3}
   openSprite: {fileID: 2054437405, guid: 66f2d0cab8abd1141933424eef3e5806, type: 3}
   closedSprite: {fileID: -1879877226, guid: 66f2d0cab8abd1141933424eef3e5806, type: 3}
   myRender: {fileID: 2410451780051046597}
@@ -215,4 +215,4 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1

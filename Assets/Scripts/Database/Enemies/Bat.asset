@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bat
   m_EditorClassIdentifier: 
   enemyName: skeleton
-  initSpeed: 6
+  initSpeed: 5
   maxHP: 3
   cooldown: 1
   combatStat:
@@ -25,4 +25,4 @@ MonoBehaviour:
   knocbackRecovery: 4
   attackKnockback: 2
   ignoreCollide: 0
-  noticeRange: 10
+  noticeRange: 7
