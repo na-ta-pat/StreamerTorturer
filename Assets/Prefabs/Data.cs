@@ -3,5 +3,5 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public static class Data{
-    public static string cn;
+    public static string cn="nanathebananana";
 }

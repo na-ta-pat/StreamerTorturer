@@ -2888,8 +2888,7 @@ MonoBehaviour:
   wepImages:
   - {fileID: 3718446662905674771}
   - {fileID: 399593579652777506}
-  d_textBox: {fileID: 3719001309611670665}
-  d_textLabel: {fileID: 6329274656848347676}
+  d_textBox: {fileID: 6838892617365258257}
 --- !u!1 &8951256124402349161
 GameObject:
   m_ObjectHideFlags: 0

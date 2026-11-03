@@ -53,7 +53,6 @@ public class Enemy : Character
 
     protected virtual void Died(){
         GameManager.Instance._Connect();//connect when first pick weapon
-        GameManager.Instance.ui.ShowText("\""+enemyData.enemyName.ToLowerInvariant()+"\" Died");
         sr.color = new Color(1,1,1);
         if(deathBreathTime==0){
             if(loot!=null)Instantiate(loot, transform.position, Quaternion.identity).transform.parent = transform.parent;
@@ -69,6 +68,7 @@ public class Enemy : Character
     }
     
     public virtual void recieveDamage(int dmg,bool isMagical){
+        GameManager.Instance.ui.ShowText("\""+enemyData.enemyName.ToLowerInvariant()+"\" got hit");
         if(isDead)return;
 
         HurtColor();

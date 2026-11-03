@@ -18,7 +18,7 @@ public class UI : MonoBehaviour
     // public Image[] wepSymbol => new[]{leftWepSymbol,rightWepSymbol};
     public Image[] wepImages; //get by correct index
     public GameObject d_textBox;
-    public TMP_Text d_textLabel;
+    TMP_Text d_textLabel;
     Player player => GameManager.Instance.player;
 
     // string d_txt; // d mean dirty, dirty code
@@ -40,6 +40,7 @@ public class UI : MonoBehaviour
         foreach(Transform o in skillSlot.transform)skills.Add(o.GetComponent<Image>());
         skillsReload.Clear();
         foreach(Image i in skills)skillsReload.Add(i.transform.GetChild(0).GetComponent<Image>());
+        d_textLabel = d_textBox.GetComponentInChildren<TMP_Text>();
     }
 
     public void UpdateMaxHP(int maxHP){
