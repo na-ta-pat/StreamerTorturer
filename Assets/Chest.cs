@@ -12,6 +12,7 @@ public class Chest : Enemy
         loot = null;
         myRender.sprite = openSprite;
     }
+    public override void recieveDamage(int dmg,bool isMagical){HP=0;}
     protected override void HurtColor(){}
     public override void OnTriggerStay2D(Collider2D other){}
 }

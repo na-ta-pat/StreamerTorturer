@@ -67,9 +67,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5f300730d7ab25448c3a35d006f9852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animations: []
-  anim: {fileID: 0}
-  rodAnimations: []
+  animations:
+  - {fileID: 7400000, guid: 5d313c5463cc70746b432ceca2b6f02e, type: 2}
+  - {fileID: 7400000, guid: 96ccc12c809ae9a45b53686669fbb580, type: 2}
+  - {fileID: 7400000, guid: bc4ae943e8d0e3441a3f85516e5f38bd, type: 2}
+  - {fileID: 7400000, guid: 5dced9acec08e024a9bdb8a41e14c77e, type: 2}
+  anim: {fileID: 106486335458554007}
+  rodAnimations:
+  - {fileID: 7400000, guid: 5d313c5463cc70746b432ceca2b6f02e, type: 2}
+  - {fileID: 7400000, guid: 96ccc12c809ae9a45b53686669fbb580, type: 2}
+  - {fileID: 7400000, guid: bc4ae943e8d0e3441a3f85516e5f38bd, type: 2}
+  - {fileID: 7400000, guid: 5dced9acec08e024a9bdb8a41e14c77e, type: 2}
   readWeaponData: {fileID: 0}
 --- !u!212 &4161839572006065407
 SpriteRenderer:

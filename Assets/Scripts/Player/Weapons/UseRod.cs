@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class UseRod : BaseWeapon
 {
-    public AnimationClip[] rodAnimations;
-    public Weapon readWeaponData;
+    // public AnimationClip[] rodAnimations;
+    // public Weapon readWeaponData;
 }

@@ -45,7 +45,7 @@ public class HoldingWeapons{
             if(anim.anim.speed<1)anim.anim.speed=1;
         }
         // HitBox hitBox = Player.Instantiate(weapon.hitBox, initPos, Direction.vec2MoveDict[player.animFacing]);
-        HitBox hitBox = Player.Instantiate(weapon.hitBox, initPos, Quaternion.FromToRotation(Vector2.right, looking4dir));
+        HitBox hitBox = Player.Instantiate(weapon.hitBox, initPos, weapon.velocity!=0?Quaternion.identity:Quaternion.FromToRotation(Vector2.right, looking4dir));
         hitBox.weapon = weapon;
         hitBox.damage = weapon.damage * (weapon.isMagical? player.combatStat.attackMagic:player.combatStat.attackPhysic);
         hitBox.playerPos = playerPos;
