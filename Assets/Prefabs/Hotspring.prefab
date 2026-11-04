@@ -93,4 +93,5 @@ MonoBehaviour:
   healingArea: {fileID: 8861900389891404420}
   HPHealPerSecond: 0.5
   healingEffect: {fileID: 5609041130653685260, guid: 883f0de441efae34690f66640de77c52, type: 3}
-  healingEffectPerSecond: 1
+  animLengthSec: 0.5
+  heal_sound: {fileID: 8300000, guid: 1f8d9d378e4c9c948be944d48a5e8004, type: 3}

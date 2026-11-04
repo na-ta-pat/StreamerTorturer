@@ -272,3 +272,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 3917443919239442886}
   soundSource: {fileID: 7823907358824262650}
+  sd_enemy_hit: {fileID: 8300000, guid: 28fb490446c69d84484107afdd1ca7a2, type: 3}
+  roomTypeList: 
+  roomMusicList: []

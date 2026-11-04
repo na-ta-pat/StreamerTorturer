@@ -9,6 +9,7 @@ public class HealingRoom : MonoBehaviour
     public float HPHealPerSecond = 3f;
     public GameObject healingEffect;
     public float animLengthSec = .5f;
+    [SerializeField] AudioClip heal_sound;
     // public float healingEffectPerSecond;
     // private bool isPlayerInside;
     float healingEffectTime;
@@ -31,6 +32,7 @@ public class HealingRoom : MonoBehaviour
                 player.Heal();
                 stayTime=0;
                 // if(healingEffect!=null&&healingEf==null)
+                SoundPlayer.PlaySound(heal_sound);
                 healingEf=Instantiate(healingEffect,player.transform.position, Quaternion.identity,player.transform);
                 Destroy(healingEf,animLengthSec);
             }

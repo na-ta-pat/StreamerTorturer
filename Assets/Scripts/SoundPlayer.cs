@@ -9,6 +9,7 @@ public class SoundPlayer : MonoBehaviour
 {
     public AudioSource musicSource, soundSource;
     public static SoundPlayer instance;
+    public AudioClip sd_enemy_hit;
 
     // public Dictionary<RoomType,AudioClip> roomMusicDict;
     public RoomType[] roomTypeList;
