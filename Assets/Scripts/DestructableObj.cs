@@ -18,7 +18,8 @@ public class Destructable : MonoBehaviour
         if(loot!=null)Instantiate(loot, transform.position, Quaternion.identity).transform.parent = transform.parent;
         loot = null;
     }
-    public  void recieveDamage(int dmg){
+    public virtual void recieveDamage(int dmg,bool isMagical){
+        if(isMagical)return;
         HP-=1;
         if(++index<sprites.Length)myRender.sprite=sprites[index];
         if(HP==0)Died();
