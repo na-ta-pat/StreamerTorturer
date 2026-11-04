@@ -68,7 +68,7 @@ public class Enemy : Character
     }
     
     public virtual void recieveDamage(int dmg,bool isMagical){
-        GameManager.Instance.ui.ShowText("\""+enemyData.enemyName.ToLowerInvariant()+"\" got hit");
+        GameManager.Instance.ui.ShowText("\""+enemyData.enemyName.ToLowerInvariant()+"\"");
         if(isDead)return;
         SoundPlayer.PlaySound(SoundPlayer.instance.sd_enemy_hit);
         HurtColor();

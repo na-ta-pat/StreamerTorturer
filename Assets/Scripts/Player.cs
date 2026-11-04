@@ -35,10 +35,10 @@ public class HoldingWeapons{
         Vector2 initPos = (Vector2) playerPos + looking4dir * weapon.range;
 
         // BaseWeapon anim = Player.Instantiate(weapon.anim, playerPos, Quaternion.FromToRotation(Vector2.right, looking4dir),player.transform);
-        anim = Player.Instantiate(weapon.anim, playerPos, Quaternion.identity,player.transform);
-        SoundPlayer.PlaySound(weapon.useSound);
+        if(weapon.anim!=null)anim = Player.Instantiate(weapon.anim, playerPos, Quaternion.identity,player.transform);
+        if(weapon.useSound!=null)SoundPlayer.PlaySound(weapon.useSound);
  
-        if (player.animFacing<anim.animations.Length){
+        if ((weapon.anim!=null)&&player.animFacing<anim.animations.Length){
             var tmp = anim.animations[player.animFacing];
             anim.anim.Play(tmp.name);
             anim.anim.speed = tmp.length / cooldown;
@@ -74,6 +74,7 @@ public class Player : Character
     const int SWING = (int)WeaponType.Swinging;
     const int USEROD = (int)WeaponType.Rod;
     const int SPEAR = (int)WeaponType.Spear;
+    const int CQC = (int)WeaponType.CQC;
     Vector2 lastMove;
     float cooldown;
     string currentAnim;
@@ -163,6 +164,7 @@ public class Player : Character
                 ChangeAnimation(playerUseRod, animFacing);
                 forceAnim = false;
             break;
+            case CQC:
             case SPEAR:
                 attackState = true;
                 ChangeAnimation(playerSpear, animFacing);

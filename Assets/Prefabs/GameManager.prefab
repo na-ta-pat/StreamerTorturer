@@ -64,6 +64,7 @@ MonoBehaviour:
   chat: {fileID: 3458331849367970861}
   map: {fileID: 3272017860788775202}
   availableSkill: 
+  initRoom: {fileID: 0}
 --- !u!114 &4458195561652256007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,11 +255,11 @@ PrefabInstance:
     - target: {fileID: 3060747985081626210, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
       propertyPath: lWeapon.weapon
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: d2277c064cbf6a122bfc82b924396450, type: 2}
     - target: {fileID: 3060747985081626210, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
       propertyPath: rWeapon.weapon
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: d2277c064cbf6a122bfc82b924396450, type: 2}
     - target: {fileID: 3060747985081626210, guid: b5a335dc7c69c40baa7177c04f0cd234, type: 3}
       propertyPath: playerSpear.Array.size
       value: 4

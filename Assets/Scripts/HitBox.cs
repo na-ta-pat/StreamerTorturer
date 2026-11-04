@@ -42,8 +42,8 @@ public class HitBox : MonoBehaviour
             enemy.receiveKnockback(playerPos,weapon.knocback);
             if( weapon.destroyOnHit>0 && weapon.destroyOnHit <= ++hitCount)
                 Destroy(gameObject);
-        }else if(other.TryGetComponent(out Destructable des)){
-            des.recieveDamage(damage);
+        }else if(other.TryGetComponent(out Destructable des)&&!weapon.isMagical){
+            des.recieveDamage(damage,weapon.isMagical);
             Destroy(gameObject);
         }
         if(weapon.destroyTimer==0)

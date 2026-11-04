@@ -4,5 +4,6 @@ public enum WeaponType
     Bow=901,
     Rod=902,
     Boomerang=903,
-    Spear=904
+    Spear=904,
+    CQC=905
 }
