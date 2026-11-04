@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: ghost
   initSpeed: 1
-  maxHP: 15
+  maxHP: 10
   cooldown: 1
   combatStat:
     attackPhysic: 1
@@ -25,3 +25,4 @@ MonoBehaviour:
   knocbackRecovery: 4
   attackKnockback: 0
   ignoreCollide: 1
+  noticeRange: 9999
