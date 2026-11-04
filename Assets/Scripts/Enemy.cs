@@ -70,6 +70,7 @@ public class Enemy : Character
     public virtual void recieveDamage(int dmg,bool isMagical){
         GameManager.Instance.ui.ShowText("\""+enemyData.enemyName.ToLowerInvariant()+"\"");
         if(isDead)return;
+
         HurtColor();
         if(isMagical)dmg-=enemyData.combatStat.defenseMagic;
         else dmg-=enemyData.combatStat.defensePhysic;

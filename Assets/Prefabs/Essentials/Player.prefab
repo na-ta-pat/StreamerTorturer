@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!1 &8288280196338894706
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,6 +240,7 @@ MonoBehaviour:
   enableInvincible: 1
   speedBoost: 0
   state: 0
+  isHealing: 0
   anim: {fileID: 6769723055064454781}
   playerIdle:
   - {fileID: 7400000, guid: 30760fe395828ef4486b0cd4d4908575, type: 2}
@@ -251,6 +252,8 @@ MonoBehaviour:
   - {fileID: 7400000, guid: 0eff9fd2e694719a78b453d33e7b8c40, type: 2}
   - {fileID: 7400000, guid: 9238bf8378c282d4f9f159a0100806f7, type: 2}
   - {fileID: 7400000, guid: 6d3db1bfee3702549bd27ad938bbcd4a, type: 2}
+  playerIdleWater: []
+  playerWalkWater: []
   playerSwinging:
   - {fileID: 7400000, guid: 67a95c45097149f448dc36a13bad2777, type: 2}
   - {fileID: 7400000, guid: 132ef47189b6d3d41b6f3779ddf02aec, type: 2}
