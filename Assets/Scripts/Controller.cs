@@ -56,9 +56,11 @@ public class Controller : MonoBehaviour
         if(mouse==null){enableMouse = false;return;}
         Vector2 mousePos = mouse.position.ReadValue();
         CheckMouseEnable(mousePos);
-        if(enableMouse)looking = (Vector2)(Camera.main.ScreenToWorldPoint(mousePos) - GameManager.Instance.player.transform.position);
-        attackLeft.isPressed = mouse.leftButton.isPressed;
-        attackRight.isPressed = mouse.rightButton.isPressed;
+        if(enableMouse){
+            looking = (Vector2)(Camera.main.ScreenToWorldPoint(mousePos) - GameManager.Instance.player.transform.position);
+            attackLeft.isPressed = mouse.leftButton.isPressed;
+            attackRight.isPressed = mouse.rightButton.isPressed;
+        }
     }
     // mouse aim turns on when the mouse moves far enough, and off after mouseTimeDeactivation seconds without moving
     void CheckMouseEnable(Vector2 mousePos){
