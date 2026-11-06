@@ -41,10 +41,10 @@ public class Controller : MonoBehaviour
         if(gamepad!=null){ // a connected gamepad replaces keyboard and mouse
             movement = gamepad.leftStick.ReadValue();
             looking = gamepad.rightStick.ReadValue();
-            attack = gamepad.buttonWest.isPressed;
-            switchWeapon.isPressed = gamepad.buttonNorth.isPressed;
-            attackLeft.isPressed = gamepad.leftShoulder.isPressed;
-            attackRight.isPressed = gamepad.rightShoulder.isPressed;
+            // attack = gamepad.buttonWest.isPressed;
+            // switchWeapon.isPressed = gamepad.buttonNorth.isPressed;
+            attackLeft.isPressed = gamepad.leftShoulder.isPressed||gamepad.buttonSouth.isPressed;
+            attackRight.isPressed = gamepad.rightShoulder.isPressed||gamepad.buttonEast.isPressed;
             return;
         }
         if(keyboard!=null){
