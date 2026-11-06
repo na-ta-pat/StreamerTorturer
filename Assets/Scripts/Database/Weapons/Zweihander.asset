@@ -16,9 +16,9 @@ MonoBehaviour:
   useSound: {fileID: 8300000, guid: d8701f2af54384b4bbb40aa37ac3d78f, type: 3}
   hitSound: {fileID: 8300000, guid: 28fb490446c69d84484107afdd1ca7a2, type: 3}
   isMagical: 0
-  damage: 3
+  damage: 6
   cooldown: 1
-  knocback: 10
+  knocback: 20
   hitBoxDistance: 0.2
   hitBox: {fileID: 7758261912273869097, guid: d8d9082985ce37249a8e1c7a115b11ef, type: 3}
   upOffset: {x: 0, y: 0}

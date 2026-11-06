@@ -17,7 +17,7 @@ MonoBehaviour:
   hitSound: {fileID: 8300000, guid: 28fb490446c69d84484107afdd1ca7a2, type: 3}
   isMagical: 0
   damage: 3
-  cooldown: 1
+  cooldown: 0.5
   knocback: 10
   hitBoxDistance: 0.2
   hitBox: {fileID: 7758261912273869097, guid: fe735dbbf417abcd48304b1e00c48587, type: 3}

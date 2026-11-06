@@ -4703,6 +4703,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2413973374124136112, guid: b985a63342dc14e4eb26f0369f9222ee, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3267830954620549117, guid: b985a63342dc14e4eb26f0369f9222ee, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3267830954620549117, guid: b985a63342dc14e4eb26f0369f9222ee, type: 3}
       propertyPath: connectIRCOnStart
       value: 1
