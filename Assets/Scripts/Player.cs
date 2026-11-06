@@ -34,6 +34,7 @@ public class HoldingWeapons{ // one hand
         if(weapon.useSound!=null)SoundPlayer.PlaySound(weapon.useSound);
         HitBox hitBox = Player.Instantiate(weapon.hitBox, initPos, weapon.velocity!=0?Quaternion.identity:Quaternion.FromToRotation(Vector2.right, looking4dir));
         hitBox.weapon = weapon;
+        if(weapon.buff!=null)weapon.buff.CopyTo(hitBox.gameObject); // weapon -> hitbox
         hitBox.damage = weapon.damage * (weapon.isMagical? player.combatStat.attackMagic:player.combatStat.attackPhysic);
         hitBox.playerPos = playerPos;
         hitBox.setVelocity(player.looking * weapon.velocity);
@@ -48,7 +49,7 @@ public class Player : Character
     public float _initSpeed=1;
     public float initSpeed=>_initSpeed;
     public int _maxHP = 4;
-    public int maxHP{get=>_maxHP;set{_maxHP=value;GameManager.Instance.ui.UpdateMaxHP(maxHP);}}
+    public override int maxHP{get=>_maxHP;set{_maxHP=value;GameManager.Instance.ui.UpdateMaxHP(maxHP);}}
     public bool enableInvincible;
     public float speedBoost;
     public int state; // IDLE, MOVING, or the WeaponType number while attacking
@@ -70,12 +71,11 @@ public class Player : Character
     [SerializeField] float knockbackResistance;
     Controller controller;
     public float invincibleCooldownTime;
-    float invincibleTime;
+    public float invincibleTime;
     public bool isInvincible => invincibleTime>Time.time;
     public bool forceAnim;
 
     public override int HP{get=>_HP;set{_HP=value;GameManager.Instance.ui.UpdateHP(HP);}}
-    public void Heal(int heal=1){HP+=heal;if(HP>maxHP)HP=maxHP;}
 
     void Start(){
         HP = maxHP;
@@ -149,7 +149,8 @@ public class Player : Character
         anim.speed = cooldown!=0?Mathf.Max(toAnim.length / cooldown, 1):1; // an attack fits its cooldown
     }
 
-    public void recieveDamage(int dmg){
+    public override void recieveDamage(int dmg, bool isMagical=false){
+        base.recieveDamage(dmg,isMagical);
         if(enableInvincible && isInvincible)return;
         HP-=dmg;
         invincibleTime = invincibleCooldownTime+Time.time;

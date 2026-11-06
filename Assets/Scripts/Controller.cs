@@ -6,11 +6,11 @@ using UnityEngine.InputSystem;
 [System.Serializable]
 public class ControllerButton{
     [SerializeField] bool _isPressed;
-    [SerializeField] bool _isSeen;
-    public bool isPressed{get=>_isPressed;set{_isPressed = value;if(!value)_isSeen = false;}}
-    public bool isPressedOnce(){ // true once per press
-        if(!isPressed || _isSeen)return false;
-        return _isSeen = true;
+    [SerializeField] HashSet<string> _isSeen=new();
+    public bool isPressed{get=>_isPressed;set{_isPressed = value;if(!value)_isSeen.Clear();}}
+    public bool isPressedOnce(string uniqueIdentifierString=""){ // true once per press
+        if(!isPressed )return false;
+        return _isSeen.Add(uniqueIdentifierString);
     }
 }
 
@@ -50,6 +50,8 @@ public class Controller : MonoBehaviour
         if(keyboard!=null){
             attack = keyboard.kKey.isPressed;
             switchWeapon.isPressed = keyboard.qKey.isPressed;
+            attackLeft.isPressed = keyboard.oKey.isPressed;
+            attackRight.isPressed = keyboard.pKey.isPressed;
         }
         if(mouse==null){enableMouse = false;return;}
         Vector2 mousePos = mouse.position.ReadValue();

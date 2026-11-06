@@ -14,8 +14,14 @@ public class UI : MonoBehaviour
     public List<Image> skills = new();
     public List<Image> skillsReload = new();
     public Image[] wepImages; //get by correct index
-    public GameObject d_textBox; // d_ = dirty (quick) code
-    TMP_Text d_textLabel;
+    [UnityEngine.Serialization.FormerlySerializedAs("d_textBox")]
+    public GameObject enemyNameTextbox; 
+    public GameObject dialogueTextbox;
+    TMP_Text dialogueTextLabel;
+    string[] dialogueTextToShow;
+    public float dialogueSpeed = 30; // typewriter: letters per second
+    float dialogueStart;
+    TMP_Text enemyNameTextLabel;
     Coroutine d_hide;
     Image leftFill, rightFill;
     Player player => GameManager.Instance.player;
@@ -24,7 +30,8 @@ public class UI : MonoBehaviour
         heart.Clear(); skills.Clear(); skillsReload.Clear();
         foreach(Transform o in healthUI.transform)heart.Add(o.GetComponent<Image>());
         foreach(Transform o in skillSlot.transform){var img = o.GetComponent<Image>(); skills.Add(img); skillsReload.Add(img.transform.GetChild(0).GetComponent<Image>());}
-        d_textLabel = d_textBox.GetComponentInChildren<TMP_Text>();
+        enemyNameTextLabel = enemyNameTextbox.GetComponentInChildren<TMP_Text>();
+        dialogueTextLabel = dialogueTextbox.GetComponentInChildren<TMP_Text>();
         leftFill = leftWeapon.transform.Find("Fill").GetComponent<Image>();
         rightFill = rightWeapon.transform.Find("Fill").GetComponent<Image>();
     }
@@ -38,17 +45,18 @@ public class UI : MonoBehaviour
         leftFill.fillAmount=player.lWeapon.getReloadPercent();
         rightFill.fillAmount=player.rWeapon.getReloadPercent();
         UpdateSkill();
+        UpdateDialogue();
     }
 
     public void ShowText(string txt){ // for 2 seconds; a new text restarts the timer
-        d_textLabel.SetText(txt);
+        enemyNameTextLabel.SetText(txt);
         if(d_hide!=null)StopCoroutine(d_hide);
         d_hide = StartCoroutine(d_foo());
     }
     IEnumerator d_foo(){
-        d_textBox.SetActive(true);
+        enemyNameTextbox.SetActive(true);
         yield return new WaitForSeconds(2);
-        d_textBox.SetActive(false);
+        enemyNameTextbox.SetActive(false);
     }
     public void UpdateMaxHP(int maxHP){ // heart[0] is the template and always shown
         Transform t = healthUI.transform;
@@ -60,5 +68,29 @@ public class UI : MonoBehaviour
     public void UpdateWeap(){
         if(player.lWeapon.weapon!=null)wepImages[0].sprite = player.lWeapon.weapon.uiWep;
         if(player.rWeapon.weapon!=null)wepImages[1].sprite = player.rWeapon.weapon.uiWep;
+    }
+    public void Dialogue(string[] text){
+        dialogueTextToShow=text;
+        dialogueStart=Time.time;
+        GameManager.Instance.controller.attackLeft.isPressedOnce("dialogue");
+    }
+    void UpdateDialogue(){
+        if(dialogueTextToShow==null||dialogueTextToShow.Length==0){
+            dialogueTextbox.SetActive(false);
+            return;
+        }
+        player.froze();
+        player.invincibleTime = Time.time+1;
+        player.lWeapon.lastUse = player.rWeapon.lastUse = Time.time; // clicking through dialogue doesn't attack
+        dialogueTextbox.SetActive(true);
+        dialogueTextLabel.SetText(dialogueTextToShow[0]);
+        int shown = (int)((Time.time-dialogueStart)*dialogueSpeed); // typewriter
+        dialogueTextLabel.maxVisibleCharacters = shown;
+        if(GameManager.Instance.controller.attackLeft.isPressedOnce("dialogue")){
+            if(shown<dialogueTextToShow[0].Length){dialogueStart-=9999;return;} // still typing: show the whole line
+            dialogueStart=Time.time;
+            if(dialogueTextToShow.Length==1)dialogueTextToShow=null;
+            else dialogueTextToShow = dialogueTextToShow[1..];
+        }
     }
 }

@@ -19,10 +19,19 @@ MonoBehaviour:
   damage: 10
   cooldown: 1
   knocback: 0
-  range: 1
+  hitBoxDistance: 1
   hitBox: {fileID: 7758261912273869097, guid: c88cea1a4aa246b4d87ca76b15ce8113, type: 3}
+  upOffset: {x: 0, y: 0}
+  rightOffset: {x: 0, y: 0}
+  downOffset: {x: 0, y: 0}
+  leftOffset: {x: 0, y: 0}
   velocity: 10
   destroyTimer: 5
-  destroyOnHit: 3
+  maxHits: 3
   anim: {fileID: 2560578125325753065, guid: 369e6b6bd92b04344bdcd5c3ecd8182c, type: 3}
   uiWep: {fileID: 21300000, guid: 878a2ef4a5faf894cb2151b00451b85b, type: 3}
+  buff:
+    type: 2
+    duration: 5
+    power: 1
+    isStackable: 1

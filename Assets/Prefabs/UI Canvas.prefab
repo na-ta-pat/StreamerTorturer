@@ -2888,7 +2888,8 @@ MonoBehaviour:
   wepImages:
   - {fileID: 3718446662905674771}
   - {fileID: 399593579652777506}
-  d_textBox: {fileID: 6838892617365258257}
+  enemyNameTextbox: {fileID: 6838892617365258257}
+  dialogueTextbox: {fileID: 3719001309611670665}
 --- !u!1 &8951256124402349161
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ public class CombatStat{
 public abstract class Character : MonoBehaviour // remove abstract and fix combat stat if bug
 {
     public abstract CombatStat combatStat{get;set;}
+    public abstract int maxHP{get;set;}
     public Vector2 movement;
     Vector2 _looking;
     public Vector2 looking{get => _looking;set => _looking = value.normalized;}
@@ -33,6 +34,7 @@ public abstract class Character : MonoBehaviour // remove abstract and fix comba
         if(looking.y<0)return 2;
         return 2;
     }
+    public void froze(){stunTime=Time.time+1;}
     protected bool StuntMech(float recover){ // true while stunned: slows down, ignores own movement
         if(stunTime<=Time.time)return false;
         rb.velocity*=Mathf.Exp(-recover*Time.deltaTime);
@@ -44,4 +46,10 @@ public abstract class Character : MonoBehaviour // remove abstract and fix comba
         rb.velocity = force * dir.normalized * (1-resistance);
         stunTime = Time.time + 1;
     }
+
+    public virtual void Heal(int heal=1){HP+=heal;if(HP>maxHP)HP=maxHP;}
+
+    public virtual void recieveDamage(int dmg,bool isMagical=false){
+    }
+
 }
