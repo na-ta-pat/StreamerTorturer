@@ -70,7 +70,6 @@ public class Enemy : Character
     public virtual void recieveDamage(int dmg,bool isMagical){
         GameManager.Instance.ui.ShowText("\""+enemyData.enemyName.ToLowerInvariant()+"\""); // teaches chat the summon name
         if(isDead)return;
-        SoundPlayer.PlaySound(SoundPlayer.instance.sd_enemy_hit);
         HurtColor();
         dmg -= isMagical?enemyData.combatStat.defenseMagic:enemyData.combatStat.defensePhysic;
         HP -= Mathf.Max(dmg,1);
