@@ -57,9 +57,11 @@ MonoBehaviour:
   enemyWalk: []
   enemyAttack: []
   loot: {fileID: 9218933504424860951, guid: ef16c1c8b110c7649aa3df41922e1380, type: 3}
+  weaponLoot: {fileID: 0}
   openSprite: {fileID: 2054437405, guid: 66f2d0cab8abd1141933424eef3e5806, type: 3}
   closedSprite: {fileID: -1879877226, guid: 66f2d0cab8abd1141933424eef3e5806, type: 3}
   myRender: {fileID: 2410451780051046597}
+  sd_open_chest: {fileID: 8300000, guid: 10c73526a4680084ca294a6748a9fd14, type: 3}
 --- !u!50 &-7328134413676816293
 Rigidbody2D:
   serializedVersion: 4

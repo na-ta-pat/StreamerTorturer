@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: -822799583, guid: a47dec72d615a48449f40704bc01b2bb, type: 3}
+  m_Sprite: {fileID: -1954484563, guid: a5ae32374479d5344a8cffa162315ac8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 7038194414401980216}
   - component: {fileID: 2357037973500158868}
   m_Layer: 0
-  m_Name: SwingWepon
+  m_Name: SwingZweihander
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132,17 +132,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animations:
-  - {fileID: 7400000, guid: b9b05df8736d6524cbf999efdca60ca1, type: 2}
-  - {fileID: 7400000, guid: 7e1161682c024364ba058e7a4561e846, type: 2}
-  - {fileID: 7400000, guid: 84d7c20fdeaabf1428334daa8585247a, type: 2}
-  - {fileID: 7400000, guid: 42c505740611d43418907be81ea08dfe, type: 2}
+  - {fileID: 7400000, guid: ddddb3b3a84c1db4091aa458e844feb6, type: 2}
+  - {fileID: 7400000, guid: 57a11cba5a1d2a04888b18e2886e3434, type: 2}
+  - {fileID: 7400000, guid: a683105d56350964ca6e8b9143b8e6f0, type: 2}
+  - {fileID: 7400000, guid: 452a2be6c9ddd9348a2d89f63225fad7, type: 2}
   anim: {fileID: 7038194414401980216}
-  swingAnimations:
-  - {fileID: 7400000, guid: b9b05df8736d6524cbf999efdca60ca1, type: 2}
-  - {fileID: 7400000, guid: 7e1161682c024364ba058e7a4561e846, type: 2}
-  - {fileID: 7400000, guid: 84d7c20fdeaabf1428334daa8585247a, type: 2}
-  - {fileID: 7400000, guid: 42c505740611d43418907be81ea08dfe, type: 2}
-  readWeaponData: {fileID: 0}
 --- !u!95 &7038194414401980216
 Animator:
   serializedVersion: 5
@@ -153,7 +147,7 @@ Animator:
   m_GameObject: {fileID: 8138990157821115789}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1f6c154f5b1816540a041192c05fbc89, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3a88ad2e34c2da5478adbde31292114e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
