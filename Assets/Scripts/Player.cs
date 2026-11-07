@@ -75,6 +75,7 @@ public class Player : Character
     public float invincibleTime;
     public bool isInvincible => invincibleTime>Time.time;
     public bool forceAnim;
+    Vector2 lastMove;
 
     public override int HP{get=>_HP;set{_HP=value;GameManager.Instance.ui.UpdateHP(HP);}}
 
@@ -89,6 +90,8 @@ public class Player : Character
         if(controller.looking.magnitude>0)looking = controller.looking; // no look input: keep the last direction it looked
         else if(!isLooking)looking = movement; // never looked yet: face where it walks
         if(!StuntMech(8))rb.velocity = movement * initSpeed;
+        if (movement.magnitude > 0) lastMove = movement;
+        looking = lastMove;
         TryAttack(lWeapon, controller.attackLeft);
         TryAttack(rWeapon, controller.attackRight);
         UpdateAnim();
@@ -151,6 +154,7 @@ public class Player : Character
 
     public override void recieveDamage(int dmg, bool isMagical=false){
         base.recieveDamage(dmg,isMagical);
+        SoundPlayer.PlaySound(SoundPlayer.instance.sd_player_hit);
         if(enableInvincible && isInvincible)return;
         HP-=dmg;
         invincibleTime = invincibleCooldownTime+Time.time;

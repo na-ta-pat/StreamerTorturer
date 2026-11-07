@@ -235,7 +235,7 @@ MonoBehaviour:
     attackMagic: 1
     defensePhysic: 1
     defenseMagic: 1
-  _initSpeed: 3.65
+  _initSpeed: 5
   _maxHP: 4
   enableInvincible: 1
   speedBoost: 0
@@ -275,6 +275,7 @@ MonoBehaviour:
   activeArmor: {fileID: 0}
   knockbackResistance: 0
   invincibleCooldownTime: 1
+  invincibleTime: 0
   forceAnim: 0
 --- !u!212 &4260047709939469975
 SpriteRenderer:

@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!1 &8288280196338894706
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,20 +225,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 376a3f1fac76f229ba8d265880b2d939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  combatStat:
-    attackPhysic: 1
-    attackMagic: 1
-    defensePhysic: 1
-    defenseMagic: 1
-  initSpeed: 1
   movement: {x: 0, y: 0}
-  looking: {x: 0, y: 0}
   animFacing: 0
-  HP: 0
-  enemyData: {fileID: 11400000, guid: 7dbd0189d607bc4ecb4a6856d594da20, type: 2}
+  _HP: 0
   rb: {fileID: 6408788151182806629}
+  enemyData: {fileID: 11400000, guid: 7dbd0189d607bc4ecb4a6856d594da20, type: 2}
   anim: {fileID: 6769723055064454781}
   enemyIdle: []
   enemyWalk: []
   enemyAttack: []
-  sr: {fileID: 0}
+  loot: {fileID: 0}
+  weaponLoot: {fileID: 0}
+  spacing: 0.2
+  spriteFacesLeft: 0

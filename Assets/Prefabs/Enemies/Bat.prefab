@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!1 &8288280196338894706
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,6 +236,9 @@ MonoBehaviour:
   enemyWalk: []
   enemyAttack: []
   loot: {fileID: 0}
+  weaponLoot: {fileID: 0}
+  spacing: 0.2
+  spriteFacesLeft: 0
 --- !u!212 &1617406575876385956
 SpriteRenderer:
   m_ObjectHideFlags: 0

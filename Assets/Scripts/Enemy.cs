@@ -92,7 +92,7 @@ public class Enemy : Character
     }
     public override void recieveDamage(int dmg,bool isMagical){
         base.recieveDamage(dmg,isMagical);
-        GameManager.Instance.ui.ShowText("\""+enemyData.enemyName.ToLowerInvariant()+"\""); // teaches chat the summon name
+        GameManager.Instance.ui.ShowText(enemyData.enemyName.ToLowerInvariant()); // teaches chat the summon name
         if(isDead)return;
         HurtColor();
         dmg -= isMagical?enemyData.combatStat.defenseMagic:enemyData.combatStat.defensePhysic;

@@ -275,5 +275,6 @@ MonoBehaviour:
   sd_enemy_hit: {fileID: 8300000, guid: 28fb490446c69d84484107afdd1ca7a2, type: 3}
   sd_pickup_wep: {fileID: 8300000, guid: 52497f1e11ec5f045802d9a67107003f, type: 3}
   sd_door_open: {fileID: 8300000, guid: 07bf4cc9468ad7f4fa040b4a546985a6, type: 3}
+  sd_player_hit: {fileID: 8300000, guid: 6f12d7bfe0b4d724b8b515a62270f612, type: 3}
   roomTypeList: 
   roomMusicList: []
