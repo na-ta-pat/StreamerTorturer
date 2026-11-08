@@ -8,7 +8,7 @@ public class Experimental : MonoBehaviour{
 
     [Header("Player")]
     [Tooltip("Attacking stops player movement until the attack animation ends")]
-    public bool stopMoveOnAttack = false;
+    public bool stopMoveOnAttack = true;
     [Tooltip("On: player always faces where it walks. Off: faces the look input (arrows, mouse, right stick) and keeps it when there is none")]
     public bool lookFollowMovement = true;
     [Tooltip("Player is invincible for invincibleCooldownTime after a hit")]
