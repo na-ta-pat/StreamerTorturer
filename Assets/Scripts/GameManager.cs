@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 
-public class GameManager: MonoBehaviour{
+public partial class GameManager: MonoBehaviour{
     bool testWithoutChat => Experimental.I.testWithoutChat;
     float testWithoutChatSpawnCooldown => Experimental.I.testWithoutChatSpawnCooldown;
     public float spawnRangeFromPlayer=3;
