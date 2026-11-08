@@ -49,11 +49,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 637c13ffd2ef9c61f9fd9f58381664ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  channelName: nanathebananana
-  testWithoutChat: 0
-  testWithoutChatSpawnCooldown: 60
   spawnRangeFromPlayer: 3
-  FPS: 24
+  FPS: 60
   player: {fileID: 2784948968458531030}
   ui: {fileID: 0}
   mockEnemy: {fileID: -3545723490419382258, guid: c8b5a82a13f869e3f8ceef95fac86bb2, type: 3}
@@ -61,6 +58,7 @@ MonoBehaviour:
   uiCam: {fileID: 0}
   mainCam: {fileID: 0}
   uiPrefab: {fileID: 823317038124409622, guid: ea5c78ca4ed035448ac3c72ab10fe87f, type: 3}
+  healEffect: {fileID: 5609041130653685260, guid: 883f0de441efae34690f66640de77c52, type: 3}
   chat: {fileID: 3458331849367970861}
   map: {fileID: 3272017860788775202}
   availableSkill: 
@@ -82,16 +80,12 @@ MonoBehaviour:
   attack: 0
   switchWeapon:
     _isPressed: 0
-    _isSeen: 0
-  enableMouse: 1
   mouseDistanceActivation: 10
   mouseTimeDeactivation: 1
   attackLeft:
     _isPressed: 0
-    _isSeen: 0
   attackRight:
     _isPressed: 0
-    _isSeen: 0
 --- !u!114 &3272017860788775202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,6 +221,7 @@ MonoBehaviour:
       chatType: 0
       cooldown: 5
     summonQ: []
+    unlocked: []
   sampleTwitchChatter:
     login: 
     channel: 
