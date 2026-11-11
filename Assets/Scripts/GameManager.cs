@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 
-public partial class GameManager: MonoBehaviour{
+public class GameManager: MonoBehaviour{
     bool testWithoutChat => Experimental.I.testWithoutChat;
     float testWithoutChatSpawnCooldown => Experimental.I.testWithoutChatSpawnCooldown;
     public float spawnRangeFromPlayer=3;
@@ -55,6 +55,7 @@ public partial class GameManager: MonoBehaviour{
     void Spawn(Enemy enemy)=>currentRoom.Spawn(enemy,playerPos,spawnRangeFromPlayer);
 
     public void _Connect(){ // join chat (Twitch or YouTube), once
+        return;// disable
         if(_connectOnce)return;
         _connectOnce = true;
         chat.channel = Data.cn;
