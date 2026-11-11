@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : Character
+public partial class Enemy : Character
 {
     public EnemySO enemyData;
     public float initSpeed=>enemyData.initSpeed;
