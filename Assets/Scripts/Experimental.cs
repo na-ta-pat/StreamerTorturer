@@ -1,7 +1,5 @@
 using UnityEngine;
 
-// All experimental and test features, on/off in one place. Editable in the Inspector while playing
-// (put it on any object in the scene, or it is made on first use: look for "Experimental" in the Hierarchy)
 public partial class Experimental : MonoBehaviour{ // Weapons switches: AI/Fields.cs
     static Experimental _i;
     public static Experimental I => _i ? _i : (_i = FindFirstObjectByType<Experimental>() ?? new GameObject("Experimental").AddComponent<Experimental>());
@@ -17,6 +15,8 @@ public partial class Experimental : MonoBehaviour{ // Weapons switches: AI/Field
     public bool enableInvincible = false;
     [Tooltip("Turn the mouse off: no mouse aim or clicks")]
     public bool disableMouse = true;
+    [Tooltip("On: hold a weapon button to charge its skill, let go to use it (AI/WeaponCharge.cs)")]
+    public bool chargeSkills = true;
 
     [Header("Enemy AI")]
     [Tooltip("Off: no pathfinding, enemies walk straight at the player")]

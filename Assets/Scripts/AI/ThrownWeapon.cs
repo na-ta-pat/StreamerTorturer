@@ -11,6 +11,7 @@ public class ThrownWeapon : MonoBehaviour
     Character thrower;
     Vector2 velocity;
     Rigidbody2D rb;
+    Transform shadow;
     float radius;
     int damage, hitCount;
     bool done;
@@ -45,12 +46,21 @@ public class ThrownWeapon : MonoBehaviour
         var bySr = by.GetComponentInChildren<SpriteRenderer>();
         if(bySr!=null){sr.sortingLayerID = bySr.sortingLayerID; sr.sortingOrder = bySr.sortingOrder+1;}
         var t = go.AddComponent<ThrownWeapon>();
+        if(weapon.throwSettings.shadowHeight>0){
+            var shadow = new GameObject("shadow").AddComponent<SpriteRenderer>();
+            shadow.transform.SetParent(go.transform, false);
+            shadow.sprite = sr.sprite;
+            shadow.color = new Color(0,0,0,.4f);
+            shadow.sortingLayerID = sr.sortingLayerID;
+            shadow.sortingOrder = 3; // Order in Layer 3, like the other shadows
+            t.shadow = shadow.transform;
+        }
         t.radius = Mathf.Max(weapon.throwSettings.size,0.05f);
         var col = go.AddComponent<CircleCollider2D>();
         col.radius = t.radius/Mathf.Max(go.transform.lossyScale.x,0.01f); col.isTrigger = true; // throwSettings.size stays its real size
         t.rb = Slide.Body(go);
         t.weapon = weapon; t.thrower = by;
-        t.damage = (int) (weapon.throwSettings.damage * (weapon.isMagical ? by.combatStat.attackMagic : by.combatStat.attackPhysic));
+        t.damage = weapon.Damage(by, weapon.throwSettings.damage);
         t.velocity = dir.normalized*weapon.throwSettings.initSpeed;
         if(weapon.useSound!=null)SoundPlayer.PlaySound(weapon.useSound);
         return t;
@@ -62,6 +72,11 @@ public class ThrownWeapon : MonoBehaviour
         if(done)return;
         if(velocity==Vector2.zero){Land(); return;} // a wall, or out of speed
         Slide.Turn(rb, velocity, weapon.throwSettings.spinSpeed, weapon.throwSettings.initSpeed, weapon.throwSettings.spriteAngle);
+    }
+    void LateUpdate(){ // straight below, even when it spins
+        if(shadow==null)return;
+        float speed = Mathf.Clamp01(velocity.magnitude/Mathf.Max(weapon.throwSettings.initSpeed,0.01f));
+        shadow.position = transform.position + Vector3.down*weapon.throwSettings.shadowHeight*speed;
     }
     void OnTriggerEnter2D(Collider2D other){if(!done)Touch(other);} // enemies it passes
 
