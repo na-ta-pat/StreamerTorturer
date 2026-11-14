@@ -6,6 +6,7 @@ public class DungeonRoom : MonoBehaviour
 {
     [SerializeField] Spawner spawner;
     public RoomType roomType=RoomType.enemies; // picks the music
+    [PlayModeOnly] public int potionsSpawned;
     public Bounds bounds => spawner.bounds;
 
     public void Spawn(Enemy enemy, Vector2 oriPos,float range){
@@ -14,5 +15,11 @@ public class DungeonRoom : MonoBehaviour
         var e = spawner.Spawn(enemy,oriPos,range);
         e.transform.parent = enemies;
         e.gameObject.SetActive(true);
+    }
+    public void SpawnPotion(Loot potion, Vector2 oriPos,float range){
+        var p = spawner.Spawn(potion,oriPos,range);
+        p.transform.parent = transform;
+        AIHooks.OnDrop(p, transform); // slides like dropped loot
+        potionsSpawned++;
     }
 }
