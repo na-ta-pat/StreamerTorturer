@@ -8229,7 +8229,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &560634544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12635,6 +12635,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door_locked
       objectReference: {fileID: 0}
+    - target: {fileID: 851449233987159700, guid: cabca4b466d95084bac6f95151cf369b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6548549469334274053, guid: cabca4b466d95084bac6f95151cf369b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.5
@@ -12674,6 +12678,10 @@ PrefabInstance:
     - target: {fileID: 6548549469334274053, guid: cabca4b466d95084bac6f95151cf369b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291406159785891011, guid: cabca4b466d95084bac6f95151cf369b, type: 3}
+      propertyPath: keyId
+      value: copper
       objectReference: {fileID: 0}
     - target: {fileID: 8291406159785891011, guid: cabca4b466d95084bac6f95151cf369b, type: 3}
       propertyPath: hasLock
@@ -13242,7 +13250,9 @@ CompositeCollider2D:
   m_GeometryType: 1
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths: []
+  m_ColliderPaths:
+  - m_Collider: {fileID: 984106639}
+    m_ColliderPaths: []
   m_CompositePaths:
     m_Paths: []
   m_VertexDistance: 0.0005
@@ -19960,7 +19970,9 @@ CompositeCollider2D:
   m_GeometryType: 0
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths: []
+  m_ColliderPaths:
+  - m_Collider: {fileID: 1331829911}
+    m_ColliderPaths: []
   m_CompositePaths:
     m_Paths: []
   m_VertexDistance: 0.0005
@@ -27001,6 +27013,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 851449233987159700, guid: d6e2b1fa555847244822df7eff15c7f1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6548549469334274053, guid: d6e2b1fa555847244822df7eff15c7f1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.5
@@ -32533,7 +32549,7 @@ Tilemap:
       - {fileID: 885218586, guid: fb6acc984d7c6644eba10c2b41e0687f, type: 3}
       - {fileID: -274313302, guid: fb6acc984d7c6644eba10c2b41e0687f, type: 3}
       - {fileID: -1767196310, guid: fb6acc984d7c6644eba10c2b41e0687f, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   m_TileAssetArray:
